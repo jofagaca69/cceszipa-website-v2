@@ -1,0 +1,160 @@
+---
+import { institution } from '@config/institution'
+import { Image } from "astro:assets"
+import logo from "../../assets/CCAMPESTRE.svg"
+import logoHorizontal from "../../assets/LogoHorLetraCafe.svg"
+
+export interface NavItem {
+  label: string
+  href: string
+}
+
+const navLeft: NavItem[] = [
+  { label: 'CONÓCENOS', href: '/nosotros' },
+  { label: 'CURSOS', href: '/niveles-educativos' },
+  { label: 'CRONOGRAMA', href: '/admisiones' },
+]
+
+const navRight: NavItem[] = [
+  { label: 'COMUNICADOS', href: '/eventos' },
+  { label: 'GALERÍA', href: '/galeria' },
+  { label: 'FORMULARIO', href: '/formulario' },
+]
+
+const allNavItems = [...navLeft, ...navRight]
+
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(1); // removes the first forward slash
+---
+<header class="bg-ccesz-header border-b border-gray-200 sticky top-0 z-50 overflow-visible">
+
+  <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Main navigation">
+
+    <div class="relative flex h-16 items-center justify-between">
+
+
+    <!-- Left menu -->
+      <div class="hidden md:flex md:gap-8">
+        <a href="#inicio" class="text-sm font-medium text-ccesz-primary bg-white rounded-2xl px-4 py-1 hover:underline transition">
+          Inicio
+        </a>
+        <a href="#servicios" class="text-sm font-medium text-white px-4 py-1 hover:underline transition">
+          Servicios
+        </a>
+        <a href="#nosotros" class="text-sm font-medium text-white px-4 py-1 hover:underline transition">
+          Nosotros
+        </a>
+      </div>
+
+      <!-- Center Logo -->
+      <div class="flex flex-1 justify-center md:static">
+
+        <!-- Mobile logo (inline navbar) -->
+        <a href="/"
+           aria-label="Ir al inicio"
+           class="flex items-center justify-center md:hidden">
+
+          <Image
+            src={logo}
+            alt="Logo Colegio Campestre Exploradores del Saber"
+            loading="eager"
+            decoding="sync"
+            class="h-16 w-auto"
+          />
+        </a>
+
+        <!-- Desktop floating logo -->
+        <div class="hidden md:flex md:absolute md:left-1/2 md:-translate-x-1/2 md:-top-1/2 z-50">
+
+          <a href="/"
+             aria-label="Ir al inicio"
+             class="flex items-center justify-center bg-ccesz-header p-3 rounded-full">
+
+            <Image
+              src={logo}
+              alt="Logo Colegio Campestre Exploradores del Saber"
+              loading="eager"
+              decoding="sync"
+              class="h-28 lg:h-38 w-auto"
+            />
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- Right menu + CTA -->
+      <div class="hidden md:flex md:items-center md:gap-8">
+        <a href="#servicios" class="text-sm font-medium text-white px-4 py-1 hover:underline transition">
+          Servicios
+        </a>
+        <a href="#servicios" class="text-sm font-medium text-white px-4 py-1 hover:underline transition">
+          Servicios
+        </a>
+        <a href="#nosotros" class="text-sm font-medium text-white px-4 py-1 hover:underline transition">
+          Nosotros
+        </a>
+
+        <!--<a href="#cta"-->
+        <!--   class="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-700 transition">-->
+        <!--  Empezar-->
+        <!--</a>-->
+      </div>
+
+      <!-- Mobile button -->
+      <button id="menu-btn"
+              class="md:hidden inline-flex items-center justify-center rounded-md p-2 text-white hover:bg-orange-800"
+              aria-label="Abrir menú">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+             viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round"
+                stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden border-t border-gray-200 md:hidden">
+    <div class="space-y-1 px-4 py-4">
+
+      <a href="#inicio" class="block px-3 py-2 text-base font-medium text-white hover:bg-gray-100 hover:text-black rounded-md">
+        Inicio
+      </a>
+
+      <a href="#servicios" class="block px-3 py-2 text-base font-medium text-white hover:bg-gray-100 hover:text-black rounded-md">
+        Servicios
+      </a>
+
+      <a href="#nosotros" class="block px-3 py-2 text-base font-medium text-white hover:bg-gray-100 hover:text-black rounded-md">
+        Nosotros
+      </a>
+
+      <a href="#blog" class="block px-3 py-2 text-base font-medium text-white hover:bg-gray-100 hover:text-black rounded-md">
+        Blog
+      </a>
+
+      <a href="#contacto" class="block px-3 py-2 text-base font-medium text-white hover:bg-gray-100 hover:text-black rounded-md">
+        Contacto
+      </a>
+
+      <!--<a href="#cta"-->
+      <!--   class="block text-center rounded-lg bg-indigo-600 px-3 py-2 text-base font-semibold text-white hover:bg-indigo-700">-->
+      <!--  Empezar-->
+      <!--</a>-->
+
+    </div>
+  </div>
+</header>
+
+
+<script>
+  const btn = document.getElementById("menu-btn");
+  const menu = document.getElementById("mobile-menu");
+
+  btn.addEventListener("click", () => {
+    menu.classList.toggle("hidden");
+  });
+</script>

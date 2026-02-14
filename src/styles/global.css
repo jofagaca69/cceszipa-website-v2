@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ccesz-primary: #873701;
+  --color-ccesz-header: #f86c05;
+  --color-ccesz-dark: hsl(28, 77%, 29%);
+}
+
+

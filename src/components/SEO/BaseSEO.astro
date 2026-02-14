@@ -1,0 +1,89 @@
+---
+import JsonLd from "@components/SEO/JsonLd.astro";
+interface Props {
+  title: string;
+  description: string;
+  keywords?: string;
+  ogImage?: string;
+  ogType?: string;
+  canonical?: string;
+  noindex?: boolean;
+  jsonLd?: object;
+}
+
+const {
+  title,
+  description,
+  keywords = '',
+  ogImage = '/og-image.jpg',
+  ogType = 'website',
+  canonical,
+  noindex = false,
+  jsonLd
+} = Astro.props;
+
+const canonicalURL = canonical || new URL(Astro.url.pathname, Astro.site);
+const ogImageURL = new URL(ogImage, Astro.site);
+---
+
+<!-- Charset y Viewport -->
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<!-- Generador -->
+<meta name="generator" content={Astro.generator}/>
+
+<!-- SEO Básico -->
+{
+  title ? (<title> {title} | Colegio Campestre Exploradores del Saber</title>) : <title>Colegio Campestre Exploradores del Saber</title>
+  }
+
+<meta name="description" content={description}/>
+{keywords &&
+<meta name="keywords" content={keywords}/>}
+
+<!-- Canonical URL -->
+<link rel="canonical" href={canonicalURL}/>
+
+<!-- Robots -->
+{noindex ? (
+<meta name="robots" content="noindex, nofollow"/>
+  ) : (
+<meta name="robots" content="index, follow"/>
+  )}
+
+<!-- Open Graph -->
+<meta property="og:title" content={title}/>
+<meta property="og:description" content={description}/>
+<meta property="og:type" content={ogType}/>
+<meta property="og:url" content={canonicalURL}/>
+<meta property="og:image" content={ogImageURL}/>
+<meta property="og:image:alt" content={title}/>
+<meta property="og:site_name" content="CCESZIPA"/>
+<meta property="og:locale" content="es_ES"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content={title}/>
+<meta name="twitter:description" content={description}/>
+<meta name="twitter:image" content={ogImageURL}/>
+<meta name="twitter:image:alt" content={title}/>
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+<!--<link rel="manifest" href="/site.webmanifest"/>-->
+
+<!-- Preload Critical Resources -->
+<!--<link rel="preload" href="/fonts/main.woff2" as="font" type="font/woff2" crossorigin/>-->
+
+<!-- DNS Prefetch -->
+<link rel="dns-prefetch" href="//fonts.googleapis.com"/>
+<link rel="dns-prefetch" href="//www.google-analytics.com"/>
+
+<!-- Structured Data (JSON-LD) -->
+{jsonLd && (
+<JsonLd data={jsonLd}/>
+  )}

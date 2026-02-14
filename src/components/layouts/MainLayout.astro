@@ -1,0 +1,23 @@
+---
+import BaseSEO from '@components/SEO/BaseSEO.astro'
+import Header from '@components/UI/header.astro'
+import "../../styles/global.css";
+import Preheader from '@components/UI/pre-header.astro'
+
+export interface Props {
+  seo: any
+}
+const { seo } = Astro.props
+---
+
+<html lang="es">
+<head>
+  <BaseSEO {...seo} />
+</head>
+
+<body class="bg-white text-gray-800">
+<Preheader/>
+<Header/>
+<slot />
+</body>
+</html>
