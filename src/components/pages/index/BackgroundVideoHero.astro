@@ -1,0 +1,28 @@
+---
+interface Props {
+  src: string
+}
+
+const src = "https://res.cloudinary.com/usbbog-avila/video/upload/v1726529812/0906_fw7lb8.mp4"
+
+---
+
+<div class="relative left-0 top-0 -z-10 aspect-video h-full w-full rounded-xl border-white border-4" id="bg-video">
+  <video
+    id="video-player"
+    autoplay
+    muted
+    loop
+    class="aspect-video size-full overflow-hidden object-cover rounded-xl"
+
+    playsinline
+    src={src}
+  >
+    <source type="video/mp4" src={src} />
+  </video>
+</div>
+
+<script is:inline>
+  const videoEl = document.querySelector("#video-player")
+  videoEl?.load()
+</script>
