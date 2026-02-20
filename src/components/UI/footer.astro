@@ -1,0 +1,79 @@
+---
+import { Image } from "astro:assets"
+import { institution } from "@config/institution"
+import logo from "../../assets/CCAMPESTRE.svg"
+---
+
+<footer class="bg-[#F5F0E4] pt-8 md:pt-12 pb-4">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <!-- Contenedor naranja con esquinas superiores redondeadas -->
+    <div class="bg-ccesz-header rounded-3xl overflow-hidden">
+      <div class="px-6 py-10 md:py-12 lg:px-12">
+        <!-- Layout: columna en mobile, fila en desktop -->
+        <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-10 lg:gap-8">
+          <!-- Sección Izquierda: Logo + Copyright -->
+          <div class="flex flex-col items-center lg:items-start gap-6 lg:flex-1 lg:max-w-xs">
+            <a href="/" aria-label="Ir al inicio" class="flex-shrink-0">
+              <Image
+                src={logo}
+                alt="Logo Colegio Campestre Exploradores del Saber"
+                class="h-32 w-32 md:h-40 md:w-40 lg:h-48 lg:w-48 rounded-full p-0 object-contain"
+              />
+            </a>
+          </div>
+
+          <!-- Separadores verticales (solo desktop) -->
+          <div class="hidden lg:flex lg:flex-col lg:gap-4">
+            <div class="w-px h-full min-h-[120px] bg-white/40 self-center"></div>
+          </div>
+
+          <!-- Sección Central: Dónde Encontrarnos -->
+          <div class="flex flex-col items-center lg:items-start gap-4 lg:flex-1">
+            <h3 class="bg-[#FFF7DA] text-black font-bold uppercase text-sm px-4 py-2 rounded w-fit">
+              Dónde Encontrarnos
+            </h3>
+            <address class="not-italic text-white/90 text-sm md:text-base text-center lg:text-left space-y-2">
+              {Array.isArray(institution.address) ? institution.address.map((line: string) => <p>{line}</p>) : <p>{institution.address}</p>}
+              <p>
+                <a href={`tel:+${institution.phone}`} class="hover:text-white transition">
+                  (+57) {institution.phoneLabel}
+                </a>
+              </p>
+              <p>
+                <a href={`mailto:${institution.email}`} class="hover:text-white transition break-all">
+                  {institution.email}
+                </a>
+              </p>
+            </address>
+          </div>
+
+          <!-- Separador vertical (solo desktop) -->
+          <div class="hidden lg:flex lg:flex-col lg:gap-4">
+            <div class="w-px h-full min-h-[120px] bg-white/40 self-center"></div>
+          </div>
+
+          <!-- Sección Derecha: Institucional -->
+          <div class="flex flex-col items-center lg:items-start gap-4 lg:flex-1">
+            <h3 class="bg-[#FFF7DA] text-black font-bold uppercase text-sm px-4 py-2 rounded w-fit">
+              Institucional
+            </h3>
+            <nav class="flex flex-col gap-2 text-white/90 text-sm md:text-base text-center lg:text-left">
+              <a href="/nosotros" class="hover:text-white transition capitalize underline">Nuestro colegio</a>
+              <a href="/manual-convivencia" class="hover:text-white transition capitalize underline">Manual de convivencia</a>
+              <a href="/nosotros" class="hover:text-white transition capitalize underline">Nosotros</a>
+              <a href="/politica-datos" class="hover:text-white transition capitalize underline">Política y protección de datos</a>
+              <a href="/trabaja-con-nosotros" class="hover:text-white transition capitalize underline">Trabaja con nosotros</a>
+            </nav>
+          </div>
+        </div>
+      </div>
+
+      <!-- Barra de copyright en la parte inferior -->
+      <div class="px-6 lg:px-12 py-4 border-t border-white/20">
+        <p class="text-white/90 text-xs md:text-sm text-left">
+          © 2026 {institution.name.toUpperCase()} | TODOS LOS DERECHOS RESERVADOS
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>

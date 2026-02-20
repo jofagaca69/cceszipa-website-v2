@@ -1,6 +1,7 @@
 ---
 import BaseSEO from '@components/SEO/BaseSEO.astro'
 import Header from '@components/UI/header.astro'
+import Footer from '@components/UI/footer.astro'
 import "../../styles/global.css";
 import Preheader from '@components/UI/pre-header.astro'
 
@@ -15,9 +16,12 @@ const { seo } = Astro.props
   <BaseSEO {...seo} />
 </head>
 
-<body class="bg-white text-gray-800">
-<Preheader/>
-<Header/>
-<slot />
+<body class="bg-white text-gray-800 min-h-screen flex flex-col">
+  <Preheader/>
+  <Header/>
+  <main class="flex-1 w-full max-w-[1600px] mx-auto">
+    <slot />
+  </main>
+  <Footer />
 </body>
 </html>
