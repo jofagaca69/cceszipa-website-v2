@@ -1,0 +1,61 @@
+---
+import { Icon } from 'astro-icon/components'
+
+const stages = [
+  {
+    title: "Preescolar",
+    icon: "mdi:school-outline",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ultrices purus quis tortor aliquam, at consequat mi molestie. Phasellus dignissim et lacus a luctus. Duis at mi sem. Duis feugiat molestie ornare. Cras nec volutpat ex. Sed at urna sem.",
+    href: "/niveles-educativos/preescolar",
+  },
+  {
+    title: "Primaria",
+    icon: "mdi:lead-pencil",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ultrices purus quis tortor aliquam, at consequat mi molestie. Phasellus dignissim et lacus a luctus. Duis at mi sem. Duis feugiat molestie ornare. Cras nec volutpat ex. Sed at urna sem.",
+    href: "/niveles-educativos/primaria",
+  },
+  {
+    title: "Secundaria",
+    icon: "mdi:book-open-variant-outline",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ultrices purus quis tortor aliquam, at consequat mi molestie. Phasellus dignissim et lacus a luctus. Duis at mi sem. Duis feugiat molestie ornare. Cras nec volutpat ex. Sed at urna sem.",
+    href: "/niveles-educativos/secundaria",
+  },
+]
+---
+
+<section
+  class="w-screen max-w-none relative left-1/2 -translate-x-1/2 bg-[#FFF7DA] py-16 md:py-20 lg:py-24"
+  aria-labelledby="stages-heading"
+>
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+      {stages.map((stage) => (
+        <article
+          class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow p-6 md:p-8 flex flex-col items-center text-center"
+        >
+          <div
+            class="flex items-center justify-center w-16 h-16 md:w-20 md:h-20 mb-4 text-ccesz-header"
+            aria-hidden="true"
+          >
+            <Icon name={stage.icon} class="w-full h-full" />
+          </div>
+          <h3 class="text-ccesz-header text-xl md:text-2xl font-bold mb-4">
+            {stage.title}
+          </h3>
+          <div class="prose prose-sm prose-gray max-w-none flex-1 mb-6">
+            <p>{stage.description}</p>
+          </div>
+          <a
+            href={stage.href}
+            class="inline-flex items-center justify-center rounded-full bg-ccesz-header text-white text-sm font-bold uppercase tracking-wide px-6 py-3 hover:opacity-90 transition-opacity w-fit"
+          >
+            Conoce más
+          </a>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
