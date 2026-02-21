@@ -1,0 +1,55 @@
+---
+const features = [
+  {
+    label: "EDUCACIÓN HOLÍSTICA",
+    description:
+      "Integramos el desarrollo académico, emocional y social en cada etapa formativa, promoviendo el pensamiento crítico, la creatividad y los valores que forman estudiantes íntegros y seguros.",
+  },
+  {
+    label: "CLASES REDUCIDAS",
+    description:
+      "Nuestros grupos pequeños permiten una atención personalizada, acompañamiento cercano y seguimiento constante del progreso de cada estudiante.",
+  },
+  {
+    label: "ENFOQUE FAMILIAR",
+    description:
+      "Trabajamos de la mano con las familias, fomentando una comunicación abierta y constante para fortalecer el proceso educativo dentro y fuera del aula.",
+  },
+  {
+    label: "AMBIENTE SEGURO Y NATURAL",
+    description:
+      "Ofrecemos un entorno campestre en Zipaquirá que favorece el aprendizaje en contacto con la naturaleza, en espacios seguros diseñados para el bienestar y la tranquilidad de nuestros estudiantes.",
+  },
+]
+---
+
+<section
+  class="bg-[#FAF7EF] py-16 md:py-20 lg:py-24"
+  aria-labelledby="features-heading"
+>
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 prose ">
+    <h2
+      id="features-heading"
+      class="text-ccesz-header text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12 md:mb-16"
+    >
+      Aprendizaje, acompañamiento y desarrollo en cada etapa
+    </h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+      {features.map((feature) => (
+        <article
+          class="border-2 border-dashed border-ccesz-header rounded-lg p-5 md:p-6 bg-white/50 flex flex-col flex-1 justify-center items-center gap-4 transition hover:bg-white/100"
+        >
+          <span
+            class="inline-block bg-ccesz-header text-white text-md font-bold uppercase tracking-wide px-3 py-2 rounded mb-4 w-fit"
+          >
+            {feature.label}
+          </span>
+          <div class="prose prose-sm prose-gray max-w-none flex-1 text-center">
+            <p>{feature.description}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
