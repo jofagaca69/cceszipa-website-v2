@@ -11,7 +11,9 @@ WORKDIR /app
 COPY package.json pnpm-lock.yaml* ./
 
 # Instalar dependencias
-RUN pnpm install --frozen-lockfile
+RUN pnpm install --frozen-lockfile --unsafe-perm
+
+RUN pnpm rebuild sharp
 
 # Copiar el resto del código
 COPY . .
