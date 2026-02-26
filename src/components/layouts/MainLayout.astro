@@ -4,9 +4,10 @@ import Header from '@components/UI/header.astro'
 import Footer from '@components/UI/footer.astro'
 import "../../styles/global.css";
 import Preheader from '@components/UI/pre-header.astro'
+import type { Props as SeoProps } from "@components/SEO/BaseSEO.astro";
 
 export interface Props {
-  seo: any
+  seo: SeoProps
 }
 const { seo } = Astro.props
 ---
