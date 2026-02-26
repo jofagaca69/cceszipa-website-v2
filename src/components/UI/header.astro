@@ -10,21 +10,25 @@ export interface NavItem {
 }
 
 const navLeft: NavItem[] = [
-  { label: 'CONÓCENOS', href: '/nosotros' },
-  { label: 'CURSOS', href: '/niveles-educativos' },
-  { label: 'CRONOGRAMA', href: '/admisiones' },
+  { label: 'Inicio', href: '/' },
+  // { label: 'CURSOS', href: '/niveles-educativos' },
+  // { label: 'CRONOGRAMA', href: '/admisiones' },
 ]
 
 const navRight: NavItem[] = [
-  { label: 'COMUNICADOS', href: '/eventos' },
-  { label: 'GALERÍA', href: '/galeria' },
-  { label: 'FORMULARIO', href: '/formulario' },
+  // { label: 'COMUNICADOS', href: '/eventos' },
+  // { label: 'GALERÍA', href: '/galeria' },
+  // { label: 'FORMULARIO', href: '/formulario' },
 ]
 
 const allNavItems = [...navLeft, ...navRight]
 
-const pathname = new URL(Astro.request.url).pathname;
-const currentPath = pathname.slice(1); // removes the first forward slash
+const pathname = new URL(Astro.request.url).pathname
+
+const isActive = (href: string) => {
+  if (href === '/') return pathname === '/'
+  return pathname.startsWith(href)
+}
 ---
 <header class="bg-ccesz-header border-b border-gray-200 sticky top-0 z-50 overflow-visible">
 
@@ -35,15 +39,20 @@ const currentPath = pathname.slice(1); // removes the first forward slash
 
     <!-- Left menu -->
       <div class="hidden md:flex md:gap-8">
-        <a href="#inicio" class="text-sm font-medium text-ccesz-primary bg-white rounded-2xl px-4 py-1 hover:underline transition">
-          Inicio
-        </a>
-        <!--<a href="#servicios" class="text-sm font-medium text-white px-4 py-1 hover:underline transition">-->
-        <!--  Servicios-->
-        <!--</a>-->
-        <!--<a href="#nosotros" class="text-sm font-medium text-white px-4 py-1 hover:underline transition">-->
-        <!--  Nosotros-->
-        <!--</a>-->
+        {navLeft.map((item) => (
+          <a
+            href={item.href}
+            class:list={[
+              "text-sm font-medium px-4 py-1 rounded-2xl transition",
+              isActive(item.href)
+                ? "bg-white text-ccesz-primary"
+                : "text-white hover:underline"
+            ]}
+            aria-current={isActive(item.href) ? "page" : undefined}
+          >
+            {item.label}
+          </a>
+        ))}
       </div>
 
       <!-- Center Logo -->
@@ -86,18 +95,25 @@ const currentPath = pathname.slice(1); // removes the first forward slash
 
       <!-- Right menu + CTA -->
       <div class="hidden md:flex md:items-center md:gap-8">
-        <!--<a href="#servicios" class="text-sm font-medium text-white px-4 py-1 hover:underline transition">-->
-        <!--  Servicios-->
-        <!--</a>-->
-        <!--<a href="#servicios" class="text-sm font-medium text-white px-4 py-1 hover:underline transition">-->
-        <!--  Servicios-->
-        <!--</a>-->
-        <!--<a href="#nosotros" class="text-sm font-medium text-white px-4 py-1 hover:underline transition">-->
-        <!--  Nosotros-->
-        <!--</a>-->
+        {navRight.map((item) => (
+          <a
+            href={item.href}
+            class:list={[
+              "text-sm font-medium px-4 py-1 transition",
+              isActive(item.href)
+                ? "underline text-white"
+                : "text-white hover:underline"
+            ]}
+            aria-current={isActive(item.href) ? "page" : undefined}
+          >
+            {item.label}
+          </a>
+        ))}
 
-        <!--<a href="#cta"-->
-        <!--   class="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-700 transition">-->
+        <!--<a-->
+        <!--  href="/contacto"-->
+        <!--  class="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-700 transition"-->
+        <!--&gt;-->
         <!--  Empezar-->
         <!--</a>-->
       </div>
@@ -119,32 +135,20 @@ const currentPath = pathname.slice(1); // removes the first forward slash
   <!-- Mobile menu -->
   <div id="mobile-menu" class="hidden border-t border-gray-200 md:hidden">
     <div class="space-y-1 px-4 py-4">
-
-      <a href="#inicio" class="block px-3 py-2 text-base font-medium text-white hover:bg-gray-100 hover:text-black rounded-md">
-        Inicio
-      </a>
-
-      <a href="#servicios" class="block px-3 py-2 text-base font-medium text-white hover:bg-gray-100 hover:text-black rounded-md">
-        Servicios
-      </a>
-
-      <a href="#nosotros" class="block px-3 py-2 text-base font-medium text-white hover:bg-gray-100 hover:text-black rounded-md">
-        Nosotros
-      </a>
-
-      <a href="#blog" class="block px-3 py-2 text-base font-medium text-white hover:bg-gray-100 hover:text-black rounded-md">
-        Blog
-      </a>
-
-      <a href="#contacto" class="block px-3 py-2 text-base font-medium text-white hover:bg-gray-100 hover:text-black rounded-md">
-        Contacto
-      </a>
-
-      <!--<a href="#cta"-->
-      <!--   class="block text-center rounded-lg bg-indigo-600 px-3 py-2 text-base font-semibold text-white hover:bg-indigo-700">-->
-      <!--  Empezar-->
-      <!--</a>-->
-
+      {[...navLeft, ...navRight].map((item) => (
+        <a
+          href={item.href}
+          class:list={[
+            "block px-3 py-2 text-base font-medium rounded-md transition",
+            isActive(item.href)
+              ? "bg-white text-black"
+              : "text-white hover:bg-gray-100 hover:text-black"
+          ]}
+          aria-current={isActive(item.href) ? "page" : undefined}
+        >
+          {item.label}
+        </a>
+      ))}
     </div>
   </div>
 </header>
