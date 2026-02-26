@@ -1,0 +1,61 @@
+---
+import { Icon } from 'astro-icon/components'
+
+const stages = [
+  {
+    title: "Preescolar",
+    icon: "mdi:school-outline",
+    description:
+      "En Preescolar acompañamos los primeros pasos del aprendizaje en un entorno cálido y seguro. Estimulamos la curiosidad, la creatividad y el desarrollo socioemocional a través del juego, la exploración y experiencias significativas adaptadas a cada etapa.",
+    href: "/niveles-educativos/preescolar",
+  },
+  {
+    title: "Primaria",
+    icon: "mdi:lead-pencil",
+    description:
+      "En Primaria fortalecemos las bases académicas con un enfoque personalizado y grupos reducidos. Promovemos el pensamiento crítico, la autonomía y los valores, preparando a nuestros estudiantes para asumir nuevos retos con seguridad y responsabilidad.",
+    href: "/niveles-educativos/primaria",
+  },
+  {
+    title: "Actividades Lúdicas",
+    icon: "mdi:star-outline",
+    description:
+      "Complementamos la formación académica con actividades lúdicas y extracurriculares que potencian el talento, el trabajo en equipo y el desarrollo integral. Arte, deporte y experiencias al aire libre enriquecen el aprendizaje en nuestro entorno campestre.",
+    href: "/niveles-educativos/actividades",
+  },
+]
+---
+
+<section
+  class="w-screen max-w-none relative left-1/2 -translate-x-1/2 bg-[#FFF7DA] py-16 md:py-20 lg:py-24"
+  aria-labelledby="stages-heading"
+>
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+      {stages.map((stage) => (
+        <article
+          class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow p-6 md:p-8 flex flex-col items-center text-center"
+        >
+          <div
+            class="flex items-center justify-center w-16 h-16 md:w-20 md:h-20 mb-4 text-ccesz-header"
+            aria-hidden="true"
+          >
+            <Icon name={stage.icon} class="w-full h-full" />
+          </div>
+          <h3 class="text-ccesz-header text-xl md:text-2xl font-bold mb-4">
+            {stage.title}
+          </h3>
+          <div class="prose prose-sm prose-gray max-w-none flex-1 mb-6">
+            <p>{stage.description}</p>
+          </div>
+          <a
+            href={stage.href}
+            class="inline-flex items-center justify-center rounded-full bg-ccesz-header text-white text-sm font-bold uppercase tracking-wide px-6 py-3 hover:opacity-90 transition-opacity w-fit"
+          >
+            Conoce más
+          </a>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
