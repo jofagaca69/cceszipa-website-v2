@@ -12,8 +12,8 @@ COPY package.json pnpm-lock.yaml* ./
 
 # Instalar dependencias
 RUN pnpm config set ignore-scripts false
-
-RUN pnpm install --frozen-lockfile
+RUN pnpm config set unsafe-perm true
+RUN pnpm install --frozen-lockfile --ignore-scripts=false
 
 # Copiar el resto del código
 COPY . .
