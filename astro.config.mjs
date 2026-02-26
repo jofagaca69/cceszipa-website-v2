@@ -9,13 +9,16 @@ import mdx from '@astrojs/mdx';
 
 import icon from 'astro-icon';
 
+import robotsTxt from 'astro-robots-txt';
+
 // https://astro.build/config
 export default defineConfig({
     site: 'https://colexploradoresdelsaber.com/',
     vite: {
         plugins: [
             tailwindcss(),
-            sitemap()
+            sitemap(),
+            robotsTxt()
         ]
     },
 
