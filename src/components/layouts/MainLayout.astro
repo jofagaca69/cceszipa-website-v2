@@ -12,7 +12,8 @@ export interface Props {
 const { seo } = Astro.props
 ---
 
-<html lang="es">
+<!DOCTYPE html>
+<html lang="es-CO">
 <head>
   <BaseSEO {...seo} />
 </head>
@@ -20,7 +21,7 @@ const { seo } = Astro.props
 <body class="bg-[#fff7e8] text-gray-800 min-h-screen flex flex-col overflow-x-hidden">
   <Preheader/>
   <Header/>
-  <main class="flex-1 w-full max-w-[1600px] mx-auto">
+  <main id="main-content" class="flex-1 w-full max-w-[1600px] mx-auto">
     <slot />
   </main>
   <Footer />

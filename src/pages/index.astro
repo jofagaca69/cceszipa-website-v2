@@ -6,11 +6,50 @@ import FeaturesSection from '@components/pages/index/FeaturesSection.astro'
 import EducationalStagesSection from '@components/pages/index/EducationalStagesSection.astro'
 
 const seo = {
-  description: "Explora una educación de calidad en el Colegio Campestre Exploradores del Saber en Zipaquirá. Nuestra institución se compromete a proporcionar un ambiente educativo excepcional, fusionando tradición y vanguardia. ¡Inscríbete hoy para ser parte de una experiencia educativa única en Zipaquirá!",
-  keywords: "colegio campestre Zipaquirá, Colegio Campestre Exploradores del Saber, educación de calidad Zipaquirá, colegio privado Zipaquirá, educación integral en Zipaquirá, colegios campestres en Cundinamarca, formación en valores Zipaquirá, colegio con enfoque integral, educación en entorno natural, enseñanza personalizada, mejor colegio campestre en Zipaquirá, colegio con formación académica y en valores, colegio con enfoque en pensamiento crítico Zipaquirá, educación en contacto con la naturaleza, colegio con actividades extracurriculares en Zipaquirá",
+  title: "Colegio Campestre en Zipaquirá | Educación Integral de Calidad",
+  description: "Colegio Campestre Exploradores del Saber en Zipaquirá: educación preescolar, primaria y bachillerato con enfoque en valores, pensamiento crítico y contacto con la naturaleza. ¡Inscripciones abiertas 2026!",
+  keywords: "colegio campestre Zipaquirá, Colegio Campestre Exploradores del Saber, educación de calidad Zipaquirá, colegio privado Zipaquirá, educación integral en Zipaquirá, colegios campestres en Cundinamarca, formación en valores Zipaquirá, colegio con enfoque integral, educación en entorno natural, enseñanza personalizada, mejor colegio campestre en Zipaquirá, colegio con formación académica y en valores, colegio con enfoque en pensamiento crítico Zipaquirá, educación en contacto con la naturaleza, colegio con actividades extracurriculares en Zipaquirá, preescolar Zipaquirá, primaria Zipaquirá, bachillerato Zipaquirá, colegios Cundinamarca",
   canonical: "https://colexploradoresdelsaber.com/",
   noindex: false,
-  jsonLd: {}
+  ogImage: "/og-image-home.jpg",
+  jsonLd: {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "Colegio Campestre Exploradores del Saber",
+    "alternateName": "CCESZIPA",
+    "url": "https://colexploradoresdelsaber.com/",
+    "logo": "https://colexploradoresdelsaber.com/logo.png",
+    "image": "https://colexploradoresdelsaber.com/og-image-home.jpg",
+    "description": "Institución educativa de preescolar, primaria y bachillerato en Zipaquirá, Cundinamarca, con enfoque en formación integral, valores y contacto con la naturaleza.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Km. 5 vía Zipaquirá - Nemocón, Vereda La Granja",
+      "addressLocality": "Zipaquirá",
+      "addressRegion": "Cundinamarca",
+      "addressCountry": "CO"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "5.0333",
+      "longitude": "-73.9667"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+57-310-211-9422",
+      "contactType": "admissions",
+      "email": "rectoria@colexploradoresdelsaber.com",
+      "availableLanguage": "Spanish"
+    },
+    "sameAs": [
+      "https://www.facebook.com/colexploradoresdelsaber",
+      "https://www.instagram.com/colexploradoresdelsaber"
+    ],
+    "areaServed": {
+      "@type": "City",
+      "name": "Zipaquirá"
+    },
+    "educationalCredentialAwarded": "Bachillerato Colombiano"
+  }
 }
 ---
 
