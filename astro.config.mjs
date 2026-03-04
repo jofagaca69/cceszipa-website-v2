@@ -16,11 +16,27 @@ export default defineConfig({
     site: 'https://colexploradoresdelsaber.com/',
     vite: {
         plugins: [
-            tailwindcss(),
-            sitemap(),
-            robotsTxt()
+            tailwindcss()
         ]
     },
 
-    integrations: [sitemap(), mdx(), icon()]
+    integrations: [
+        sitemap({
+            changefreq: 'weekly',
+            priority: 1.0,
+            lastmod: new Date()
+        }),
+        robotsTxt({
+            policy: [
+                {
+                    userAgent: '*',
+                    allow: '/',
+                    disallow: ['/api/', '/admin/']
+                }
+            ],
+            sitemap: 'https://colexploradoresdelsaber.com/sitemap-index.xml'
+        }),
+        mdx(),
+        icon()
+    ]
 });
