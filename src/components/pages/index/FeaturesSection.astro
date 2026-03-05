@@ -24,21 +24,22 @@ const features = [
 ---
 
 <section
-  class="w-screen max-w-none relative left-1/2 -translate-x-1/2 bg-[#FAF7EF] py-16 md:py-20 lg:py-24"
+  class="w-screen max-w-none relative left-1/2 -translate-x-1/2 bg-[#FAF7EF] py-16 md:py-20 lg:py-24 overflow-hidden"
   aria-labelledby="features-heading"
+  id="features-section"
 >
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 prose">
     <h2
       id="features-heading"
-      class="text-ccesz-header text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12 md:mb-16"
+      class="features-heading text-ccesz-header text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12 md:mb-16 opacity-0"
     >
       Aprendizaje, acompañamiento y desarrollo en cada etapa
     </h2>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-      {features.map((feature) => (
+      {features.map((feature, index) => (
         <article
-          class="border-2 border-dashed border-ccesz-header rounded-lg p-5 md:p-6 bg-white/50 flex flex-col flex-1 justify-center items-center gap-4 transition hover:bg-white/100"
+          class={`feature-card feature-card-${index} border-2 border-dashed border-ccesz-header rounded-lg p-5 md:p-6 bg-white/50 flex flex-col flex-1 justify-center items-center gap-4 transition hover:bg-white/100 opacity-0`}
         >
           <span
             class="inline-block bg-ccesz-header text-white text-md font-bold uppercase tracking-wide px-3 py-2 rounded mb-4 w-fit text-center"
@@ -53,3 +54,89 @@ const features = [
     </div>
   </div>
 </section>
+
+<script>
+  import { gsap } from "gsap"
+  import { ScrollTrigger } from "gsap/ScrollTrigger"
+
+  gsap.registerPlugin(ScrollTrigger)
+
+  // Animación del heading con parallax
+  gsap.to(".features-heading", {
+    opacity: 1,
+    y: 0,
+    duration: 1,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: "#features-section",
+      start: "top 80%",
+      end: "top 20%",
+      toggleActions: "play none none none"
+    }
+  })
+
+  // Efecto parallax en el heading
+  gsap.to(".features-heading", {
+    yPercent: -20,
+    ease: "none",
+    scrollTrigger: {
+      trigger: "#features-section",
+      start: "top bottom",
+      end: "bottom top",
+      scrub: 1
+    }
+  })
+
+  // Animación de las tarjetas con stagger
+  gsap.to(".feature-card", {
+    opacity: 1,
+    y: 0,
+    duration: 0.8,
+    stagger: 0.15,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: "#features-section",
+      start: "top 70%",
+      toggleActions: "play none none none"
+    }
+  })
+
+  // Parallax individual en cada tarjeta
+  const cards = document.querySelectorAll(".feature-card")
+  cards.forEach((card, index) => {
+    // Movimiento parallax alternado
+    const direction = index % 2 === 0 ? -15 : 15
+
+    gsap.to(card, {
+      yPercent: direction,
+      ease: "none",
+      scrollTrigger: {
+        trigger: card,
+        start: "top bottom",
+        end: "bottom top",
+        scrub: 2
+      }
+    })
+
+    // Hover effect mejorado con GSAP
+    card.addEventListener("mouseenter", () => {
+      gsap.to(card, {
+        scale: 1.05,
+        y: -10,
+        boxShadow: "0 20px 40px rgba(0, 0, 0, 0.15)",
+        duration: 0.3,
+        ease: "power2.out"
+      })
+    })
+
+    card.addEventListener("mouseleave", () => {
+      gsap.to(card, {
+        scale: 1,
+        y: 0,
+        boxShadow: "0 0 0 rgba(0, 0, 0, 0)",
+        duration: 0.3,
+        ease: "power2.out"
+      })
+    })
+  })
+</script>
