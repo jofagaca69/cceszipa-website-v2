@@ -1,17 +1,70 @@
 ---
 import BackgroundVideoHero from "@components/pages/index/BackgroundVideoHero.astro"
 ---
-<section class="relative w-full max-h-[872px] mb-8">
-    <div>
+<section class="relative w-full max-h-[872px] mb-8 overflow-hidden" id="video-section">
+    <div class="video-container">
         <BackgroundVideoHero src="https://res.cloudinary.com/usbbog-avila/video/upload/v1726529812/0906_fw7lb8.mp4"/>
-        <div class="absolute top-0 left-0 pl-5 md:pl-10 lg:pl-20 pt-5 md:pt-10 lg:pt-20 font-poppins">
-        <span class="relative uppercase bg-white rounded-3xl text-ccesz-header font-black md:text-4xl lg:text-5xl py-2 px-4">
-            Conoce nuestras
-            <span class="absolute uppercase bg-ccesz-header rounded-3xl text-white font-black md:text-5xl lg:text-6xl py-2 px-4 top-8 md:top-16 left-10 md:left-16">
-                instalaciones
+        <div class="absolute top-2 left-0 right-0 pl-5 pr-5 md:pl-10 md:pr-10 lg:pl-20 lg:pr-20 pt-5 md:pt-10 lg:pt-20 font-poppins z-10">
+          <div class="video-text-wrapper max-w-full">
+            <span class="video-text-1 relative flex flex-col sm:inline-block gap-2 sm:gap-0 uppercase text-ccesz-header font-black text-sm sm:text-xl md:text-4xl lg:text-5xl opacity-0">
+                <span class="bg-white rounded-2xl sm:rounded-3xl py-2 px-3 sm:px-4 w-fit">Conoce nuestras</span>
+                <span class="video-text-2 sm:absolute uppercase bg-ccesz-header rounded-2xl sm:rounded-3xl text-white font-black text-sm sm:text-2xl md:text-5xl lg:text-6xl py-2 px-3 sm:px-4 sm:top-8 md:top-16 sm:left-8 md:left-16 opacity-0 w-fit sm:w-auto">
+                    instalaciones
+                </span>
             </span>
-        </span>
-
+          </div>
         </div>
     </div>
 </section>
+
+<script>
+  import { gsap } from "gsap"
+  import { ScrollTrigger } from "gsap/ScrollTrigger"
+
+  gsap.registerPlugin(ScrollTrigger)
+
+  // Animación de entrada de los textos
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: "#video-section",
+      start: "top 80%",
+      toggleActions: "play none none none"
+    }
+  })
+
+  tl.to(".video-text-1", {
+    opacity: 1,
+    x: 0,
+    duration: 0.8,
+    ease: "power3.out"
+  })
+  .to(".video-text-2", {
+    opacity: 1,
+    x: 0,
+    duration: 0.8,
+    ease: "power3.out"
+  }, "-=0.4")
+
+  // Parallax en los textos (movimiento más rápido)
+  gsap.to(".video-text-1", {
+    yPercent: -30,
+    ease: "none",
+    scrollTrigger: {
+      trigger: "#video-section",
+      start: "top bottom",
+      end: "bottom top",
+      scrub: 2
+    }
+  })
+
+  gsap.to(".video-text-2", {
+    yPercent: -40,
+    ease: "none",
+    scrollTrigger: {
+      trigger: "#video-section",
+      start: "top bottom",
+      end: "bottom top",
+      scrub: 1.5
+    }
+  })
+</script>
