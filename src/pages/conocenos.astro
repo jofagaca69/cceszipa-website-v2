@@ -1,0 +1,90 @@
+---
+import MainLayout from '@layouts/MainLayout.astro'
+import { institution } from '@config/institution'
+
+const seo = {
+  title: "Conócenos",
+  description:
+    "Conoce el Colegio Campestre Exploradores del Saber en Zipaquirá. Nuestra misión, visión, valores y el equipo que forma a los exploradores del conocimiento en un entorno natural y seguro.",
+  keywords:
+    "conócenos, Colegio Campestre Exploradores del Saber, sobre nosotros, misión visión valores, colegio Zipaquirá, educación integral Zipaquirá, equipo docente Zipaquirá, historia del colegio, filosofía educativa CCESZIPA",
+  canonical: "https://colexploradoresdelsaber.com/conocenos",
+  noindex: false,
+  ogImage: "/og-image.jpg",
+  ogType: "website",
+  jsonLd: {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://colexploradoresdelsaber.com/conocenos#webpage",
+        "url": "https://colexploradoresdelsaber.com/conocenos",
+        "name": "Conócenos | Colegio Campestre Exploradores del Saber",
+        "description":
+          "Conoce el Colegio Campestre Exploradores del Saber en Zipaquirá. Nuestra misión, visión, valores y el equipo que forma a los exploradores del conocimiento.",
+        "isPartOf": {
+          "@id": "https://colexploradoresdelsaber.com/#website"
+        },
+        "about": {
+          "@type": "EducationalOrganization",
+          "name": institution.name,
+          "url": "https://colexploradoresdelsaber.com/"
+        },
+        "inLanguage": "es-CO"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://colexploradoresdelsaber.com/conocenos#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Inicio",
+            "item": "https://colexploradoresdelsaber.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Conócenos",
+            "item": "https://colexploradoresdelsaber.com/conocenos"
+          }
+        ]
+      }
+    ]
+  }
+}
+---
+
+<MainLayout {seo}>
+  <!-- Hero / Encabezado de página -->
+  <header
+    class="bg-ccesz-header py-16 md:py-24 lg:py-28"
+    aria-labelledby="page-title"
+  >
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+      <h1
+        id="page-title"
+        class="text-3xl sm:text-4xl md:text-5xl font-bold text-white"
+      >
+        Conócenos
+      </h1>
+      <p class="mt-4 text-lg md:text-xl text-white/90 max-w-2xl mx-auto">
+        Descubre quiénes somos, nuestra misión y los valores que guían la formación de cada estudiante.
+      </p>
+    </div>
+  </header>
+
+  <!-- Contenido principal -->
+  <article class="py-16 md:py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="prose prose-lg prose-gray max-w-none">
+        <p class="lead text-xl text-gray-600">
+          El Colegio Campestre Exploradores del Saber es una institución educativa en Zipaquirá que ofrece educación integral desde preescolar hasta bachillerato, en un entorno natural y seguro.
+        </p>
+        <p>
+          Aquí podrás agregar el contenido de la sección Conócenos: misión, visión, historia, valores, equipo directivo y docente, instalaciones, entre otros.
+        </p>
+      </div>
+    </div>
+  </article>
+</MainLayout>

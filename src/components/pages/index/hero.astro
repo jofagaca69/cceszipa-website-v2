@@ -127,19 +127,38 @@ import { institution } from "@config/institution"
   </div>
 </section>
 
-<!-- Barra de valores -->
-<section class="relative bg-ccesz-header py-3 sm:py-4 overflow-hidden" aria-label="Valores institucionales">
-  <div class="values-marquee flex justify-center items-center gap-4 sm:gap-8 px-4">
-    <div class="flex items-center gap-4 sm:gap-8">
-      <h3 class="text-[#FFF7E8] font-bold text-sm sm:text-base whitespace-nowrap">RESPETO, PACIENCIA Y SABIDURÍA</h3>
-      <Image src={star} alt="" class="w-4 h-4 sm:w-auto sm:h-auto" aria-hidden="true" />
-      <h3 class="text-[#FFF7E8] font-bold text-sm sm:text-base whitespace-nowrap hidden sm:block">RESPETO, PACIENCIA Y SABIDURÍA</h3>
-      <Image src={star} alt="" class="w-4 h-4 sm:w-auto sm:h-auto hidden sm:block" aria-hidden="true" />
-      <h3 class="text-[#FFF7E8] font-bold text-sm sm:text-base whitespace-nowrap hidden lg:block">RESPETO, PACIENCIA Y SABIDURÍA</h3>
-    </div>
+<!-- Barra de valores con bordes ondulados -->
+<div class="relative -mt-[1px]">
+  <!-- Onda superior: separador entre hero y barra (muchas ondas tipo scallop) -->
+  <div class="absolute top-0 left-0 w-full h-6 sm:h-8 -translate-y-full overflow-visible pointer-events-none" aria-hidden="true">
+    <svg class="w-full h-full block" viewBox="0 0 1000 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,50 Q12.5,75 25,50 Q37.5,25 50,50 Q62.5,75 75,50 Q87.5,25 100,50 Q112.5,75 125,50 Q137.5,25 150,50 Q162.5,75 175,50 Q187.5,25 200,50 Q212.5,75 225,50 Q237.5,25 250,50 Q262.5,75 275,50 Q287.5,25 300,50 Q312.5,75 325,50 Q337.5,25 350,50 Q362.5,75 375,50 Q387.5,25 400,50 Q412.5,75 425,50 Q437.5,25 450,50 Q462.5,75 475,50 Q487.5,25 500,50 Q512.5,75 525,50 Q537.5,25 550,50 Q562.5,75 575,50 Q587.5,25 600,50 Q612.5,75 625,50 Q637.5,25 650,50 Q662.5,75 675,50 Q687.5,25 700,50 Q712.5,75 725,50 Q737.5,25 750,50 Q762.5,75 775,50 Q787.5,25 800,50 Q812.5,75 825,50 Q837.5,25 850,50 Q862.5,75 875,50 Q887.5,25 900,50 Q912.5,75 925,50 Q937.5,25 950,50 Q962.5,75 975,50 Q987.5,25 1000,50 L1000,100 L0,100 Z" fill="#f86c05"/>
+    </svg>
   </div>
-</section>
 
+  <!-- Contenido de la barra -->
+  <section class="relative bg-ccesz-header py-2 sm:py-3 overflow-hidden" aria-label="Valores institucionales">
+    <div class="values-marquee-wrapper">
+      <div class="values-marquee flex items-center gap-4 sm:gap-8">
+        <h3 class="text-[#FFF7E8] font-bold text-sm sm:text-base whitespace-nowrap">RESPETO, PACIENCIA Y SABIDURÍA</h3>
+        <Image src={star} alt="" class="w-4 h-4 sm:w-auto sm:h-auto" aria-hidden="true" />
+        <h3 class="text-[#FFF7E8] font-bold text-sm sm:text-base whitespace-nowrap">RESPETO, PACIENCIA Y SABIDURÍA</h3>
+        <Image src={star} alt="" class="w-4 h-4 sm:w-auto sm:h-auto" aria-hidden="true" />
+        <h3 class="text-[#FFF7E8] font-bold text-sm sm:text-base whitespace-nowrap">RESPETO, PACIENCIA Y SABIDURÍA</h3>
+        <Image src={star} alt="" class="w-4 h-4 sm:w-auto sm:h-auto" aria-hidden="true" />
+        <h3 class="text-[#FFF7E8] font-bold text-sm sm:text-base whitespace-nowrap">RESPETO, PACIENCIA Y SABIDURÍA</h3>
+        <Image src={star} alt="" class="w-4 h-4 sm:w-auto sm:h-auto" aria-hidden="true" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Onda inferior: separador entre barra y siguiente sección (muchas ondas tipo scallop, invertido) -->
+  <div class="absolute bottom-0 left-0 w-full h-6 sm:h-8 translate-y-full overflow-visible pointer-events-none" aria-hidden="true">
+    <svg class="w-full h-full block scale-y-[-1]" viewBox="0 0 1000 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,50 Q12.5,75 25,50 Q37.5,25 50,50 Q62.5,75 75,50 Q87.5,25 100,50 Q112.5,75 125,50 Q137.5,25 150,50 Q162.5,75 175,50 Q187.5,25 200,50 Q212.5,75 225,50 Q237.5,25 250,50 Q262.5,75 275,50 Q287.5,25 300,50 Q312.5,75 325,50 Q337.5,25 350,50 Q362.5,75 375,50 Q387.5,25 400,50 Q412.5,75 425,50 Q437.5,25 450,50 Q462.5,75 475,50 Q487.5,25 500,50 Q512.5,75 525,50 Q537.5,25 550,50 Q562.5,75 575,50 Q587.5,25 600,50 Q612.5,75 625,50 Q637.5,25 650,50 Q662.5,75 675,50 Q687.5,25 700,50 Q712.5,75 725,50 Q737.5,25 750,50 Q762.5,75 775,50 Q787.5,25 800,50 Q812.5,75 825,50 Q837.5,25 850,50 Q862.5,75 875,50 Q887.5,25 900,50 Q912.5,75 925,50 Q937.5,25 950,50 Q962.5,75 975,50 Q987.5,25 1000,50 L1000,100 L0,100 Z" fill="#f86c05"/>
+    </svg>
+  </div>
+</div>
 <script>
   import { gsap } from "gsap"
   import { ScrollTrigger } from "gsap/ScrollTrigger"
@@ -218,4 +237,23 @@ import { institution } from "@config/institution"
       })
     })
   })
+
+  // Animación de carrusel infinito para la barra de valores
+  const marquee = document.querySelector(".values-marquee")
+  if (marquee) {
+    // Clonar el contenido para hacer el loop infinito
+    const marqueeContent = marquee.innerHTML
+    marquee.innerHTML = marqueeContent + marqueeContent
+
+    // Calcular el ancho del contenido
+    const marqueeWidth = marquee.scrollWidth / 2
+
+    // Crear animación infinita
+    gsap.to(".values-marquee", {
+      x: -marqueeWidth,
+      duration: 40,
+      ease: "none",
+      repeat: -1
+    })
+  }
 </script>
