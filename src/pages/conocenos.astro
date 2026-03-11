@@ -1,5 +1,8 @@
 ---
 import MainLayout from '@layouts/MainLayout.astro'
+import ConocenosHero from '@components/pages/conocenos/hero.astro'
+import History from '@components/pages/conocenos/history.astro'
+import MissionVision from '@components/pages/conocenos/mission-vision.astro'
 import { institution } from '@config/institution'
 
 const seo = {
@@ -56,35 +59,7 @@ const seo = {
 ---
 
 <MainLayout {seo}>
-  <!-- Hero / Encabezado de página -->
-  <header
-    class="bg-ccesz-header py-16 md:py-24 lg:py-28"
-    aria-labelledby="page-title"
-  >
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-      <h1
-        id="page-title"
-        class="text-3xl sm:text-4xl md:text-5xl font-bold text-white"
-      >
-        Conócenos
-      </h1>
-      <p class="mt-4 text-lg md:text-xl text-white/90 max-w-2xl mx-auto">
-        Descubre quiénes somos, nuestra misión y los valores que guían la formación de cada estudiante.
-      </p>
-    </div>
-  </header>
-
-  <!-- Contenido principal -->
-  <article class="py-16 md:py-20">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="prose prose-lg prose-gray max-w-none">
-        <p class="lead text-xl text-gray-600">
-          El Colegio Campestre Exploradores del Saber es una institución educativa en Zipaquirá que ofrece educación integral desde preescolar hasta bachillerato, en un entorno natural y seguro.
-        </p>
-        <p>
-          Aquí podrás agregar el contenido de la sección Conócenos: misión, visión, historia, valores, equipo directivo y docente, instalaciones, entre otros.
-        </p>
-      </div>
-    </div>
-  </article>
+  <ConocenosHero />
+  <History headingLevel={2} />
+  <MissionVision />
 </MainLayout>

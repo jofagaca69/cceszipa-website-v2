@@ -1,0 +1,37 @@
+---
+import { Image } from "astro:assets"
+import heroImage from "../../../assets/hero.jpg"
+---
+
+<header
+  class="relative isolate overflow-hidden py-24 md:py-32 lg:py-40"
+  aria-labelledby="conocenos-hero-heading"
+>
+  <!-- Imagen de fondo -->
+  <div class="absolute inset-0">
+    <Image
+      src={heroImage}
+      alt="Entorno campestre del Colegio Exploradores del Saber en Zipaquirá"
+      width={1920}
+      height={1080}
+      quality={85}
+      loading="eager"
+      fetchpriority="high"
+      class="h-full w-full object-cover"
+    />
+    <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" aria-hidden="true"></div>
+  </div>
+
+  <!-- Contenido -->
+  <div class="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+    <h1
+      id="conocenos-hero-heading"
+      class="text-4xl sm:text-5xl md:text-6xl font-bold text-white"
+    >
+      Conócenos
+    </h1>
+    <p class="mt-4 text-lg md:text-xl text-white/90 max-w-2xl mx-auto">
+      Descubre quiénes somos, nuestra misión y los valores que guían la formación de cada estudiante.
+    </p>
+  </div>
+</header>
