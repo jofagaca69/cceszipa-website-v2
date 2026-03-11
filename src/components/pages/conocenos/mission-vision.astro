@@ -1,0 +1,57 @@
+---
+import { Icon } from 'astro-icon/components'
+
+// Path SVG con dientes cuadrados (patrón tipo cremallera)
+const squareTeethPath = "M0,100 L0,50 L50,50 L50,100 L100,100 L100,50 L150,50 L150,100 L200,100 L200,50 L250,50 L250,100 L300,100 L300,50 L350,50 L350,100 L400,100 L400,50 L450,50 L450,100 L500,100 L500,50 L550,50 L550,100 L600,100 L600,50 L650,50 L650,100 L700,100 L700,50 L750,50 L750,100 L800,100 L800,50 L850,50 L850,100 L900,100 L900,50 L950,50 L950,100 L1000,100 L1000,0 L0,0 Z"
+const separatorColor = "#faf2a1"
+---
+
+<div class="relative w-screen left-1/2 -translate-x-1/2">
+  <!-- Separador superior: dientes cuadrados rotados -->
+  <div class="absolute top-0 left-0 w-full h-6 sm:h-8 -translate-y-full overflow-visible pointer-events-none" aria-hidden="true">
+    <svg class="w-full h-full block rotate-180" viewBox="0 0 1000 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d={squareTeethPath} fill={separatorColor}/>
+    </svg>
+  </div>
+
+  <section class="relative bg-[#faf2a1] overflow-hidden pt-20 md:pt-24 pb-20 md:pb-28" aria-labelledby="mission-vision-heading">
+  <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <h2 id="mission-vision-heading" class="sr-only">Misión y visión</h2>
+
+    <div class="grid md:grid-cols-2 gap-8 md:gap-12">
+      <!-- Misión -->
+      <div>
+        <h3 class="text-ccesz-header text-xl md:text-2xl font-bold mb-4">Nuestra misión</h3>
+        <div class="flex gap-4 p-6 bg-white rounded-2xl shadow-sm border border-gray-100">
+          <div class="flex-shrink-0 w-12 h-12 text-ccesz-header" aria-hidden="true">
+            <Icon name="mdi:atom" class="w-full h-full" />
+          </div>
+          <p class="text-gray-800 text-base md:text-lg leading-relaxed">
+            Apostamos por un desarrollo académico unido al crecimiento personal de cada alumno, fomentando no solo el aprendizaje, sino también los valores, autonomía y habilidades que les acompañarán a lo largo de su vida.
+          </p>
+        </div>
+      </div>
+
+      <!-- Visión -->
+      <div>
+        <h3 class="text-ccesz-header text-xl md:text-2xl font-bold mb-4">Nuestra visión</h3>
+        <div class="flex gap-4 p-6 bg-white rounded-2xl shadow-sm border border-gray-100">
+          <div class="flex-shrink-0 w-12 h-12 text-ccesz-header" aria-hidden="true">
+            <Icon name="mdi:book-open-outline" class="w-full h-full" />
+          </div>
+          <p class="text-gray-800 text-base md:text-lg leading-relaxed">
+            Nuestro proyecto educativo destaca por su excelencia y por ser un referente en la región, gracias a un equipo docente comprometido, una metodología cuidada y resultados que avalan la calidad de nuestra enseñanza.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+
+  <!-- Separador inferior: dientes cuadrados invertidos y rotados -->
+  <div class="absolute bottom-0 left-0 w-full h-6 sm:h-8 translate-y-full overflow-visible pointer-events-none" aria-hidden="true">
+    <svg class="w-full h-full block scale-y-[-1] rotate-180" viewBox="0 0 1000 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d={squareTeethPath} fill={separatorColor}/>
+    </svg>
+  </div>
+</div>
