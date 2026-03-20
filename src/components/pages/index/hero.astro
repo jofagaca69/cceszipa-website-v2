@@ -5,7 +5,8 @@ import heroImage from "../../../assets/hero.jpg"
 import star from "../../../assets/signs.png"
 import { institution } from "@config/institution"
 
-const waMessage = encodeURIComponent("Hola, me gustaría recibir información sobre el colegio y el proceso de admisiones 2026.")
+const currentYear = new Date().getFullYear()
+const waMessage = encodeURIComponent(`Hola, me gustaría recibir información sobre el colegio y el proceso de admisiones ${currentYear}.`)
 ---
 
 <section
@@ -23,16 +24,16 @@ const waMessage = encodeURIComponent("Hola, me gustaría recibir información so
     <div class="mx-auto max-w-3xl text-center">
 
       <!-- Ubicación -->
-      <p class="hero-location text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase text-orange-600/70 mb-5 opacity-0">
+      <p class="hero-location text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase font-extrabold text-orange-600/70 mb-5 opacity-0">
         {institution.city} · {institution.country}
       </p>
 
       <!-- Título principal -->
       <h1
         id="hero-main-heading"
-        class="hero-title opacity-0"
+        class="hero-title opacity-0 bg-ccesz-header rounded-3xl p-12"
       >
-        <span class="block text-[2.6rem] sm:text-6xl md:text-7xl lg:text-[80px] font-semibold text-gray-900 leading-[1.05] tracking-[-0.03em]">
+        <span class="block text-[2.6rem] sm:text-6xl md:text-7xl lg:text-[80px] font-semibold text-white leading-[1.05] tracking-[-0.03em]">
           {institution.name}
         </span>
       </h1>
@@ -49,12 +50,8 @@ const waMessage = encodeURIComponent("Hola, me gustaría recibir información so
 
       <!-- Badge inscripciones -->
       <div class="hero-badge mt-6 sm:mt-8 flex justify-center opacity-0">
-        <span class="inline-flex items-center gap-2 rounded-full bg-orange-50 border border-orange-200 px-4 py-2 text-sm font-medium text-orange-700">
-          <span class="relative flex h-2 w-2">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
-            <span class="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
-          </span>
-          Inscripciones Abiertas 2026
+        <span class="inscripciones-tag">
+          Inscripciones Abiertas {currentYear}
         </span>
       </div>
 
@@ -175,6 +172,19 @@ const waMessage = encodeURIComponent("Hola, me gustaría recibir información so
 </div>
 
 <style>
+  .inscripciones-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #9a3412;
+    background-color: #ffedd5;
+    border-bottom: 2px solid #f97316;
+    padding: 0.35rem 0.75rem 0.3rem;
+    border-radius: 2px;
+  }
+
   .aurora-blob {
     position: absolute;
     border-radius: 9999px;
