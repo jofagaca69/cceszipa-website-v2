@@ -5,50 +5,69 @@ import HeroVideo from '@components/pages/index/HeroVideo.astro'
 import FeaturesSection from '@components/pages/index/FeaturesSection.astro'
 import EducationalStagesSection from '@components/pages/index/EducationalStagesSection.astro'
 
+const currentYear = new Date().getFullYear()
+
 const seo = {
-  title: "",
-  description: "Colegio Campestre Exploradores del Saber en Zipaquirá: educación preescolar, primaria y bachillerato con enfoque en valores, pensamiento crítico y contacto con la naturaleza. ¡Inscripciones abiertas 2026!",
-  keywords: "colegio campestre Zipaquirá, Colegio Campestre Exploradores del Saber, educación de calidad Zipaquirá, colegio privado Zipaquirá, educación integral en Zipaquirá, colegios campestres en Cundinamarca, formación en valores Zipaquirá, colegio con enfoque integral, educación en entorno natural, enseñanza personalizada, mejor colegio campestre en Zipaquirá, colegio con formación académica y en valores, colegio con enfoque en pensamiento crítico Zipaquirá, educación en contacto con la naturaleza, colegio con actividades extracurriculares en Zipaquirá, preescolar Zipaquirá, primaria Zipaquirá, bachillerato Zipaquirá, colegios Cundinamarca",
+  title: "Colegio Campestre en Zipaquirá",
+  description: `Colegio campestre en Zipaquirá: preescolar, primaria y bachillerato con enfoque en valores, pensamiento crítico y contacto con la naturaleza. Inscripciones abiertas ${currentYear}.`,
+  keywords: "colegio campestre Zipaquirá, Colegio Campestre Exploradores del Saber, colegio privado Zipaquirá, educación integral Zipaquirá, colegios campestres Cundinamarca, preescolar Zipaquirá, primaria Zipaquirá, bachillerato Zipaquirá, formación en valores, educación en naturaleza Zipaquirá",
   canonical: "https://colexploradoresdelsaber.com/",
   noindex: false,
   ogImage: "/og-image-home.jpg",
   jsonLd: {
     "@context": "https://schema.org",
-    "@type": "EducationalOrganization",
-    "name": "Colegio Campestre Exploradores del Saber",
-    "alternateName": "CCESZIPA",
-    "url": "https://colexploradoresdelsaber.com/",
-    "logo": "https://colexploradoresdelsaber.com/logo.png",
-    "image": "https://colexploradoresdelsaber.com/og-image-home.png",
-    "description": "Institución educativa de preescolar, primaria y bachillerato en Zipaquirá, Cundinamarca, con enfoque en formación integral, valores y contacto con la naturaleza.",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Km. 5 vía Zipaquirá - Nemocón, Vereda La Granja",
-      "addressLocality": "Zipaquirá",
-      "addressRegion": "Cundinamarca",
-      "addressCountry": "CO"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": "5.0333",
-      "longitude": "-73.9667"
-    },
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+57-310-211-9422",
-      "contactType": "admissions",
-      "email": "rectoria@colexploradoresdelsaber.com",
-      "availableLanguage": "Spanish"
-    },
-    "sameAs": [
-      "https://www.facebook.com/ColegioCampestreExploradoresDelSaberZipaquira",
-      "https://www.instagram.com/cceszipa"
-    ],
-    "areaServed": {
-      "@type": "City",
-      "name": "Zipaquirá"
-    },
-    "educationalCredentialAwarded": "Primaria Colombiano"
+    "@graph": [
+      {
+        "@type": ["EducationalOrganization", "School"],
+        "@id": "https://colexploradoresdelsaber.com/#school",
+        "name": "Colegio Campestre Exploradores del Saber",
+        "alternateName": "CCESZIPA",
+        "url": "https://colexploradoresdelsaber.com/",
+        "logo": "https://colexploradoresdelsaber.com/logo.png",
+        "image": "https://colexploradoresdelsaber.com/og-image-home.jpg",
+        "description": "Institución educativa de preescolar, primaria y bachillerato en Zipaquirá, Cundinamarca, con enfoque en formación integral, valores y contacto con la naturaleza.",
+        "telephone": "+57-310-211-9422",
+        "email": "rectoria@colexploradoresdelsaber.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Km. 5 vía Zipaquirá - Nemocón, Vereda La Granja",
+          "addressLocality": "Zipaquirá",
+          "addressRegion": "Cundinamarca",
+          "addressCountry": "CO"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "5.0333",
+          "longitude": "-73.9667"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+57-310-211-9422",
+          "contactType": "admissions",
+          "email": "rectoria@colexploradoresdelsaber.com",
+          "availableLanguage": "Spanish"
+        },
+        "sameAs": [
+          "https://www.facebook.com/ColegioCampestreExploradoresDelSaberZipaquira",
+          "https://www.instagram.com/cceszipa"
+        ],
+        "areaServed": {
+          "@type": "City",
+          "name": "Zipaquirá"
+        },
+        "educationalCredentialAwarded": "Bachillerato Colombiano"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://colexploradoresdelsaber.com/#website",
+        "name": "Colegio Campestre Exploradores del Saber",
+        "url": "https://colexploradoresdelsaber.com/",
+        "inLanguage": "es-CO",
+        "publisher": {
+          "@id": "https://colexploradoresdelsaber.com/#school"
+        }
+      }
+    ]
   }
 }
 ---
