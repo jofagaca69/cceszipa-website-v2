@@ -4,7 +4,8 @@
       "WebSearch",
       "WebFetch(domain:supahero.io)",
       "WebFetch(domain:www.memorisely.com)",
-      "WebFetch(domain:eaglesnest.webflow.io)"
+      "WebFetch(domain:eaglesnest.webflow.io)",
+      "WebFetch(domain:morganastudios.com)"
     ]
   }
 }

@@ -10,7 +10,7 @@ const waMessage = encodeURIComponent(`Hola, me gustaría recibir información so
 ---
 
 <section
-  class="relative isolate overflow-hidden bg-[#fff7e8]"
+  class="relative isolate overflow-hidden bg-[#fff7e8] min-h-screen lg:min-h-[110vh]"
   aria-labelledby="hero-main-heading"
   id="hero-section"
 >
@@ -18,7 +18,7 @@ const waMessage = encodeURIComponent(`Hola, me gustaría recibir información so
   <div class="aurora-blob aurora-1" aria-hidden="true"></div>
   <div class="aurora-blob aurora-2" aria-hidden="true"></div>
 
-  <div class="relative z-10 w-full pt-24 sm:pt-32 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8">
+  <div class="relative z-20 w-full pt-16 sm:pt-24 lg:pt-32 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-8">
 
     <!-- Contenido centrado -->
     <div class="mx-auto max-w-3xl text-center">
@@ -29,14 +29,84 @@ const waMessage = encodeURIComponent(`Hola, me gustaría recibir información so
       </p>
 
       <!-- Título principal -->
-      <h1
-        id="hero-main-heading"
-        class="hero-title opacity-0 bg-ccesz-header rounded-3xl p-12"
-      >
-        <span class="block text-[2.6rem] sm:text-6xl md:text-7xl lg:text-[80px] font-semibold text-white leading-[1.05] tracking-[-0.03em]">
-          {institution.name}
-        </span>
-      </h1>
+      <div class="relative hero-title opacity-0">
+        <h1
+          id="hero-main-heading"
+          class="bg-ccesz-header rounded-3xl p-12 mb-12"
+        >
+          <span class="block text-[2.6rem] sm:text-6xl md:text-7xl lg:text-[80px] font-semibold text-white leading-[1.05] tracking-[-0.03em]">
+            {institution.name}
+          </span>
+        </h1>
+
+        <!-- Flotantes mobile: sobre las esquinas del H1 -->
+        <div class="lg:hidden pointer-events-none select-none" aria-hidden="true">
+          <!-- top-derecha -->
+          <div class="float-card float-m1 absolute -top-5 -right-3 sm:-right-5 w-[115px] sm:w-[145px] z-30">
+            <Image
+              src={heroImage}
+              alt=""
+              width={290} height={370}
+              format="webp" quality={75} loading="eager"
+              class="w-full h-full object-cover object-[65%_30%]"
+            />
+          </div>
+          <!-- bottom-izquierda -->
+          <div class="float-card float-m2 absolute -bottom-10 -left-3 sm:-left-5 w-[115px] sm:w-[145px] z-30">
+            <Image
+              src={heroImage}
+              alt=""
+              width={290} height={290}
+              format="webp" quality={75} loading="lazy"
+              class="w-full h-full object-cover object-[30%_70%]"
+            />
+          </div>
+        </div>
+
+        <!-- Flotantes desktop: 4 esquinas del H1 -->
+        <div class="hidden lg:block pointer-events-none select-none" aria-hidden="true">
+          <!-- top-izquierda: retrato -->
+          <div class="float-card float-1 absolute -top-10 xl:-top-14 -left-[100px] xl:-left-[160px] w-[190px] xl:w-[230px] z-30">
+            <Image
+              src={heroImage}
+              alt=""
+              width={460} height={580}
+              format="webp" quality={80} loading="eager"
+              class="w-full h-full object-cover object-[40%_20%]"
+            />
+          </div>
+          <!-- top-derecha: apaisado -->
+          <div class="float-card float-2 absolute -top-8 xl:-top-12 -right-[100px] xl:-right-[200px] w-[220px] xl:w-[265px] z-30">
+            <Image
+              src={heroImage}
+              alt=""
+              width={530} height={350}
+              format="webp" quality={80} loading="eager"
+              class="w-full h-full object-cover object-[60%_40%]"
+            />
+          </div>
+          <!-- bottom-izquierda: cuadrado -->
+          <div class="float-card float-3 absolute -bottom-[200px] xl:-bottom-14 -left-[95px] xl:-left-[125px] w-[175px] xl:w-[215px] z-30">
+            <Image
+              src={heroImage}
+              alt=""
+              width={430} height={430}
+              format="webp" quality={80} loading="lazy"
+              class="w-full h-full object-cover object-[20%_65%]"
+            />
+          </div>
+          <!-- bottom-derecha: retrato -->
+          <div class="float-card float-4 absolute -bottom-8 xl:-bottom-12 -right-[95px] xl:-right-[125px] w-[230px] xl:w-[245px] z-30">
+            <Image
+              src={heroImage}
+              alt=""
+              width={490} height={610}
+              format="webp" quality={80} loading="lazy"
+              class="w-full h-full object-cover object-[70%_50%]"
+            />
+          </div>
+        </div>
+      </div>
 
       <!-- Tagline -->
       <p class="hero-tagline mt-4 sm:mt-5 text-xl sm:text-2xl md:text-3xl font-medium text-orange-500 tracking-tight opacity-0">
@@ -89,19 +159,19 @@ const waMessage = encodeURIComponent(`Hola, me gustaría recibir información so
       </div>
     </div>
 
-    <!-- Imagen del campus como showcase card -->
-    <div class="hero-image mx-auto mt-14 sm:mt-20 max-w-5xl opacity-0">
+    <!-- Imagen del campus — solo tablet (md), flotantes reemplazan en mobile y desktop -->
+    <div class="hero-image block mx-auto mt-6 sm:mt-10 max-w-5xl opacity-0">
       <div class="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_20px_80px_-10px_rgba(0,0,0,0.18)] ring-1 ring-black/5">
         <Image
           src={heroImage}
           alt="Campus del Colegio Campestre Exploradores del Saber en Zipaquirá — instalaciones rodeadas de naturaleza"
           width={1920}
           height={1080}
-          formats={["avif", "webp"]}
+          format="webp"
           quality={88}
           loading="eager"
           fetchpriority="high"
-          class="w-full h-[260px] sm:h-[400px] md:h-[520px] lg:h-[600px] object-cover"
+          class="w-full h-[260px] sm:h-[400px] md:h-[520px] object-cover"
         />
         <!-- Gradient inferior para transición suave -->
         <div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/30 to-transparent pointer-events-none" aria-hidden="true"></div>
@@ -185,6 +255,28 @@ const waMessage = encodeURIComponent(`Hola, me gustaría recibir información so
     border-radius: 2px;
   }
 
+  /* Tarjetas flotantes */
+  .float-card {
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px -4px rgba(0,0,0,0.15), 0 2px 8px -2px rgba(0,0,0,0.08);
+    outline: 1px solid rgba(0,0,0,0.06);
+    will-change: transform;
+  }
+
+  /* Mobile — z-index elevado para superponer al H1 */
+  .float-m1 { transform: rotate(6deg);  }
+  .float-m2 { transform: rotate(-5deg); }
+
+  /* El wrapper del H1 no debe cortar los hijos que sobresalen */
+  .hero-title { overflow: visible; }
+
+  /* Desktop */
+  .float-1 { transform: rotate(-4deg); }
+  .float-2 { transform: rotate(5deg);  }
+  .float-3 { transform: rotate(-7deg); }
+  .float-4 { transform: rotate(4deg);  }
+
   .aurora-blob {
     position: absolute;
     border-radius: 9999px;
@@ -230,41 +322,78 @@ const waMessage = encodeURIComponent(`Hola, me gustaría recibir información so
 
   gsap.registerPlugin(ScrollTrigger)
 
-  // Entry animations
+  const isDesktop = () => window.innerWidth >= 1024
+
+  // ── Entry: contenido ──────────────────────────────────────────
   const tl = gsap.timeline({ defaults: { ease: "power3.out" } })
 
-  tl.to(".hero-location", { opacity: 1, y: 0, duration: 0.7, delay: 0.1 })
-    .to(".hero-title",    { opacity: 1, y: 0, duration: 0.9 }, "-=0.4")
-    .to(".hero-tagline",  { opacity: 1, y: 0, duration: 0.8 }, "-=0.6")
+  tl.to(".hero-location",   { opacity: 1, y: 0, duration: 0.7, delay: 0.1 })
+    .to(".hero-title",       { opacity: 1, y: 0, duration: 0.9 }, "-=0.4")
+    .to(".hero-tagline",     { opacity: 1, y: 0, duration: 0.8 }, "-=0.6")
     .to(".hero-description", { opacity: 1, y: 0, duration: 0.7 }, "-=0.5")
-    .to(".hero-badge",    { opacity: 1, y: 0, duration: 0.6 }, "-=0.5")
-    .to(".hero-cta",      { opacity: 1, y: 0, duration: 0.7 }, "-=0.4")
-    .to(".hero-image",    { opacity: 1, y: 0, duration: 1.0 }, "-=0.3")
-    .to(".hero-stats",    { opacity: 1, y: 0, duration: 0.7 }, "-=0.5")
+    .to(".hero-badge",       { opacity: 1, y: 0, duration: 0.6 }, "-=0.5")
+    .to(".hero-cta",         { opacity: 1, y: 0, duration: 0.7 }, "-=0.4")
+    .to(".hero-image",       { opacity: 1, y: 0, duration: 1.0 }, "-=0.3")
+    .to(".hero-stats",       { opacity: 1, y: 0, duration: 0.7 }, "-=0.5")
 
-  // Sutil parallax en la imagen al hacer scroll
+  // ── Entry + levitación: flotantes mobile ─────────────────────
+  if (!isDesktop()) {
+    gsap.set([".float-m1", ".float-m2"], { opacity: 0 })
+    gsap.from(".float-m1", { x: 40, opacity: 0, duration: 0.9, delay: 0.7, ease: "power3.out" })
+    gsap.from(".float-m2", { x: -40, opacity: 0, duration: 0.9, delay: 1.0, ease: "power3.out" })
+    gsap.to(".float-m1", { opacity: 1, duration: 0.9, delay: 0.7, ease: "power3.out" })
+    gsap.to(".float-m2", { opacity: 1, duration: 0.9, delay: 1.0, ease: "power3.out" })
+    gsap.to(".float-m1", { y: -10, duration: 3.0, ease: "sine.inOut", yoyo: true, repeat: -1, delay: 1.6 })
+    gsap.to(".float-m2", { y:  -8, duration: 2.7, ease: "sine.inOut", yoyo: true, repeat: -1, delay: 2.0 })
+  }
+
+  // ── Entry: imágenes flotantes (desktop) ───────────────────────
+  if (isDesktop()) {
+    gsap.set([".float-1",".float-2",".float-3",".float-4"], { opacity: 0 })
+
+    gsap.to(".float-1", { opacity: 1, x: 0, duration: 0.9, delay: 0.6,  ease: "power3.out", clearProps: "x" })
+    gsap.to(".float-2", { opacity: 1, x: 0, duration: 0.9, delay: 0.85, ease: "power3.out", clearProps: "x" })
+    gsap.to(".float-3", { opacity: 1, x: 0, duration: 0.9, delay: 1.1,  ease: "power3.out", clearProps: "x" })
+    gsap.to(".float-4", { opacity: 1, x: 0, duration: 0.9, delay: 1.3,  ease: "power3.out", clearProps: "x" })
+
+    // Posición inicial fuera de pantalla (de los lados)
+    gsap.from(".float-1", { x: -60, duration: 0.9, delay: 0.6,  ease: "power3.out" })
+    gsap.from(".float-2", { x:  60, duration: 0.9, delay: 0.85, ease: "power3.out" })
+    gsap.from(".float-3", { x: -50, duration: 0.9, delay: 1.1,  ease: "power3.out" })
+    gsap.from(".float-4", { x:  50, duration: 0.9, delay: 1.3,  ease: "power3.out" })
+
+    // ── Levitación continua (fases distintas) ─────────────────
+    gsap.to(".float-1", { y: -12, duration: 3.2, ease: "sine.inOut", yoyo: true, repeat: -1 })
+    gsap.to(".float-2", { y:  -9, duration: 2.8, ease: "sine.inOut", yoyo: true, repeat: -1, delay: 0.6 })
+    gsap.to(".float-3", { y: -14, duration: 3.6, ease: "sine.inOut", yoyo: true, repeat: -1, delay: 1.1 })
+    gsap.to(".float-4", { y:  -8, duration: 2.5, ease: "sine.inOut", yoyo: true, repeat: -1, delay: 0.3 })
+
+    // ── Parallax en scroll (velocidades distintas por card) ───
+    const scrollCfg = { trigger: "#hero-section", start: "top top", end: "bottom top", scrub: 1 }
+    gsap.to(".float-1", { yPercent: -18, ease: "none", scrollTrigger: scrollCfg })
+    gsap.to(".float-2", { yPercent: -28, ease: "none", scrollTrigger: scrollCfg })
+    gsap.to(".float-3", { yPercent: -12, ease: "none", scrollTrigger: scrollCfg })
+    gsap.to(".float-4", { yPercent: -22, ease: "none", scrollTrigger: scrollCfg })
+  }
+
+  // ── Parallax campus card (mobile/tablet) ──────────────────────
   gsap.to(".hero-image", {
-    yPercent: 6,
+    yPercent: 5,
     ease: "none",
-    scrollTrigger: {
-      trigger: "#hero-section",
-      start: "top top",
-      end: "bottom top",
-      scrub: true
-    }
+    scrollTrigger: { trigger: "#hero-section", start: "top top", end: "bottom top", scrub: true }
   })
 
-  // Hover sutil en stat cards
+  // ── Hover en stat cards ───────────────────────────────────────
   document.querySelectorAll(".stat-card").forEach(card => {
     card.addEventListener("mouseenter", () =>
       gsap.to(card, { y: -3, duration: 0.2, ease: "power2.out" })
     )
     card.addEventListener("mouseleave", () =>
-      gsap.to(card, { y: 0, duration: 0.2, ease: "power2.out" })
+      gsap.to(card, { y:  0, duration: 0.2, ease: "power2.out" })
     )
   })
 
-  // Valores marquee infinito
+  // ── Valores marquee infinito ──────────────────────────────────
   const marquee = document.querySelector(".values-marquee")
   if (marquee) {
     marquee.innerHTML += marquee.innerHTML
