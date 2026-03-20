@@ -1,142 +1,154 @@
 ---
 import { Image } from "astro:assets"
+import { Icon } from "astro-icon/components"
 import heroImage from "../../../assets/hero.jpg"
 import star from "../../../assets/signs.png"
 import { institution } from "@config/institution"
+
+const currentYear = new Date().getFullYear()
+const waMessage = encodeURIComponent(`Hola, me gustaría recibir información sobre el colegio y el proceso de admisiones ${currentYear}.`)
 ---
 
 <section
-  class="relative isolate overflow-hidden min-h-screen flex items-center"
+  class="relative isolate overflow-hidden bg-[#fff7e8]"
   aria-labelledby="hero-main-heading"
   id="hero-section"
 >
-  <!-- Imagen de fondo -->
-  <div class="absolute inset-0">
-    <Image
-      src={heroImage}
-      alt="Estudiantes del Colegio Campestre Exploradores del Saber en Zipaquirá durante una actividad académica al aire libre"
-      width={1920}
-      height={1080}
-      formats={["avif", "webp"]}
-      quality={85}
-      loading="eager"
-      fetchpriority="high"
-      class="h-full w-full object-cover"
-    />
-    <!-- Overlay degradado -->
-    <div class="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/70" aria-hidden="true"></div>
+  <!-- Aurora blobs de fondo -->
+  <div class="aurora-blob aurora-1" aria-hidden="true"></div>
+  <div class="aurora-blob aurora-2" aria-hidden="true"></div>
 
-    <!-- Patrón decorativo -->
-    <div class="absolute inset-0 opacity-10" aria-hidden="true">
-      <div class="absolute top-0 left-0 w-full h-full" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 40px 40px;"></div>
-    </div>
-  </div>
+  <div class="relative z-10 w-full pt-24 sm:pt-32 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8">
 
-  <!-- Contenido Principal -->
-  <div class="relative z-10 w-full px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
-    <div class="mx-auto max-w-7xl">
-      <div class="max-w-3xl">
+    <!-- Contenido centrado -->
+    <div class="mx-auto max-w-3xl text-center">
 
-        <!-- Badge animado -->
-        <div class="hero-badge mb-6 sm:mb-8 opacity-0">
-          <span class="inline-flex items-center gap-2 rounded-full bg-orange-500/20 backdrop-blur-sm px-4 py-2 text-xs sm:text-sm font-medium text-orange-200 border border-orange-400/30">
-            <span class="relative flex h-2 w-2">
-              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
-              <span class="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
-            </span>
-            Inscripciones Abiertas 2026
-          </span>
-        </div>
+      <!-- Ubicación -->
+      <p class="hero-location text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase font-extrabold text-orange-600/70 mb-5 opacity-0">
+        {institution.city} · {institution.country}
+      </p>
 
-        <!-- Nombre del colegio -->
-        <div class="hero-name mb-4 sm:mb-6 opacity-0">
-          <p class="text-orange-400 font-semibold text-sm sm:text-base tracking-wide uppercase">
-            {institution.city}, {institution.country}
-          </p>
-        </div>
+      <!-- Título principal -->
+      <h1
+        id="hero-main-heading"
+        class="hero-title opacity-0 bg-ccesz-header rounded-3xl p-12"
+      >
+        <span class="block text-[2.6rem] sm:text-6xl md:text-7xl lg:text-[80px] font-semibold text-white leading-[1.05] tracking-[-0.03em]">
+          {institution.name}
+        </span>
+      </h1>
 
-        <!-- Título principal -->
-        <h1
-          id="hero-main-heading"
-          class="hero-title opacity-0"
+      <!-- Tagline -->
+      <p class="hero-tagline mt-4 sm:mt-5 text-xl sm:text-2xl md:text-3xl font-medium text-orange-500 tracking-tight opacity-0">
+        Formando exploradores del conocimiento
+      </p>
+
+      <!-- Descripción -->
+      <p class="hero-description mt-5 sm:mt-6 text-base sm:text-lg text-gray-500 leading-relaxed max-w-xl mx-auto opacity-0">
+        Educación integral de excelencia con enfoque en valores, pensamiento crítico y contacto con la naturaleza, en Zipaquirá.
+      </p>
+
+      <!-- Badge inscripciones -->
+      <div class="hero-badge mt-6 sm:mt-8 flex justify-center opacity-0">
+        <span class="inscripciones-tag">
+          Inscripciones Abiertas {currentYear}
+        </span>
+      </div>
+
+      <!-- CTAs -->
+      <div class="hero-cta mt-8 sm:mt-10 flex flex-col sm:flex-row justify-center items-center gap-3 opacity-0">
+        <a
+          href="/formulario"
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-gray-900 px-7 py-3.5 text-sm font-semibold text-white hover:bg-gray-700 transition-colors duration-200 focus:outline-none focus-visible:ring-4 focus-visible:ring-gray-400/50"
         >
-          <span class="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-3 sm:mb-4">
-            {institution.name}
-          </span>
-          <span class="block text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-orange-400 via-amber-300 to-orange-500 bg-clip-text text-transparent">
-            Formando exploradores del conocimiento
-          </span>
-        </h1>
+          Solicita Información
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+          </svg>
+        </a>
 
-        <!-- Descripción -->
-        <p class="hero-description mt-6 sm:mt-8 text-base sm:text-lg md:text-xl text-gray-200 leading-relaxed max-w-2xl opacity-0">
-          Educación integral de excelencia con enfoque en valores, pensamiento crítico y contacto con la naturaleza. Un ambiente seguro donde tus hijos desarrollan todo su potencial.
-        </p>
+        <a
+          href={`https://wa.me/${institution.phone}?text=${waMessage}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-green-600 px-7 py-3.5 text-sm font-semibold text-white hover:bg-green-500 transition-colors duration-200 focus:outline-none focus-visible:ring-4 focus-visible:ring-green-400/50"
+        >
+          <Icon name="mdi:whatsapp" class="w-4 h-4" />
+          WhatsApp
+        </a>
 
-        <!-- CTAs -->
-        <div class="hero-cta mt-8 sm:mt-10 flex flex-col sm:flex-row gap-4 opacity-0">
-          <a
-            href="/formulario"
-            class="group inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-orange-600 to-orange-500 px-8 py-4 text-base sm:text-lg font-semibold text-white shadow-2xl shadow-orange-500/50 hover:shadow-orange-500/70 hover:scale-105 transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-orange-400/50"
-          >
-            <span>Solicita Información</span>
-            <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-            </svg>
-          </a>
-
-          <a
-            href="tel:+{institution.phone}"
-            class="group inline-flex items-center justify-center gap-2 rounded-full bg-white/10 backdrop-blur-md px-8 py-4 text-base sm:text-lg font-semibold text-white border-2 border-white/30 hover:bg-white/20 hover:border-white/50 hover:scale-105 transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-white/30"
-          >
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
-            </svg>
-            <span>{institution.phoneLabel}</span>
-          </a>
-        </div>
-
-        <!-- Stats -->
-        <div class="hero-stats mt-12 sm:mt-16 grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6 opacity-0">
-          <div class="backdrop-blur-sm bg-white/5 rounded-2xl p-4 sm:p-6 border border-white/10">
-            <p class="text-3xl sm:text-4xl font-bold text-orange-400">15+</p>
-            <p class="mt-1 text-sm sm:text-base text-gray-300">Años de Experiencia</p>
-          </div>
-          <div class="backdrop-blur-sm bg-white/5 rounded-2xl p-4 sm:p-6 border border-white/10">
-            <p class="text-3xl sm:text-4xl font-bold text-orange-400">100%</p>
-            <p class="mt-1 text-sm sm:text-base text-gray-300">Formación Integral</p>
-          </div>
-          <div class="backdrop-blur-sm bg-white/5 rounded-2xl p-4 sm:p-6 border border-white/10 col-span-2 sm:col-span-1">
-            <p class="text-3xl sm:text-4xl font-bold text-orange-400">+300</p>
-            <p class="mt-1 text-sm sm:text-base text-gray-300">Familias Confían</p>
-          </div>
-        </div>
-
+        <a
+          href={`tel:+${institution.phone}`}
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border border-gray-300 bg-white px-7 py-3.5 text-sm font-semibold text-gray-700 hover:border-gray-400 hover:text-gray-900 transition-colors duration-200 focus:outline-none focus-visible:ring-4 focus-visible:ring-gray-300/50"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+          </svg>
+          {institution.phoneLabel}
+        </a>
       </div>
     </div>
-  </div>
 
-  <!-- Indicador de scroll -->
-  <div class="scroll-indicator absolute bottom-8 left-1/2 -translate-x-1/2 opacity-0 hidden sm:block">
-    <div class="flex flex-col items-center gap-2 text-white/70 animate-bounce">
-      <span class="text-xs uppercase tracking-wider">Descubre más</span>
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
-      </svg>
+    <!-- Imagen del campus como showcase card -->
+    <div class="hero-image mx-auto mt-14 sm:mt-20 max-w-5xl opacity-0">
+      <div class="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_20px_80px_-10px_rgba(0,0,0,0.18)] ring-1 ring-black/5">
+        <Image
+          src={heroImage}
+          alt="Campus del Colegio Campestre Exploradores del Saber en Zipaquirá — instalaciones rodeadas de naturaleza"
+          width={1920}
+          height={1080}
+          formats={["avif", "webp"]}
+          quality={88}
+          loading="eager"
+          fetchpriority="high"
+          class="w-full h-[260px] sm:h-[400px] md:h-[520px] lg:h-[600px] object-cover"
+        />
+        <!-- Gradient inferior para transición suave -->
+        <div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/30 to-transparent pointer-events-none" aria-hidden="true"></div>
+
+        <!-- Etiqueta flotante sobre la imagen -->
+        <div class="absolute bottom-5 left-5 sm:bottom-8 sm:left-8">
+          <span class="inline-flex items-center gap-2 rounded-xl bg-white/90 backdrop-blur-sm px-3 py-2 text-xs sm:text-sm font-semibold text-gray-800 shadow-sm border border-white/60">
+            <svg class="w-3.5 h-3.5 text-orange-500" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+            </svg>
+            Km 5 Vía Zipaquirá - Nemocón · Vereda La Granja
+          </span>
+        </div>
+      </div>
     </div>
+
+    <!-- Stats -->
+    <div class="hero-stats mx-auto mt-8 sm:mt-10 max-w-3xl grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 opacity-0">
+      <div class="stat-card text-center bg-white rounded-2xl p-4 sm:p-5 border border-gray-100 shadow-sm">
+        <p class="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight">15+</p>
+        <p class="mt-1 text-xs sm:text-sm text-gray-500">Años de Experiencia</p>
+      </div>
+      <div class="stat-card text-center bg-white rounded-2xl p-4 sm:p-5 border border-gray-100 shadow-sm">
+        <p class="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight">+300</p>
+        <p class="mt-1 text-xs sm:text-sm text-gray-500">Familias Confían</p>
+      </div>
+      <div class="stat-card text-center bg-white rounded-2xl p-4 sm:p-5 border border-gray-100 shadow-sm">
+        <p class="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight">3</p>
+        <p class="mt-1 text-xs sm:text-sm text-gray-500">Niveles Educativos</p>
+      </div>
+      <div class="stat-card text-center bg-white rounded-2xl p-4 sm:p-5 border border-gray-100 shadow-sm">
+        <p class="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight">100%</p>
+        <p class="mt-1 text-xs sm:text-sm text-gray-500">Formación Integral</p>
+      </div>
+    </div>
+
   </div>
 </section>
 
 <!-- Barra de valores con bordes ondulados -->
 <div class="relative -mt-[1px]">
-  <!-- Onda superior: separador entre hero y barra (muchas ondas tipo scallop) -->
   <div class="absolute top-0 left-0 w-full h-6 sm:h-8 -translate-y-full overflow-visible pointer-events-none" aria-hidden="true">
     <svg class="w-full h-full block" viewBox="0 0 1000 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M0,50 Q12.5,75 25,50 Q37.5,25 50,50 Q62.5,75 75,50 Q87.5,25 100,50 Q112.5,75 125,50 Q137.5,25 150,50 Q162.5,75 175,50 Q187.5,25 200,50 Q212.5,75 225,50 Q237.5,25 250,50 Q262.5,75 275,50 Q287.5,25 300,50 Q312.5,75 325,50 Q337.5,25 350,50 Q362.5,75 375,50 Q387.5,25 400,50 Q412.5,75 425,50 Q437.5,25 450,50 Q462.5,75 475,50 Q487.5,25 500,50 Q512.5,75 525,50 Q537.5,25 550,50 Q562.5,75 575,50 Q587.5,25 600,50 Q612.5,75 625,50 Q637.5,25 650,50 Q662.5,75 675,50 Q687.5,25 700,50 Q712.5,75 725,50 Q737.5,25 750,50 Q762.5,75 775,50 Q787.5,25 800,50 Q812.5,75 825,50 Q837.5,25 850,50 Q862.5,75 875,50 Q887.5,25 900,50 Q912.5,75 925,50 Q937.5,25 950,50 Q962.5,75 975,50 Q987.5,25 1000,50 L1000,100 L0,100 Z" fill="#f86c05"/>
     </svg>
   </div>
 
-  <!-- Contenido de la barra -->
   <section class="relative bg-ccesz-header py-2 sm:py-3 overflow-hidden" aria-label="Valores institucionales">
     <div class="values-marquee-wrapper">
       <div class="values-marquee flex items-center gap-4 sm:gap-8">
@@ -152,62 +164,87 @@ import { institution } from "@config/institution"
     </div>
   </section>
 
-  <!-- Onda inferior: separador entre barra y siguiente sección (muchas ondas tipo scallop, invertido) -->
   <div class="absolute bottom-0 left-0 w-full h-6 sm:h-8 translate-y-full overflow-visible pointer-events-none" aria-hidden="true">
     <svg class="w-full h-full block scale-y-[-1]" viewBox="0 0 1000 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M0,50 Q12.5,75 25,50 Q37.5,25 50,50 Q62.5,75 75,50 Q87.5,25 100,50 Q112.5,75 125,50 Q137.5,25 150,50 Q162.5,75 175,50 Q187.5,25 200,50 Q212.5,75 225,50 Q237.5,25 250,50 Q262.5,75 275,50 Q287.5,25 300,50 Q312.5,75 325,50 Q337.5,25 350,50 Q362.5,75 375,50 Q387.5,25 400,50 Q412.5,75 425,50 Q437.5,25 450,50 Q462.5,75 475,50 Q487.5,25 500,50 Q512.5,75 525,50 Q537.5,25 550,50 Q562.5,75 575,50 Q587.5,25 600,50 Q612.5,75 625,50 Q637.5,25 650,50 Q662.5,75 675,50 Q687.5,25 700,50 Q712.5,75 725,50 Q737.5,25 750,50 Q762.5,75 775,50 Q787.5,25 800,50 Q812.5,75 825,50 Q837.5,25 850,50 Q862.5,75 875,50 Q887.5,25 900,50 Q912.5,75 925,50 Q937.5,25 950,50 Q962.5,75 975,50 Q987.5,25 1000,50 L1000,100 L0,100 Z" fill="#f86c05"/>
     </svg>
   </div>
 </div>
+
+<style>
+  .inscripciones-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #9a3412;
+    background-color: #ffedd5;
+    border-bottom: 2px solid #f97316;
+    padding: 0.35rem 0.75rem 0.3rem;
+    border-radius: 2px;
+  }
+
+  .aurora-blob {
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(90px);
+    pointer-events: none;
+    will-change: transform;
+  }
+
+  .aurora-1 {
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, #fb923c 0%, #fbbf24 50%, transparent 70%);
+    opacity: 0.10;
+    top: -250px;
+    right: -200px;
+    animation: aurora-a 14s ease-in-out infinite alternate;
+  }
+
+  .aurora-2 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, #f97316 0%, #fde68a 60%, transparent 70%);
+    opacity: 0.09;
+    bottom: 0;
+    left: -150px;
+    animation: aurora-b 18s ease-in-out infinite alternate;
+  }
+
+  @keyframes aurora-a {
+    0%   { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(-60px, 80px) scale(1.1); }
+  }
+
+  @keyframes aurora-b {
+    0%   { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(50px, -60px) scale(1.08); }
+  }
+</style>
+
 <script>
   import { gsap } from "gsap"
   import { ScrollTrigger } from "gsap/ScrollTrigger"
 
   gsap.registerPlugin(ScrollTrigger)
 
-  // Animación inicial del hero
+  // Entry animations
   const tl = gsap.timeline({ defaults: { ease: "power3.out" } })
 
-  tl.to(".hero-badge", {
-    opacity: 1,
-    y: 0,
-    duration: 0.8,
-    delay: 0.3
-  })
-  .to(".hero-name", {
-    opacity: 1,
-    y: 0,
-    duration: 0.8
-  }, "-=0.5")
-  .to(".hero-title", {
-    opacity: 1,
-    y: 0,
-    duration: 1,
-    stagger: 0.2
-  }, "-=0.6")
-  .to(".hero-description", {
-    opacity: 1,
-    y: 0,
-    duration: 0.8
-  }, "-=0.5")
-  .to(".hero-cta", {
-    opacity: 1,
-    y: 0,
-    duration: 0.8
-  }, "-=0.6")
-  .to(".hero-stats", {
-    opacity: 1,
-    y: 0,
-    duration: 0.8
-  }, "-=0.5")
-  .to(".scroll-indicator", {
-    opacity: 0.7,
-    duration: 0.6
-  }, "-=0.3")
+  tl.to(".hero-location", { opacity: 1, y: 0, duration: 0.7, delay: 0.1 })
+    .to(".hero-title",    { opacity: 1, y: 0, duration: 0.9 }, "-=0.4")
+    .to(".hero-tagline",  { opacity: 1, y: 0, duration: 0.8 }, "-=0.6")
+    .to(".hero-description", { opacity: 1, y: 0, duration: 0.7 }, "-=0.5")
+    .to(".hero-badge",    { opacity: 1, y: 0, duration: 0.6 }, "-=0.5")
+    .to(".hero-cta",      { opacity: 1, y: 0, duration: 0.7 }, "-=0.4")
+    .to(".hero-image",    { opacity: 1, y: 0, duration: 1.0 }, "-=0.3")
+    .to(".hero-stats",    { opacity: 1, y: 0, duration: 0.7 }, "-=0.5")
 
-  // Efecto parallax en la imagen de fondo
-  gsap.to("#hero-section img", {
-    yPercent: 30,
+  // Sutil parallax en la imagen al hacer scroll
+  gsap.to(".hero-image", {
+    yPercent: 6,
     ease: "none",
     scrollTrigger: {
       trigger: "#hero-section",
@@ -217,43 +254,21 @@ import { institution } from "@config/institution"
     }
   })
 
-  // Animación de hover en los stats
-  const stats = document.querySelectorAll(".hero-stats > div")
-  stats.forEach(stat => {
-    stat.addEventListener("mouseenter", () => {
-      gsap.to(stat, {
-        scale: 1.05,
-        backgroundColor: "rgba(255, 255, 255, 0.1)",
-        duration: 0.3,
-        ease: "power2.out"
-      })
-    })
-    stat.addEventListener("mouseleave", () => {
-      gsap.to(stat, {
-        scale: 1,
-        backgroundColor: "rgba(255, 255, 255, 0.05)",
-        duration: 0.3,
-        ease: "power2.out"
-      })
-    })
+  // Hover sutil en stat cards
+  document.querySelectorAll(".stat-card").forEach(card => {
+    card.addEventListener("mouseenter", () =>
+      gsap.to(card, { y: -3, duration: 0.2, ease: "power2.out" })
+    )
+    card.addEventListener("mouseleave", () =>
+      gsap.to(card, { y: 0, duration: 0.2, ease: "power2.out" })
+    )
   })
 
-  // Animación de carrusel infinito para la barra de valores
+  // Valores marquee infinito
   const marquee = document.querySelector(".values-marquee")
   if (marquee) {
-    // Clonar el contenido para hacer el loop infinito
-    const marqueeContent = marquee.innerHTML
-    marquee.innerHTML = marqueeContent + marqueeContent
-
-    // Calcular el ancho del contenido
-    const marqueeWidth = marquee.scrollWidth / 2
-
-    // Crear animación infinita
-    gsap.to(".values-marquee", {
-      x: -marqueeWidth,
-      duration: 40,
-      ease: "none",
-      repeat: -1
-    })
+    marquee.innerHTML += marquee.innerHTML
+    const w = (marquee as HTMLElement).scrollWidth / 2
+    gsap.to(".values-marquee", { x: -w, duration: 40, ease: "none", repeat: -1 })
   }
 </script>
