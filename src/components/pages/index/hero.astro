@@ -1,7 +1,10 @@
 ---
 import { Image } from "astro:assets"
 import { Icon } from "astro-icon/components"
-import heroImage from "../../../assets/hero.jpg"
+import heroImage from "../../../assets/hero.webp"
+import hero2Image from "../../../assets/hero2.webp"
+import hero3Image from "../../../assets/hero3.webp"
+import hero4Image from "../../../assets/hero4.webp"
 import star from "../../../assets/signs.png"
 import { institution } from "@config/institution"
 
@@ -41,7 +44,7 @@ const waMessage = encodeURIComponent(`Hola, me gustaría recibir información so
           <!-- top-derecha -->
           <div class="float-card float-m1 absolute -top-5 -right-3 sm:-right-5 w-[115px] sm:w-[145px] z-30">
             <Image
-              src={heroImage}
+              src={hero2Image}
               alt=""
               width={290} height={370}
               format="webp" quality={75} loading="eager"
@@ -65,7 +68,7 @@ const waMessage = encodeURIComponent(`Hola, me gustaría recibir información so
           <!-- top-izquierda: retrato -->
           <div class="float-card float-1 absolute -top-10 xl:-top-14 -left-[100px] xl:-left-[160px] w-[190px] xl:w-[230px] z-30">
             <Image
-              src={heroImage}
+              src={hero2Image}
               alt=""
               width={460} height={580}
               format="webp" quality={80} loading="eager"
@@ -75,7 +78,7 @@ const waMessage = encodeURIComponent(`Hola, me gustaría recibir información so
           <!-- top-derecha: apaisado -->
           <div class="float-card float-2 absolute -top-8 xl:-top-12 -right-[100px] xl:-right-[200px] w-[220px] xl:w-[265px] z-30">
             <Image
-              src={heroImage}
+              src={hero3Image}
               alt=""
               width={530} height={350}
               format="webp" quality={80} loading="eager"
@@ -85,7 +88,7 @@ const waMessage = encodeURIComponent(`Hola, me gustaría recibir información so
           <!-- bottom-izquierda: cuadrado -->
           <div class="float-card float-3 absolute -bottom-[200px] xl:-bottom-14 -left-[95px] xl:-left-[125px] w-[175px] xl:w-[215px] z-30">
             <Image
-              src={heroImage}
+              src={hero4Image}
               alt=""
               width={430} height={430}
               format="webp" quality={80} loading="lazy"
@@ -160,7 +163,7 @@ const waMessage = encodeURIComponent(`Hola, me gustaría recibir información so
     <div class="hero-image block mx-auto mt-6 sm:mt-10 max-w-5xl opacity-0">
       <div class="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_20px_80px_-10px_rgba(0,0,0,0.18)] ring-1 ring-black/5">
         <Image
-          src={heroImage}
+          src={hero4Image}
           alt="Campus del Colegio Campestre Exploradores del Saber en Zipaquirá — instalaciones rodeadas de naturaleza"
           width={1920}
           height={1080}
