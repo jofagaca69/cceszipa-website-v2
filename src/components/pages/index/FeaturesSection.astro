@@ -1,57 +1,85 @@
 ---
+import { Icon } from 'astro-icon/components'
+
 const features = [
   {
-    label: "EDUCACIÓN HOLÍSTICA",
+    number: "01",
+    icon: "mdi:lightbulb-outline",
+    label: "Educación holística",
     description:
-      "Integramos el desarrollo académico, emocional y social en cada etapa formativa, promoviendo el pensamiento crítico, la creatividad y los valores que forman estudiantes íntegros y seguros.",
+      "Integramos el desarrollo académico, emocional y social en cada etapa formativa, promoviendo el pensamiento crítico, la creatividad y los valores que forman estudiantes íntegros.",
   },
   {
-    label: "CLASES REDUCIDAS",
+    number: "02",
+    icon: "mdi:account-group-outline",
+    label: "Clases reducidas",
     description:
-      "Nuestros grupos pequeños permiten una atención personalizada, acompañamiento cercano y seguimiento constante del progreso de cada estudiante.",
+      "Nuestros grupos pequeños permiten una atención personalizada y un seguimiento cercano del progreso de cada estudiante a lo largo del año.",
   },
   {
-    label: "ENFOQUE FAMILIAR",
+    number: "03",
+    icon: "mdi:home-heart",
+    label: "Enfoque familiar",
     description:
-      "Trabajamos de la mano con las familias, fomentando una comunicación abierta y constante para fortalecer el proceso educativo dentro y fuera del aula.",
+      "Trabajamos de la mano con las familias, fomentando una comunicación abierta y constante que fortalece el proceso educativo dentro y fuera del aula.",
   },
   {
-    label: "AMBIENTE SEGURO Y NATURAL",
+    number: "04",
+    icon: "mdi:leaf",
+    label: "Ambiente seguro y natural",
     description:
-      "Ofrecemos un entorno campestre en Zipaquirá que favorece el aprendizaje en contacto con la naturaleza, en espacios seguros diseñados para el bienestar y la tranquilidad de nuestros estudiantes.",
+      "Un entorno campestre en Zipaquirá que favorece el aprendizaje en contacto con la naturaleza, diseñado para el bienestar y la tranquilidad de nuestros estudiantes.",
   },
 ]
 ---
 
 <section
-  class="w-screen max-w-none relative left-1/2 -translate-x-1/2 bg-[#FAF7EF] py-16 md:py-20 lg:py-24 overflow-hidden"
+  class="w-screen max-w-none relative left-1/2 -translate-x-1/2 bg-[#FAF7EF] py-16 md:py-24"
   aria-labelledby="features-heading"
   id="features-section"
 >
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 prose">
-    <h2
-      id="features-heading"
-      class="features-heading text-ccesz-header text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12 md:mb-16 opacity-0"
-    >
-      Aprendizaje, acompañamiento y desarrollo en cada etapa
-    </h2>
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+    <!-- Heading: left on desktop, centered on mobile -->
+    <div class="mb-12 md:mb-16 max-w-2xl">
+      <h2
+        id="features-heading"
+        class="features-heading text-gray-900 text-3xl sm:text-4xl md:text-[2.6rem] font-bold tracking-tight leading-[1.1] opacity-0"
+      >
+        Aprendizaje, acompañamiento y desarrollo
+      </h2>
+      <p class="features-sub mt-4 text-base sm:text-lg text-gray-500 leading-relaxed opacity-0">
+        Todo lo que hacemos parte de la misma convicción: cada estudiante merece una educación que lo vea como persona, no como número.
+      </p>
+    </div>
+
+    <!-- Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
       {features.map((feature, index) => (
         <article
-          class={`feature-card feature-card-${index} border-2 border-dashed border-ccesz-header rounded-lg p-5 md:p-6 bg-white/50 flex flex-col flex-1 justify-center items-center gap-4 transition hover:bg-white/100 opacity-0`}
+          class={`feature-card feature-card-${index} bg-white border border-gray-200 rounded-xl p-6 flex flex-col gap-5 opacity-0`}
         >
-          <span
-            class="inline-block bg-ccesz-header text-white text-md font-bold uppercase tracking-wide px-3 py-2 rounded mb-4 w-fit text-center"
-          >
-            {feature.label}
-          </span>
-          <div class="prose prose-sm prose-gray max-w-none flex-1 text-center">
-            <p>{feature.description}</p>
+          <!-- Number + icon row -->
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold tracking-[0.18em] text-gray-300 select-none">
+              {feature.number}
+            </span>
+            <Icon name={feature.icon} class="w-5 h-5 text-ccesz-header" />
           </div>
+
+          <!-- Label -->
+          <h3 class="text-base font-semibold text-gray-900 leading-snug">
+            {feature.label}
+          </h3>
+
+          <!-- Description -->
+          <p class="text-sm text-gray-500 leading-relaxed flex-1">
+            {feature.description}
+          </p>
         </article>
       ))}
     </div>
+
   </div>
 </section>
 
@@ -61,82 +89,23 @@ const features = [
 
   gsap.registerPlugin(ScrollTrigger)
 
-  // Animación del heading con parallax
-  gsap.to(".features-heading", {
-    opacity: 1,
-    y: 0,
-    duration: 1,
-    ease: "power3.out",
-    scrollTrigger: {
-      trigger: "#features-section",
-      start: "top 80%",
-      end: "top 20%",
-      toggleActions: "play none none none"
-    }
-  })
+  const trigger = { trigger: "#features-section", start: "top 78%", toggleActions: "play none none none" }
 
-  // Efecto parallax en el heading
-  gsap.to(".features-heading", {
-    yPercent: -20,
-    ease: "none",
-    scrollTrigger: {
-      trigger: "#features-section",
-      start: "top bottom",
-      end: "bottom top",
-      scrub: 1
-    }
-  })
+  gsap.fromTo(".features-heading", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out", scrollTrigger: trigger })
+  gsap.fromTo(".features-sub",     { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out", delay: 0.1, scrollTrigger: trigger })
 
-  // Animación de las tarjetas con stagger
-  gsap.to(".feature-card", {
-    opacity: 1,
-    y: 0,
-    duration: 0.8,
-    stagger: 0.15,
-    ease: "power3.out",
-    scrollTrigger: {
-      trigger: "#features-section",
-      start: "top 70%",
-      toggleActions: "play none none none"
-    }
-  })
+  gsap.fromTo(
+    ".feature-card",
+    { opacity: 0, y: 30 },
+    { opacity: 1, y: 0, duration: 0.6, stagger: 0.1, ease: "power3.out", delay: 0.15, scrollTrigger: trigger }
+  )
 
-  // Parallax individual en cada tarjeta
-  const cards = document.querySelectorAll(".feature-card")
-  cards.forEach((card, index) => {
-    // Movimiento parallax alternado
-    const direction = index % 2 === 0 ? -15 : 15
-
-    gsap.to(card, {
-      yPercent: direction,
-      ease: "none",
-      scrollTrigger: {
-        trigger: card,
-        start: "top bottom",
-        end: "bottom top",
-        scrub: 2
-      }
-    })
-
-    // Hover effect mejorado con GSAP
-    card.addEventListener("mouseenter", () => {
-      gsap.to(card, {
-        scale: 1.05,
-        y: -10,
-        boxShadow: "0 20px 40px rgba(0, 0, 0, 0.15)",
-        duration: 0.3,
-        ease: "power2.out"
-      })
-    })
-
-    card.addEventListener("mouseleave", () => {
-      gsap.to(card, {
-        scale: 1,
-        y: 0,
-        boxShadow: "0 0 0 rgba(0, 0, 0, 0)",
-        duration: 0.3,
-        ease: "power2.out"
-      })
-    })
+  document.querySelectorAll(".feature-card").forEach(card => {
+    card.addEventListener("mouseenter", () =>
+      gsap.to(card, { borderColor: "#f86c05", duration: 0.2, ease: "power2.out" })
+    )
+    card.addEventListener("mouseleave", () =>
+      gsap.to(card, { borderColor: "#e5e7eb", duration: 0.2, ease: "power2.out" })
+    )
   })
 </script>

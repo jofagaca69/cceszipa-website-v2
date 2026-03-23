@@ -19,8 +19,10 @@ const { seo } = Astro.props
 </head>
 
 <body class="bg-[#fff7e8] text-gray-800 min-h-screen flex flex-col overflow-x-hidden">
-  <Preheader/>
-  <Header/>
+  <div class="sticky top-0 z-50">
+    <Preheader/>
+    <Header/>
+  </div>
   <main id="main-content" class="flex-1 w-full max-w-[1600px] mx-auto">
     <slot />
   </main>

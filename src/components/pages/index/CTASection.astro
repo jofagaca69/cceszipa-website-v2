@@ -1,0 +1,78 @@
+---
+import { Icon } from 'astro-icon/components'
+import { institution } from "@config/institution"
+
+const currentYear = new Date().getFullYear()
+const waMessage = encodeURIComponent(`Hola, me gustaría recibir información sobre el proceso de admisiones ${currentYear}.`)
+---
+
+<section
+  class="w-screen max-w-none relative left-1/2 -translate-x-1/2 bg-[#FFF7DA] py-16 md:py-24"
+  aria-labelledby="cta-index-heading"
+  id="cta-index-section"
+>
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="max-w-2xl mx-auto text-center">
+
+      <p class="cta-eyebrow text-xs sm:text-sm font-bold tracking-[0.2em] uppercase text-orange-600/70 mb-4 opacity-0">
+        Inscripciones abiertas {currentYear}
+      </p>
+
+      <h2
+        id="cta-index-heading"
+        class="cta-heading text-gray-900 text-3xl sm:text-4xl md:text-[2.6rem] font-bold tracking-tight leading-[1.1] opacity-0"
+      >
+        ¿Listo para dar el primer paso?
+      </h2>
+
+      <p class="cta-sub mt-4 text-base sm:text-lg text-gray-500 leading-relaxed opacity-0">
+        Escríbenos hoy y te contamos todo sobre el proceso de admisión, nuestras instalaciones y cómo podemos acompañar a tu familia.
+      </p>
+
+      <div class="cta-actions mt-10 flex flex-col sm:flex-row justify-center items-center gap-3 opacity-0">
+        <a
+          href="/formulario"
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-gray-900 px-7 py-3.5 text-sm font-semibold text-white hover:bg-gray-700 transition-colors duration-200 focus:outline-none focus-visible:ring-4 focus-visible:ring-gray-400/50"
+        >
+          Solicita información
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+          </svg>
+        </a>
+
+        <a
+          href={`https://wa.me/${institution.phone}?text=${waMessage}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-green-600 px-7 py-3.5 text-sm font-semibold text-white hover:bg-green-500 transition-colors duration-200 focus:outline-none focus-visible:ring-4 focus-visible:ring-green-400/50"
+        >
+          <Icon name="mdi:whatsapp" class="w-4 h-4" />
+          WhatsApp
+        </a>
+
+        <!--<a-->
+        <!--  href={`mailto:${institution.email}`}-->
+        <!--  class="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border border-gray-300 bg-white px-7 py-3.5 text-sm font-semibold text-gray-700 hover:border-gray-400 hover:text-gray-900 transition-colors duration-200 focus:outline-none focus-visible:ring-4 focus-visible:ring-gray-300/50"-->
+        <!--&gt;-->
+        <!--  <Icon name="mdi:email-outline" class="w-4 h-4" />-->
+        <!--  Correo electrónico-->
+        <!--</a>-->
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  import { gsap } from "gsap"
+  import { ScrollTrigger } from "gsap/ScrollTrigger"
+
+  gsap.registerPlugin(ScrollTrigger)
+
+  const trigger = { trigger: "#cta-index-section", start: "top 78%", toggleActions: "play none none none" }
+
+  gsap.fromTo(".cta-eyebrow", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out", scrollTrigger: trigger })
+  gsap.fromTo(".cta-heading", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out", delay: 0.08, scrollTrigger: trigger })
+  gsap.fromTo(".cta-sub",     { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out", delay: 0.16, scrollTrigger: trigger })
+  gsap.fromTo(".cta-actions", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out", delay: 0.24, scrollTrigger: trigger })
+</script>

@@ -1,0 +1,102 @@
+---
+import { Icon } from 'astro-icon/components'
+
+const values = [
+  {
+    icon: "mdi:handshake-outline",
+    name: "Respeto",
+    description: "Reconocemos la dignidad de cada persona y fomentamos relaciones basadas en la escucha, la tolerancia y el trato justo dentro y fuera del aula.",
+  },
+  {
+    icon: "mdi:timer-sand",
+    name: "Paciencia",
+    description: "Entendemos que cada estudiante tiene su propio ritmo. Acompañamos cada proceso con calma, constancia y confianza en el potencial de cada niño.",
+  },
+  {
+    icon: "mdi:lightbulb-outline",
+    name: "Sabiduría",
+    description: "Promovemos el pensamiento crítico, la curiosidad intelectual y la capacidad de aprender de la experiencia para tomar decisiones con criterio.",
+  },
+  {
+    icon: "mdi:account-check-outline",
+    name: "Responsabilidad",
+    description: "Formamos estudiantes conscientes de sus acciones y comprometidos con su proceso de aprendizaje, su familia y su comunidad.",
+  },
+  {
+    icon: "mdi:heart-outline",
+    name: "Empatía",
+    description: "Cultivamos la sensibilidad hacia el otro, el trabajo en equipo y la solidaridad como pilares de una convivencia sana y enriquecedora.",
+  },
+  {
+    icon: "mdi:leaf",
+    name: "Amor por la naturaleza",
+    description: "Nuestro entorno campestre no es solo un escenario: es parte del aprendizaje. Enseñamos a cuidar y valorar el mundo natural desde temprana edad.",
+  },
+]
+---
+
+<section
+  class="w-screen max-w-none relative left-1/2 -translate-x-1/2 bg-[#FAF7EF] py-16 md:py-24"
+  aria-labelledby="values-heading"
+  id="values-section"
+>
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+    <!-- Heading -->
+    <div class="mb-12 md:mb-16 max-w-xl">
+      <h2
+        id="values-heading"
+        class="values-heading text-gray-900 text-3xl sm:text-4xl md:text-[2.6rem] font-bold tracking-tight leading-[1.1] opacity-0"
+      >
+        Los valores que nos guían
+      </h2>
+      <p class="values-sub mt-4 text-base sm:text-lg text-gray-500 leading-relaxed opacity-0">
+        Más que principios en un papel: son el hilo conductor de todo lo que hacemos dentro y fuera del aula.
+      </p>
+    </div>
+
+    <!-- Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+      {values.map((value, index) => (
+        <article
+          class={`value-card value-card-${index} bg-white border border-gray-200 rounded-xl p-6 flex flex-col gap-4 opacity-0`}
+        >
+          <div class="flex items-center gap-3">
+            <Icon name={value.icon} class="w-5 h-5 text-ccesz-header flex-shrink-0" />
+            <h3 class="text-base font-semibold text-gray-900">{value.name}</h3>
+          </div>
+          <div class="w-8 h-[2px] bg-gray-200 rounded-full"></div>
+          <p class="text-sm text-gray-500 leading-relaxed">{value.description}</p>
+        </article>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<script>
+  import { gsap } from "gsap"
+  import { ScrollTrigger } from "gsap/ScrollTrigger"
+
+  gsap.registerPlugin(ScrollTrigger)
+
+  const trigger = { trigger: "#values-section", start: "top 78%", toggleActions: "play none none none" }
+
+  gsap.fromTo(".values-heading", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out", scrollTrigger: trigger })
+  gsap.fromTo(".values-sub",     { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out", delay: 0.1, scrollTrigger: trigger })
+
+  gsap.fromTo(
+    ".value-card",
+    { opacity: 0, y: 30 },
+    { opacity: 1, y: 0, duration: 0.6, stagger: 0.09, ease: "power3.out", delay: 0.15, scrollTrigger: trigger }
+  )
+
+  document.querySelectorAll(".value-card").forEach(card => {
+    card.addEventListener("mouseenter", () =>
+      gsap.to(card, { borderColor: "#f86c05", duration: 0.2, ease: "power2.out" })
+    )
+    card.addEventListener("mouseleave", () =>
+      gsap.to(card, { borderColor: "#e5e7eb", duration: 0.2, ease: "power2.out" })
+    )
+  })
+</script>
