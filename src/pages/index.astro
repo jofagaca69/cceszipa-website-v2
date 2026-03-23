@@ -4,12 +4,15 @@ import Hero from '@components/pages/index/hero.astro'
 import HeroVideo from '@components/pages/index/HeroVideo.astro'
 import FeaturesSection from '@components/pages/index/FeaturesSection.astro'
 import EducationalStagesSection from '@components/pages/index/EducationalStagesSection.astro'
+import TestimonialsSection from '@components/pages/index/TestimonialsSection.astro'
+import LocationSection from '@components/pages/index/LocationSection.astro'
+import CTASection from '@components/pages/index/CTASection.astro'
 
 const currentYear = new Date().getFullYear()
 
 const seo = {
   title: "Colegio Campestre en Zipaquirá",
-  description: `Colegio campestre en Zipaquirá: preescolar, primaria y bachillerato con enfoque en valores, pensamiento crítico y contacto con la naturaleza. Inscripciones abiertas ${currentYear}.`,
+  description: `Colegio campestre en Zipaquirá: preescolar y primaria con enfoque en valores, pensamiento crítico y contacto con la naturaleza. Inscripciones abiertas ${currentYear}.`,
   keywords: "colegio campestre Zipaquirá, Colegio Campestre Exploradores del Saber, colegio privado Zipaquirá, educación integral Zipaquirá, colegios campestres Cundinamarca, preescolar Zipaquirá, primaria Zipaquirá, bachillerato Zipaquirá, formación en valores, educación en naturaleza Zipaquirá",
   canonical: "https://colexploradoresdelsaber.com/",
   noindex: false,
@@ -77,4 +80,7 @@ const seo = {
   <HeroVideo/>
   <FeaturesSection/>
   <EducationalStagesSection/>
+  <TestimonialsSection/>
+  <LocationSection/>
+  <CTASection/>
 </MainLayout>

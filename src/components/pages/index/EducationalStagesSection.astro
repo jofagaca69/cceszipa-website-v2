@@ -5,57 +5,111 @@ const stages = [
   {
     title: "Preescolar",
     icon: "mdi:school-outline",
+    tag: "3–6 años",
     description:
-      "En Preescolar acompañamos los primeros pasos del aprendizaje en un entorno cálido y seguro. Estimulamos la curiosidad, la creatividad y el desarrollo socioemocional a través del juego, la exploración y experiencias significativas adaptadas a cada etapa.",
+      "Acompañamos los primeros pasos del aprendizaje en un entorno cálido y seguro. Estimulamos la curiosidad, la creatividad y el desarrollo socioemocional a través del juego y la exploración.",
     href: "/niveles-educativos/preescolar",
   },
   {
     title: "Primaria",
     icon: "mdi:lead-pencil",
+    tag: "6–11 años",
     description:
-      "En Primaria fortalecemos las bases académicas con un enfoque personalizado y grupos reducidos. Promovemos el pensamiento crítico, la autonomía y los valores, preparando a nuestros estudiantes para asumir nuevos retos con seguridad y responsabilidad.",
+      "Fortalecemos las bases académicas con un enfoque personalizado y grupos reducidos. Promovemos el pensamiento crítico, la autonomía y los valores con seguimiento cercano a cada estudiante.",
     href: "/niveles-educativos/primaria",
   },
   {
     title: "Actividades Lúdicas",
     icon: "mdi:star-outline",
+    tag: "Todos los niveles",
     description:
-      "Complementamos la formación académica con actividades lúdicas y extracurriculares que potencian el talento, el trabajo en equipo y el desarrollo integral. Arte, deporte y experiencias al aire libre enriquecen el aprendizaje en nuestro entorno campestre.",
+      "Complementamos la formación académica con actividades que potencian el talento, el trabajo en equipo y el desarrollo integral: arte, deporte y experiencias al aire libre en nuestro entorno campestre.",
     href: "/niveles-educativos/actividades",
   },
 ]
 ---
 
 <section
-  class="w-screen max-w-none relative left-1/2 -translate-x-1/2 bg-[#FFF7DA] py-16 md:py-20 lg:py-24"
+  class="w-screen max-w-none relative left-1/2 -translate-x-1/2 bg-[#FFF7DA] py-16 md:py-24"
   aria-labelledby="stages-heading"
+  id="stages-section"
 >
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-      {stages.map((stage) => (
+
+    <!-- Heading -->
+    <div class="mb-12 md:mb-16 text-center max-w-2xl mx-auto">
+      <h2
+        id="stages-heading"
+        class="stages-heading text-gray-900 text-3xl sm:text-4xl md:text-[2.6rem] font-bold tracking-tight leading-[1.1] opacity-0"
+      >
+        Tres etapas, una misma misión
+      </h2>
+      <p class="stages-sub mt-4 text-base sm:text-lg text-gray-500 leading-relaxed opacity-0">
+        Desde los primeros años hasta el bachillerato, acompañamos a cada estudiante con el mismo compromiso de excelencia y cercanía.
+      </p>
+    </div>
+
+    <!-- Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
+      {stages.map((stage, index) => (
         <article
-          class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow p-6 md:p-8 flex flex-col items-center text-center"
+          class={`stage-card stage-card-${index} group bg-white border border-gray-200 rounded-xl overflow-hidden flex flex-col opacity-0 transition-colors duration-300 hover:bg-ccesz-header hover:border-ccesz-header`}
         >
-          <div
-            class="flex items-center justify-center w-16 h-16 md:w-20 md:h-20 mb-4 text-ccesz-header"
-            aria-hidden="true"
-          >
-            <Icon name={stage.icon} class="w-full h-full" />
+          <div class="flex flex-col flex-1 p-6 md:p-7 gap-4">
+
+            <!-- Icon + tag -->
+            <div class="flex items-center justify-between">
+              <Icon
+                name={stage.icon}
+                class="w-6 h-6 text-ccesz-header transition-colors duration-300 group-hover:text-white/80"
+              />
+              <span class="text-xs font-semibold tracking-widest uppercase px-2.5 py-1 rounded-full bg-orange-50 text-ccesz-header transition-colors duration-300 group-hover:bg-white/20 group-hover:text-white">
+                {stage.tag}
+              </span>
+            </div>
+
+            <!-- Title -->
+            <h3 class="text-xl font-bold text-gray-900 leading-snug transition-colors duration-300 group-hover:text-white">
+              {stage.title}
+            </h3>
+
+            <!-- Description -->
+            <p class="text-sm text-gray-500 leading-relaxed flex-1 transition-colors duration-300 group-hover:text-white/80">
+              {stage.description}
+            </p>
+
+            <!-- CTA -->
+            <a
+              href={stage.href}
+              class="mt-2 inline-flex items-center gap-2 text-sm font-semibold text-ccesz-header transition-colors duration-300 group-hover:text-white"
+            >
+              Conoce más
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+              </svg>
+            </a>
           </div>
-          <h3 class="text-ccesz-header text-xl md:text-2xl font-bold mb-4">
-            {stage.title}
-          </h3>
-          <div class="prose prose-sm prose-gray max-w-none flex-1 mb-6">
-            <p>{stage.description}</p>
-          </div>
-          <a
-            href={stage.href}
-            class="inline-flex items-center justify-center rounded-full bg-ccesz-header text-white text-sm font-bold uppercase tracking-wide px-6 py-3 hover:opacity-90 transition-opacity w-fit"
-          >
-            Conoce más
-          </a>
         </article>
       ))}
     </div>
+
   </div>
 </section>
+
+<script>
+  import { gsap } from "gsap"
+  import { ScrollTrigger } from "gsap/ScrollTrigger"
+
+  gsap.registerPlugin(ScrollTrigger)
+
+  const trigger = { trigger: "#stages-section", start: "top 78%", toggleActions: "play none none none" }
+
+  gsap.fromTo(".stages-heading", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out", scrollTrigger: trigger })
+  gsap.fromTo(".stages-sub",     { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out", delay: 0.1, scrollTrigger: trigger })
+
+  gsap.fromTo(
+    ".stage-card",
+    { opacity: 0, y: 30 },
+    { opacity: 1, y: 0, duration: 0.7, stagger: 0.12, ease: "power3.out", delay: 0.15, scrollTrigger: trigger }
+  )
+</script>

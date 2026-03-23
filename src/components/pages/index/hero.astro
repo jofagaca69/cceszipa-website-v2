@@ -34,7 +34,7 @@ const waMessage = encodeURIComponent(`Hola, me gustaría recibir información so
           id="hero-main-heading"
           class="bg-ccesz-header rounded-3xl p-12 mb-12"
         >
-          <span class="block text-[2.6rem] sm:text-6xl md:text-7xl lg:text-[80px] font-semibold text-white leading-[1.05] tracking-[-0.03em]">
+          <span class="block text-[2.6rem] sm:text-4xl md:text-7xl lg:text-[80px] font-semibold text-[#fff7e8] leading-[1.05] tracking-[-0.03em]">
             {institution.name}
           </span>
         </h1>
@@ -115,13 +115,14 @@ const waMessage = encodeURIComponent(`Hola, me gustaría recibir información so
 
       <!-- Descripción -->
       <p class="hero-description mt-5 sm:mt-6 text-base sm:text-lg text-gray-500 leading-relaxed max-w-xl mx-auto opacity-0">
-        Educación integral de excelencia con enfoque en valores, pensamiento crítico y contacto con la naturaleza, en Zipaquirá.
+        Ofrecemos preescolar y primaria con grupos reducidos y atención personalizada, en un entorno campestre a 5 minutos de Zipaquirá. Formamos estudiantes íntegros con énfasis en valores, pensamiento
+        crítico y conexión con la naturaleza.
       </p>
 
       <!-- Badge inscripciones -->
       <div class="hero-badge mt-6 sm:mt-8 flex justify-center opacity-0">
         <span class="inscripciones-tag">
-          Inscripciones Abiertas {currentYear}
+          Inscripciones Abiertas {currentYear} / {currentYear+1}
         </span>
       </div>
 
@@ -189,20 +190,20 @@ const waMessage = encodeURIComponent(`Hola, me gustaría recibir información so
     </div>
 
     <!-- Stats -->
-    <div class="hero-stats mx-auto mt-8 sm:mt-10 max-w-3xl grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 opacity-0">
-      <div class="stat-card text-center bg-white rounded-2xl p-4 sm:p-5 border border-gray-100 shadow-sm">
-        <p class="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight">15+</p>
+    <div class="hero-stats mx-auto mt-8 sm:mt-10 max-w-3xl grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-10 opacity-0">
+      <div class="stat-card text-center bg-white rounded-2xl p-4 sm:p-5 border border-gray-100 shadow-sm rotate-6">
+        <p class="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight">20+</p>
         <p class="mt-1 text-xs sm:text-sm text-gray-500">Años de Experiencia</p>
       </div>
-      <div class="stat-card text-center bg-white rounded-2xl p-4 sm:p-5 border border-gray-100 shadow-sm">
+      <div class="stat-card text-center bg-white rounded-2xl p-4 sm:p-5 border border-gray-100 shadow-sm -rotate-6">
         <p class="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight">+300</p>
-        <p class="mt-1 text-xs sm:text-sm text-gray-500">Familias Confían</p>
+        <p class="mt-1 text-xs sm:text-sm text-gray-500">Familias Confían en nosotros</p>
       </div>
-      <div class="stat-card text-center bg-white rounded-2xl p-4 sm:p-5 border border-gray-100 shadow-sm">
+      <div class="stat-card text-center bg-white rounded-2xl p-4 sm:p-5 border border-gray-100 shadow-sm rotate-6">
         <p class="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight">3</p>
         <p class="mt-1 text-xs sm:text-sm text-gray-500">Niveles Educativos</p>
       </div>
-      <div class="stat-card text-center bg-white rounded-2xl p-4 sm:p-5 border border-gray-100 shadow-sm">
+      <div class="stat-card text-center bg-white rounded-2xl p-4 sm:p-5 border border-gray-100 shadow-sm -rotate-6">
         <p class="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight">100%</p>
         <p class="mt-1 text-xs sm:text-sm text-gray-500">Formación Integral</p>
       </div>
@@ -244,7 +245,7 @@ const waMessage = encodeURIComponent(`Hola, me gustaría recibir información so
 <style>
   .inscripciones-tag {
     display: inline-block;
-    font-size: 0.75rem;
+    font-size: 1.25rem;
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
