@@ -4,16 +4,22 @@ const testimonials = [
     quote: "Desde que mi hijo entró al colegio, su confianza y amor por aprender cambiaron por completo. Los profesores lo conocen por su nombre y saben exactamente cómo motivarlo.",
     name: "Laura Rodríguez",
     role: "Mamá de estudiante de Primaria",
+    rating: 5,
+    initials: "LR",
   },
   {
     quote: "Lo que más nos convenció fue el entorno campestre y los grupos pequeños. Sentimos que nuestros hijos son acompañados de verdad, no solo instruidos.",
     name: "Carlos y Jimena Gómez",
     role: "Padres de familia · Preescolar",
+    rating: 5,
+    initials: "CG",
   },
   {
     quote: "El compromiso del colegio con las familias es real. Siempre hay comunicación abierta, y eso para nosotros como padres es lo más importante.",
     name: "Marcela Vásquez",
     role: "Mamá de estudiante de Primaria",
+    rating: 5,
+    initials: "MV",
   },
 ]
 ---
@@ -25,8 +31,8 @@ const testimonials = [
 >
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
-    <!-- Heading -->
-    <div class="mb-12 md:mb-16 max-w-xl">
+    <!-- Heading centrado -->
+    <div class="mb-12 md:mb-16 text-center max-w-xl mx-auto">
       <h2
         id="testimonials-heading"
         class="testimonials-heading text-gray-900 text-3xl sm:text-4xl md:text-[2.6rem] font-bold tracking-tight leading-[1.1] opacity-0"
@@ -42,21 +48,40 @@ const testimonials = [
     <div class="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
       {testimonials.map((t, index) => (
         <blockquote
-          class={`testimonial-card testimonial-card-${index} bg-[#FAF7EF] border border-gray-200 rounded-xl p-6 md:p-7 flex flex-col gap-5 opacity-0`}
+          class={`testimonial-card testimonial-card-${index} bg-[#FAF7EF] border border-gray-200 rounded-2xl p-6 md:p-7 flex flex-col gap-4 shadow-sm opacity-0`}
         >
-          <!-- Quote mark -->
-          <span class="text-4xl font-serif text-ccesz-header/30 leading-none select-none" aria-hidden="true">"</span>
+          <!-- Author row -->
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-orange-50 border border-orange-100 flex items-center justify-center flex-shrink-0">
+              <span class="text-sm font-bold text-ccesz-header">{t.initials}</span>
+            </div>
+            <div class="min-w-0">
+              <p class="text-sm font-semibold text-gray-900 truncate">{t.name}</p>
+              <div class="flex items-center gap-1 mt-0.5" aria-label={`${t.rating} de 5 estrellas`}>
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <svg
+                    class={`w-3.5 h-3.5 flex-shrink-0 ${i < t.rating ? 'text-amber-400' : 'text-gray-200'}`}
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    aria-hidden="true"
+                  >
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                  </svg>
+                ))}
+              </div>
+            </div>
+          </div>
 
-          <!-- Quote text -->
-          <p class="text-gray-700 text-sm sm:text-base leading-relaxed flex-1">
-            {t.quote}
+          <!-- Divider -->
+          <hr class="border-gray-100" />
+
+          <!-- Quote -->
+          <p class="text-gray-600 text-sm sm:text-base leading-relaxed flex-1">
+            "{t.quote}"
           </p>
 
-          <!-- Author -->
-          <footer class="pt-4 border-t border-gray-200">
-            <p class="text-sm font-semibold text-gray-900">{t.name}</p>
-            <p class="text-xs text-gray-400 mt-0.5">{t.role}</p>
-          </footer>
+          <!-- Role -->
+          <p class="text-xs text-gray-400">{t.role}</p>
         </blockquote>
       ))}
     </div>

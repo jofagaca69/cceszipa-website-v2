@@ -11,31 +11,29 @@ const waMessage = encodeURIComponent("Hola, me gustaría agendar una visita al c
   id="cta-conocenos-section"
 >
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="bg-gray-900 rounded-2xl px-8 py-12 md:px-14 md:py-16 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
+    <div class="max-w-2xl mx-auto text-center">
 
-      <!-- Text -->
-      <div class="max-w-xl">
-        <p class="conocenos-cta-eyebrow text-xs sm:text-sm font-bold tracking-[0.2em] uppercase text-ccesz-header mb-4 opacity-0">
-          Visita nuestro campus
-        </p>
-        <h2
-          id="cta-conocenos-heading"
-          class="conocenos-cta-heading text-white text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight leading-[1.15] opacity-0"
-        >
-          Conócenos en persona.<br class="hidden sm:block" /> Te esperamos.
-        </h2>
-        <p class="conocenos-cta-sub mt-4 text-sm sm:text-base text-white/60 leading-relaxed opacity-0">
-          Agenda una visita guiada a nuestras instalaciones y descubre de primera mano el entorno campestre, los espacios de aprendizaje y el ambiente que hace diferente a Exploradores del Saber.
-        </p>
-      </div>
+      <p class="conocenos-cta-eyebrow text-xs sm:text-sm font-bold tracking-[0.2em] uppercase text-orange-600/70 mb-4 opacity-0">
+        Visita nuestro campus
+      </p>
 
-      <!-- Actions -->
-      <div class="conocenos-cta-actions flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-3 flex-shrink-0 opacity-0">
+      <h2
+        id="cta-conocenos-heading"
+        class="conocenos-cta-heading text-gray-900 text-3xl sm:text-4xl md:text-[2.6rem] font-bold tracking-tight leading-[1.1] opacity-0"
+      >
+        Conócenos en persona. Te esperamos.
+      </h2>
+
+      <p class="conocenos-cta-sub mt-4 text-base sm:text-lg text-gray-500 leading-relaxed opacity-0">
+        Agenda una visita guiada a nuestras instalaciones y descubre de primera mano el entorno campestre, los espacios de aprendizaje y el ambiente que hace diferente a Exploradores del Saber.
+      </p>
+
+      <div class="conocenos-cta-actions mt-10 flex flex-col sm:flex-row justify-center items-center gap-3 opacity-0">
         <a
           href={`https://wa.me/${institution.phone}?text=${waMessage}`}
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center justify-center gap-2 rounded-full bg-green-600 px-7 py-3.5 text-sm font-semibold text-white hover:bg-green-500 transition-colors focus:outline-none focus-visible:ring-4 focus-visible:ring-green-400/50 whitespace-nowrap"
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-green-600 px-7 py-3.5 text-sm font-semibold text-white hover:bg-green-500 transition-colors duration-200 focus:outline-none focus-visible:ring-4 focus-visible:ring-green-400/50"
         >
           <Icon name="mdi:whatsapp" class="w-4 h-4" />
           Agendar visita
@@ -43,7 +41,7 @@ const waMessage = encodeURIComponent("Hola, me gustaría agendar una visita al c
 
         <a
           href={`mailto:${institution.email}`}
-          class="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 px-7 py-3.5 text-sm font-semibold text-white/80 hover:border-white/40 hover:text-white transition-colors focus:outline-none focus-visible:ring-4 focus-visible:ring-white/20 whitespace-nowrap"
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border border-gray-300 bg-white px-7 py-3.5 text-sm font-semibold text-gray-700 hover:border-gray-400 hover:text-gray-900 transition-colors duration-200 focus:outline-none focus-visible:ring-4 focus-visible:ring-gray-300/50"
         >
           <Icon name="mdi:email-outline" class="w-4 h-4" />
           Escribirnos
@@ -62,8 +60,8 @@ const waMessage = encodeURIComponent("Hola, me gustaría agendar una visita al c
 
   const trigger = { trigger: "#cta-conocenos-section", start: "top 78%", toggleActions: "play none none none" }
 
-  gsap.fromTo(".conocenos-cta-eyebrow",  { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out", scrollTrigger: trigger })
-  gsap.fromTo(".conocenos-cta-heading",  { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out", delay: 0.08, scrollTrigger: trigger })
-  gsap.fromTo(".conocenos-cta-sub",      { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out", delay: 0.16, scrollTrigger: trigger })
-  gsap.fromTo(".conocenos-cta-actions",  { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out", delay: 0.24, scrollTrigger: trigger })
+  gsap.fromTo(".conocenos-cta-eyebrow", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out", scrollTrigger: trigger })
+  gsap.fromTo(".conocenos-cta-heading", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out", delay: 0.08, scrollTrigger: trigger })
+  gsap.fromTo(".conocenos-cta-sub",     { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out", delay: 0.16, scrollTrigger: trigger })
+  gsap.fromTo(".conocenos-cta-actions", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out", delay: 0.24, scrollTrigger: trigger })
 </script>
