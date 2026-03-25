@@ -1,0 +1,67 @@
+---
+import { Icon } from 'astro-icon/components'
+import { institution } from "@config/institution"
+
+const waMessage = encodeURIComponent("Hola, me gustaría obtener información sobre el proceso de matrícula para el próximo año escolar.")
+---
+
+<section
+  class="w-screen max-w-none relative left-1/2 -translate-x-1/2 bg-[#FFF7DA] py-16 md:py-24"
+  aria-labelledby="cta-cursos-heading"
+  id="cta-cursos-section"
+>
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="max-w-2xl mx-auto text-center">
+
+      <p class="cursos-cta-eyebrow text-xs sm:text-sm font-bold tracking-[0.2em] uppercase text-orange-600/70 mb-4 opacity-0">
+        Proceso de matrícula
+      </p>
+
+      <h2
+        id="cta-cursos-heading"
+        class="cursos-cta-heading text-gray-900 text-3xl sm:text-4xl md:text-[2.6rem] font-bold tracking-tight leading-[1.1] opacity-0"
+      >
+        ¿Listo para ser parte de Exploradores del Saber?
+      </h2>
+
+      <p class="cursos-cta-sub mt-4 text-base sm:text-lg text-gray-500 leading-relaxed opacity-0">
+        Contáctanos y te guiaremos en cada paso del proceso de admisión. Cupos limitados por nivel — ¡asegura el de tu hijo hoy!
+      </p>
+
+      <div class="cursos-cta-actions mt-10 flex flex-col sm:flex-row justify-center items-center gap-3 opacity-0">
+        <a
+          href={`https://wa.me/${institution.phone}?text=${waMessage}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-green-600 px-7 py-3.5 text-sm font-semibold text-white hover:bg-green-500 transition-colors duration-200 focus:outline-none focus-visible:ring-4 focus-visible:ring-green-400/50"
+        >
+          <Icon name="mdi:whatsapp" class="w-4 h-4" />
+          Solicitar información
+        </a>
+
+        <a
+          href={`mailto:${institution.email}`}
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border border-gray-300 bg-white px-7 py-3.5 text-sm font-semibold text-gray-700 hover:border-gray-400 hover:text-gray-900 transition-colors duration-200 focus:outline-none focus-visible:ring-4 focus-visible:ring-gray-300/50"
+        >
+          <Icon name="mdi:email-outline" class="w-4 h-4" />
+          Escribirnos
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  import { gsap } from "gsap"
+  import { ScrollTrigger } from "gsap/ScrollTrigger"
+
+  gsap.registerPlugin(ScrollTrigger)
+
+  const trigger = { trigger: "#cta-cursos-section", start: "top 78%", toggleActions: "play none none none" }
+
+  gsap.fromTo(".cursos-cta-eyebrow",  { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out", scrollTrigger: trigger })
+  gsap.fromTo(".cursos-cta-heading",  { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out", delay: 0.08, scrollTrigger: trigger })
+  gsap.fromTo(".cursos-cta-sub",      { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out", delay: 0.16, scrollTrigger: trigger })
+  gsap.fromTo(".cursos-cta-actions",  { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out", delay: 0.24, scrollTrigger: trigger })
+</script>

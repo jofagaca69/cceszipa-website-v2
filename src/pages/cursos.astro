@@ -1,0 +1,65 @@
+---
+import MainLayout from '@layouts/MainLayout.astro'
+import CursosHero from '@components/pages/cursos/hero.astro'
+import NivelesSection from '@components/pages/cursos/NivelesSection.astro'
+import CTASection from '@components/pages/cursos/CTASection.astro'
+import { institution } from '@config/institution'
+
+const seo = {
+  title: "Cursos y Niveles",
+  description:
+    "Conoce la oferta académica del Colegio Campestre Exploradores del Saber en Zipaquirá: Preescolar (Prejardín, Jardín, Transición) y Básica Primaria (1° a 5°). Formación integral en un entorno campestre único.",
+  keywords:
+    "cursos, niveles, preescolar, primaria, Prejardín, Jardín, Transición, básica primaria, oferta académica, colegio Zipaquirá, matrícula, Exploradores del Saber",
+  canonical: "https://colexploradoresdelsaber.com/cursos",
+  noindex: false,
+  ogImage: "/og-image.jpg",
+  ogType: "website",
+  jsonLd: {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://colexploradoresdelsaber.com/cursos#webpage",
+        "url": "https://colexploradoresdelsaber.com/cursos",
+        "name": "Cursos y Niveles | Colegio Campestre Exploradores del Saber",
+        "description":
+          "Oferta académica del Colegio Campestre Exploradores del Saber: Preescolar y Básica Primaria en Zipaquirá.",
+        "isPartOf": {
+          "@id": "https://colexploradoresdelsaber.com/#website"
+        },
+        "about": {
+          "@type": "EducationalOrganization",
+          "name": institution.name,
+          "url": "https://colexploradoresdelsaber.com/"
+        },
+        "inLanguage": "es-CO"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://colexploradoresdelsaber.com/cursos#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Inicio",
+            "item": "https://colexploradoresdelsaber.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Cursos",
+            "item": "https://colexploradoresdelsaber.com/cursos"
+          }
+        ]
+      }
+    ]
+  }
+}
+---
+
+<MainLayout {seo}>
+  <CursosHero />
+  <NivelesSection />
+  <CTASection />
+</MainLayout>
