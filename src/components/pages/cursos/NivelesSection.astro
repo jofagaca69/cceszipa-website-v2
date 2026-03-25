@@ -1,0 +1,341 @@
+---
+import { Image } from "astro:assets"
+import { Icon } from "astro-icon/components"
+import preescolarImg from "../../../assets/hero3.webp"
+import primariaImg from "../../../assets/hero4.webp"
+
+const preescolar = {
+  eyebrow: "Etapa inicial",
+  title: "Preescolar",
+  description:
+    "En los primeros años de vida escolar construimos los cimientos del aprendizaje. Nuestro entorno campestre se convierte en el aula más poderosa: la naturaleza, el juego y la exploración guían cada jornada.",
+  color: "bg-amber-50",
+  image: preescolarImg,
+  imageAlt: "Niños explorando el entorno campestre en Preescolar",
+  niveles: [
+    {
+      nombre: "Prejardín",
+      rango: "3 – 4 años",
+      icon: "mdi:emoticon-happy-outline",
+      descripcion:
+        "Iniciamos el camino escolar a través del juego libre, la exploración sensorial y el desarrollo de la autonomía en un ambiente seguro y estimulante.",
+      metodologia: [
+        "Juego como herramienta de aprendizaje",
+        "Estimulación sensorial y motriz",
+        "Rutinas de convivencia y autocuidado",
+      ],
+    },
+    {
+      nombre: "Jardín",
+      rango: "4 – 5 años",
+      icon: "mdi:flower-outline",
+      descripcion:
+        "Fortalecemos el lenguaje, la creatividad y la socialización. Los estudiantes aprenden a relacionarse, expresarse y descubrir el mundo que los rodea.",
+      metodologia: [
+        "Desarrollo del lenguaje oral y artístico",
+        "Actividades cooperativas y lúdicas",
+        "Contacto guiado con la naturaleza",
+      ],
+    },
+    {
+      nombre: "Transición",
+      rango: "5 – 6 años",
+      icon: "mdi:star-outline",
+      descripcion:
+        "Preparamos a los niños para la vida escolar formal con énfasis en la lectura inicial, el pensamiento lógico-matemático y los valores de convivencia.",
+      metodologia: [
+        "Aprestamiento lector y escritor",
+        "Pensamiento lógico y preoperacional",
+        "Formación en valores y ciudadanía",
+      ],
+    },
+  ],
+}
+
+const primaria = {
+  eyebrow: "Educación básica",
+  title: "Básica Primaria",
+  description:
+    "De primero a quinto potenciamos el pensamiento crítico, la curiosidad científica y la expresión en todas sus formas. Cada grado profundiza las competencias del anterior en un ambiente que equilibra el rigor académico con el disfrute del aprendizaje.",
+  color: "bg-[#FAF7EF]",
+  image: primariaImg,
+  imageAlt: "Estudiantes de primaria en actividad académica en el colegio campestre",
+  niveles: [
+    {
+      nombre: "Primero",
+      grado: "1°",
+      rango: "6 – 7 años",
+      icon: "mdi:numeric-1-circle-outline",
+      descripcion:
+        "Consolidamos la lectura, escritura y operaciones básicas. El estudiante gana independencia y aprende a trabajar en equipo.",
+      metodologia: [
+        "Lectoescritura y comprensión lectora",
+        "Matemáticas concretas y manipulativas",
+        "Proyectos de ciencias naturales",
+      ],
+    },
+    {
+      nombre: "Segundo",
+      grado: "2°",
+      rango: "7 – 8 años",
+      icon: "mdi:numeric-2-circle-outline",
+      descripcion:
+        "Ampliamos el vocabulario, introducimos la producción de textos y reforzamos el pensamiento numérico con situaciones del entorno.",
+      metodologia: [
+        "Producción textual y ortografía",
+        "Operaciones aritméticas aplicadas",
+        "Exploración del entorno social",
+      ],
+    },
+    {
+      nombre: "Tercero",
+      grado: "3°",
+      rango: "8 – 9 años",
+      icon: "mdi:numeric-3-circle-outline",
+      descripcion:
+        "Introducimos la investigación sencilla, el inglés como lengua extranjera y el razonamiento espacial y geométrico.",
+      metodologia: [
+        "Inglés básico comunicativo",
+        "Geometría y medición",
+        "Mini-proyectos de investigación",
+      ],
+    },
+    {
+      nombre: "Cuarto",
+      grado: "4°",
+      rango: "9 – 10 años",
+      icon: "mdi:numeric-4-circle-outline",
+      descripcion:
+        "Profundizamos las ciencias, la historia colombiana y el pensamiento crítico. Los estudiantes desarrollan habilidades de argumentación.",
+      metodologia: [
+        "Historia y geografía de Colombia",
+        "Ciencias naturales experimentales",
+        "Lectura crítica y debate",
+      ],
+    },
+    {
+      nombre: "Quinto",
+      grado: "5°",
+      rango: "10 – 11 años",
+      icon: "mdi:numeric-5-circle-outline",
+      descripcion:
+        "Cerramos el ciclo primario con un enfoque integrador: proyectos transversales, competencias ciudadanas y preparación para la secundaria.",
+      metodologia: [
+        "Proyectos integradores transversales",
+        "Competencias ciudadanas y liderazgo",
+        "Preparación para pruebas Saber",
+      ],
+    },
+  ],
+}
+---
+
+<!-- ============================================================
+     PREESCOLAR
+     ============================================================ -->
+<section
+  class={`w-screen max-w-none relative left-1/2 -translate-x-1/2 ${preescolar.color} py-16 md:py-24`}
+  aria-labelledby="preescolar-heading"
+  id="preescolar-section"
+>
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+    <!-- Group header: text + image -->
+    <div class="grid md:grid-cols-2 gap-10 md:gap-16 items-center mb-14 md:mb-18">
+      <div>
+        <p class="preescolar-eyebrow text-xs sm:text-sm font-bold tracking-[0.2em] uppercase text-orange-600/70 mb-4 opacity-0">
+          {preescolar.eyebrow}
+        </p>
+        <h2
+          id="preescolar-heading"
+          class="preescolar-heading text-gray-900 text-3xl sm:text-4xl md:text-[2.6rem] font-bold tracking-tight leading-[1.1] opacity-0"
+        >
+          {preescolar.title}
+        </h2>
+        <p class="preescolar-sub mt-5 text-base sm:text-lg text-gray-500 leading-relaxed opacity-0">
+          {preescolar.description}
+        </p>
+      </div>
+      <div class="preescolar-img relative rounded-2xl overflow-hidden shadow-lg opacity-0 aspect-video md:aspect-[4/3]">
+        <Image
+          src={preescolar.image}
+          alt={preescolar.imageAlt}
+          width={800}
+          height={600}
+          format="webp"
+          quality={85}
+          class="w-full h-full object-cover"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" aria-hidden="true"></div>
+      </div>
+    </div>
+
+    <!-- Level cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+      {preescolar.niveles.map((nivel, index) => (
+        <article
+          class={`preescolar-card preescolar-card-${index} bg-white border border-gray-200 rounded-2xl overflow-hidden flex flex-col opacity-0`}
+        >
+          <!-- Card header -->
+          <div class="flex items-center justify-between px-6 pt-6 pb-4 border-b border-gray-100">
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-full bg-orange-50 flex items-center justify-center flex-shrink-0">
+                <Icon name={nivel.icon} class="w-5 h-5 text-ccesz-header" />
+              </div>
+              <h3 class="text-base font-bold text-gray-900">{nivel.nombre}</h3>
+            </div>
+            <span class="text-xs font-semibold text-orange-600 bg-orange-50 px-3 py-1 rounded-full whitespace-nowrap">
+              {nivel.rango}
+            </span>
+          </div>
+
+          <!-- Card body -->
+          <div class="px-6 py-5 flex flex-col gap-5 flex-1">
+            <p class="text-sm text-gray-500 leading-relaxed">{nivel.descripcion}</p>
+
+            <div class="flex flex-col gap-2">
+              <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider">Metodología</p>
+              <ul class="flex flex-col gap-1.5">
+                {nivel.metodologia.map(item => (
+                  <li class="flex items-start gap-2 text-sm text-gray-600">
+                    <Icon name="mdi:check-circle-outline" class="w-4 h-4 text-ccesz-header flex-shrink-0 mt-0.5" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     PRIMARIA
+     ============================================================ -->
+<section
+  class={`w-screen max-w-none relative left-1/2 -translate-x-1/2 ${primaria.color} py-16 md:py-24`}
+  aria-labelledby="primaria-heading"
+  id="primaria-section"
+>
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+    <!-- Group header: image + text (reversed) -->
+    <div class="grid md:grid-cols-2 gap-10 md:gap-16 items-center mb-14 md:mb-18">
+      <div class="primaria-img relative rounded-2xl overflow-hidden shadow-lg opacity-0 aspect-video md:aspect-[4/3] order-last md:order-first">
+        <Image
+          src={primaria.image}
+          alt={primaria.imageAlt}
+          width={800}
+          height={600}
+          format="webp"
+          quality={85}
+          class="w-full h-full object-cover"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" aria-hidden="true"></div>
+      </div>
+      <div>
+        <p class="primaria-eyebrow text-xs sm:text-sm font-bold tracking-[0.2em] uppercase text-orange-600/70 mb-4 opacity-0">
+          {primaria.eyebrow}
+        </p>
+        <h2
+          id="primaria-heading"
+          class="primaria-heading text-gray-900 text-3xl sm:text-4xl md:text-[2.6rem] font-bold tracking-tight leading-[1.1] opacity-0"
+        >
+          {primaria.title}
+        </h2>
+        <p class="primaria-sub mt-5 text-base sm:text-lg text-gray-500 leading-relaxed opacity-0">
+          {primaria.description}
+        </p>
+      </div>
+    </div>
+
+    <!-- Level cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+      {primaria.niveles.map((nivel, index) => (
+        <article
+          class={`primaria-card primaria-card-${index} bg-white border border-gray-200 rounded-2xl overflow-hidden flex flex-col opacity-0`}
+        >
+          <!-- Card header -->
+          <div class="flex items-center justify-between px-6 pt-6 pb-4 border-b border-gray-100">
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-full bg-orange-50 flex items-center justify-center flex-shrink-0">
+                <Icon name={nivel.icon} class="w-5 h-5 text-ccesz-header" />
+              </div>
+              <div>
+                <p class="text-xs text-gray-400 font-medium leading-none mb-0.5">Grado {nivel.grado}</p>
+                <h3 class="text-base font-bold text-gray-900">{nivel.nombre}</h3>
+              </div>
+            </div>
+            <span class="text-xs font-semibold text-orange-600 bg-orange-50 px-3 py-1 rounded-full whitespace-nowrap">
+              {nivel.rango}
+            </span>
+          </div>
+
+          <!-- Card body -->
+          <div class="px-6 py-5 flex flex-col gap-5 flex-1">
+            <p class="text-sm text-gray-500 leading-relaxed">{nivel.descripcion}</p>
+
+            <div class="flex flex-col gap-2">
+              <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider">Metodología</p>
+              <ul class="flex flex-col gap-1.5">
+                {nivel.metodologia.map(item => (
+                  <li class="flex items-start gap-2 text-sm text-gray-600">
+                    <Icon name="mdi:check-circle-outline" class="w-4 h-4 text-ccesz-header flex-shrink-0 mt-0.5" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<script>
+  import { gsap } from "gsap"
+  import { ScrollTrigger } from "gsap/ScrollTrigger"
+
+  gsap.registerPlugin(ScrollTrigger)
+
+  // --- Preescolar ---
+  const preTrigger = { trigger: "#preescolar-section", start: "top 75%", toggleActions: "play none none none" }
+
+  gsap.fromTo(".preescolar-eyebrow", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out", scrollTrigger: preTrigger })
+  gsap.fromTo(".preescolar-heading", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out", delay: 0.08, scrollTrigger: preTrigger })
+  gsap.fromTo(".preescolar-sub",     { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out", delay: 0.16, scrollTrigger: preTrigger })
+  gsap.fromTo(".preescolar-img",     { opacity: 0, x: 30 }, { opacity: 1, x: 0, duration: 0.9, ease: "power3.out", delay: 0.1, scrollTrigger: preTrigger })
+  gsap.fromTo(".preescolar-card",    { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.6, stagger: 0.1, ease: "power3.out", delay: 0.3, scrollTrigger: preTrigger })
+
+  document.querySelectorAll(".preescolar-card").forEach(card => {
+    card.addEventListener("mouseenter", () =>
+      gsap.to(card, { borderColor: "#f86c05", duration: 0.2, ease: "power2.out" })
+    )
+    card.addEventListener("mouseleave", () =>
+      gsap.to(card, { borderColor: "#e5e7eb", duration: 0.2, ease: "power2.out" })
+    )
+  })
+
+  // --- Primaria ---
+  const primTrigger = { trigger: "#primaria-section", start: "top 75%", toggleActions: "play none none none" }
+
+  gsap.fromTo(".primaria-eyebrow", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out", scrollTrigger: primTrigger })
+  gsap.fromTo(".primaria-heading", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out", delay: 0.08, scrollTrigger: primTrigger })
+  gsap.fromTo(".primaria-sub",     { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out", delay: 0.16, scrollTrigger: primTrigger })
+  gsap.fromTo(".primaria-img",     { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.9, ease: "power3.out", delay: 0.1, scrollTrigger: primTrigger })
+  gsap.fromTo(".primaria-card",    { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.6, stagger: 0.09, ease: "power3.out", delay: 0.3, scrollTrigger: primTrigger })
+
+  document.querySelectorAll(".primaria-card").forEach(card => {
+    card.addEventListener("mouseenter", () =>
+      gsap.to(card, { borderColor: "#f86c05", duration: 0.2, ease: "power2.out" })
+    )
+    card.addEventListener("mouseleave", () =>
+      gsap.to(card, { borderColor: "#e5e7eb", duration: 0.2, ease: "power2.out" })
+    )
+  })
+</script>

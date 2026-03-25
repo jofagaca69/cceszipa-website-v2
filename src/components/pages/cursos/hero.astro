@@ -1,0 +1,50 @@
+---
+import { Image } from "astro:assets"
+import heroImage from "../../../assets/hero2.webp"
+---
+
+<header
+  class="relative isolate overflow-hidden py-24 md:py-32 lg:py-40"
+  aria-labelledby="cursos-hero-heading"
+>
+  <!-- Imagen de fondo -->
+  <div class="absolute inset-0">
+    <Image
+      src={heroImage}
+      alt="Estudiantes aprendiendo en el entorno campestre del Colegio Exploradores del Saber"
+      width={1920}
+      height={1080}
+      format="webp"
+      quality={85}
+      loading="eager"
+      fetchpriority="high"
+      class="h-full w-full object-cover"
+    />
+    <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" aria-hidden="true"></div>
+  </div>
+
+  <!-- Contenido -->
+  <div class="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+    <p class="cursos-hero-eyebrow text-xs sm:text-sm font-bold tracking-[0.2em] uppercase text-orange-400/90 mb-4 opacity-0">
+      Oferta académica
+    </p>
+    <h1
+      id="cursos-hero-heading"
+      class="cursos-hero-heading text-4xl sm:text-5xl md:text-6xl font-bold text-white opacity-0"
+    >
+      Nuestros cursos y niveles
+    </h1>
+    <p class="cursos-hero-sub mt-4 text-lg md:text-xl text-white/85 max-w-2xl mx-auto opacity-0">
+      Desde los primeros pasos en Preescolar hasta el final de la Básica Primaria, acompañamos cada etapa del crecimiento en un entorno campestre único.
+    </p>
+  </div>
+</header>
+
+<script>
+  import { gsap } from "gsap"
+
+  const tl = gsap.timeline({ defaults: { ease: "power3.out" } })
+  tl.fromTo(".cursos-hero-eyebrow", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.6 })
+    .fromTo(".cursos-hero-heading",  { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.8 }, "-=0.3")
+    .fromTo(".cursos-hero-sub",      { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.7 }, "-=0.4")
+</script>
