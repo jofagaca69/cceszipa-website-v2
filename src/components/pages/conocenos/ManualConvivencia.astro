@@ -1,0 +1,95 @@
+---
+import { Icon } from 'astro-icon/components'
+
+const pdfPath = "/Manual_de_convivencia_CCESZIPA.pdf"
+---
+
+<section
+  class="w-screen max-w-none relative left-1/2 -translate-x-1/2 bg-white py-16 md:py-24"
+  aria-labelledby="manual-heading"
+  id="manual-section"
+>
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+    <!-- Header -->
+    <div class="max-w-2xl mb-10 md:mb-14">
+      <p class="manual-eyebrow text-xs sm:text-sm font-bold tracking-[0.2em] uppercase text-orange-600/70 mb-4 opacity-0">
+        Documentos institucionales
+      </p>
+      <h2
+        id="manual-heading"
+        class="manual-heading text-gray-900 text-3xl sm:text-4xl md:text-[2.6rem] font-bold tracking-tight leading-[1.1] opacity-0"
+      >
+        Manual de convivencia
+      </h2>
+      <p class="manual-sub mt-4 text-base sm:text-lg text-gray-500 leading-relaxed opacity-0">
+        Nuestro Manual de Convivencia establece los principios, derechos, deberes y acuerdos que guían la vida en comunidad del Colegio Campestre Exploradores del Saber. Conócelo, compártelo y ponlo en práctica.
+      </p>
+    </div>
+
+    <!-- PDF Viewer + Download -->
+    <div class="manual-viewer opacity-0 w-full md:w-1/2 mx-auto">
+
+      <!-- Toolbar -->
+      <div class="flex items-center justify-between bg-[#1e1e1e] rounded-t-xl px-4 py-3">
+        <div class="flex items-center gap-2 text-white/70 text-sm">
+          <Icon name="mdi:file-pdf-box" class="w-5 h-5 text-red-400" />
+          <span class="hidden sm:inline font-medium text-white/90">Manual_de_convivencia_CCESZIPA.pdf</span>
+          <span class="sm:hidden font-medium text-white/90">Manual de convivencia</span>
+        </div>
+        <a
+          href={pdfPath}
+          download
+          class="inline-flex items-center gap-2 rounded-full bg-ccesz-header px-5 py-2 text-xs sm:text-sm font-semibold text-white hover:bg-orange-500 transition-colors duration-200 focus:outline-none focus-visible:ring-4 focus-visible:ring-orange-400/50"
+          aria-label="Descargar Manual de Convivencia en PDF"
+        >
+          <Icon name="mdi:download" class="w-4 h-4" />
+          Descargar PDF
+        </a>
+      </div>
+
+      <!-- Embed -->
+      <div class="relative w-full bg-gray-100 rounded-b-xl overflow-hidden" style="aspect-ratio: 4/5.5; max-height: 780px;">
+        <iframe
+          src={`${pdfPath}#toolbar=0&navpanes=0&scrollbar=1&view=FitH`}
+          title="Manual de Convivencia CCESZIPA"
+          class="w-full h-full border-0"
+          loading="lazy"
+          aria-label="Visor del Manual de Convivencia"
+        ></iframe>
+
+        <!-- Fallback for browsers that can't embed PDFs -->
+        <noscript>
+          <div class="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-gray-50 text-center p-8">
+            <Icon name="mdi:file-pdf-box" class="w-12 h-12 text-red-400" />
+            <p class="text-gray-600 text-sm">Tu navegador no puede mostrar el PDF en línea.</p>
+            <a
+              href={pdfPath}
+              download
+              class="inline-flex items-center gap-2 rounded-full bg-ccesz-header px-6 py-3 text-sm font-semibold text-white hover:bg-orange-500 transition-colors duration-200"
+            >
+              <Icon name="mdi:download" class="w-4 h-4" />
+              Descargar Manual
+            </a>
+          </div>
+        </noscript>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<script>
+  import { gsap } from "gsap"
+  import { ScrollTrigger } from "gsap/ScrollTrigger"
+
+  gsap.registerPlugin(ScrollTrigger)
+
+  const trigger = { trigger: "#manual-section", start: "top 78%", toggleActions: "play none none none" }
+
+  gsap.fromTo(".manual-eyebrow", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out", scrollTrigger: trigger })
+  gsap.fromTo(".manual-heading", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out", delay: 0.08, scrollTrigger: trigger })
+  gsap.fromTo(".manual-sub",     { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out", delay: 0.16, scrollTrigger: trigger })
+  gsap.fromTo(".manual-viewer",  { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out", delay: 0.24, scrollTrigger: trigger })
+</script>
