@@ -1,19 +1,21 @@
 ---
 import MainLayout from '@layouts/MainLayout.astro'
 import CursosHero from '@components/pages/cursos/hero.astro'
+import JourneySection from '@components/pages/cursos/JourneySection.astro'
 import NivelesSection from '@components/pages/cursos/NivelesSection.astro'
+import ActividadesSection from '@components/pages/cursos/ActividadesSection.astro'
 import CTASection from '@components/pages/cursos/CTASection.astro'
 import { institution } from '@config/institution'
 
 const seo = {
-  title: "Cursos y Niveles",
+  title: "Preescolar y Primaria en Zipaquirá – Oferta Académica",
   description:
-    "Conoce la oferta académica del Colegio Campestre Exploradores del Saber en Zipaquirá: Preescolar (Prejardín, Jardín, Transición) y Básica Primaria (1° a 5°). Formación integral en un entorno campestre único.",
+    "Preescolar (Prejardín, Jardín, Transición) y Básica Primaria (1° a 5°) en el Colegio Campestre Exploradores del Saber, Zipaquirá. Grupos reducidos, metodología activa y aprendizaje en naturaleza. ¡Consulta la matrícula!",
   keywords:
-    "cursos, niveles, preescolar, primaria, Prejardín, Jardín, Transición, básica primaria, oferta académica, colegio Zipaquirá, matrícula, Exploradores del Saber",
+    "preescolar Zipaquirá matrícula, primaria colegio campestre Zipaquirá, Prejardín Jardín Transición Zipaquirá, básica primaria campestre, inscripciones colegio Zipaquirá, oferta académica colegio privado Zipaquirá, grados primero a quinto Zipaquirá, metodología activa preescolar Cundinamarca",
   canonical: "https://colexploradoresdelsaber.com/cursos",
   noindex: false,
-  ogImage: "/og-image.jpg",
+  ogImage: "/og-image-home.png",
   ogType: "website",
   jsonLd: {
     "@context": "https://schema.org",
@@ -22,14 +24,15 @@ const seo = {
         "@type": "WebPage",
         "@id": "https://colexploradoresdelsaber.com/cursos#webpage",
         "url": "https://colexploradoresdelsaber.com/cursos",
-        "name": "Cursos y Niveles | Colegio Campestre Exploradores del Saber",
+        "name": "Preescolar y Primaria en Zipaquirá | Colegio Campestre Exploradores del Saber",
         "description":
-          "Oferta académica del Colegio Campestre Exploradores del Saber: Preescolar y Básica Primaria en Zipaquirá.",
+          "Conoce nuestra oferta académica: Preescolar (Prejardín, Jardín, Transición) y Básica Primaria (1° a 5°) con metodología activa, grupos reducidos y aprendizaje en contacto con la naturaleza.",
         "isPartOf": {
           "@id": "https://colexploradoresdelsaber.com/#website"
         },
         "about": {
           "@type": "EducationalOrganization",
+          "@id": "https://colexploradoresdelsaber.com/#school",
           "name": institution.name,
           "url": "https://colexploradoresdelsaber.com/"
         },
@@ -48,10 +51,60 @@ const seo = {
           {
             "@type": "ListItem",
             "position": 2,
-            "name": "Cursos",
+            "name": "Preescolar y Primaria",
             "item": "https://colexploradoresdelsaber.com/cursos"
           }
         ]
+      },
+      {
+        "@type": "EducationalOccupationalProgram",
+        "@id": "https://colexploradoresdelsaber.com/cursos#preescolar",
+        "name": "Preescolar – Prejardín, Jardín y Transición",
+        "description": "Programa de preescolar para niños de 3 a 6 años. Incluye Prejardín (3-4 años), Jardín (4-5 años) y Transición (5-6 años). Enfoque en desarrollo motriz, emocional y cognitivo en contacto con la naturaleza.",
+        "url": "https://colexploradoresdelsaber.com/cursos",
+        "educationalProgramMode": "full-time",
+        "timeToComplete": "P3Y",
+        "provider": {
+          "@id": "https://colexploradoresdelsaber.com/#school"
+        },
+        "educationalLevel": "Preescolar",
+        "teaches": [
+          "Desarrollo cognitivo temprano",
+          "Habilidades sociales y emocionales",
+          "Exploración del entorno natural",
+          "Lectoescritura inicial",
+          "Pensamiento lógico-matemático"
+        ],
+        "offers": {
+          "@type": "Offer",
+          "category": "Admisión",
+          "url": "https://colexploradoresdelsaber.com/cursos"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalProgram",
+        "@id": "https://colexploradoresdelsaber.com/cursos#primaria",
+        "name": "Básica Primaria – Grados 1° a 5°",
+        "description": "Programa de básica primaria para niños de 6 a 11 años. Grados primero a quinto con metodología activa, pensamiento crítico, formación en valores y proyectos interdisciplinarios en el entorno campestre.",
+        "url": "https://colexploradoresdelsaber.com/cursos",
+        "educationalProgramMode": "full-time",
+        "timeToComplete": "P5Y",
+        "provider": {
+          "@id": "https://colexploradoresdelsaber.com/#school"
+        },
+        "educationalLevel": "Básica Primaria",
+        "teaches": [
+          "Matemáticas y pensamiento lógico",
+          "Lenguaje y comunicación",
+          "Ciencias naturales y educación ambiental",
+          "Ciencias sociales",
+          "Educación artística y valores"
+        ],
+        "offers": {
+          "@type": "Offer",
+          "category": "Admisión",
+          "url": "https://colexploradoresdelsaber.com/cursos"
+        }
       }
     ]
   }
@@ -60,6 +113,8 @@ const seo = {
 
 <MainLayout {seo}>
   <CursosHero />
+  <JourneySection />
   <NivelesSection />
+  <ActividadesSection />
   <CTASection />
 </MainLayout>

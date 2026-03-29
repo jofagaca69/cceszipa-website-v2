@@ -1,0 +1,142 @@
+---
+export const homeFaqs = [
+  {
+    question: "¿Qué niveles educativos ofrece el Colegio Campestre Exploradores del Saber?",
+    answer: "Ofrecemos preescolar completo (Prejardín para niños de 3-4 años, Jardín de 4-5 años y Transición de 5-6 años) y básica primaria de 1° a 5° grado (6 a 11 años). Todos los niveles se desarrollan en nuestro campus campestre a 5 minutos de Zipaquirá.",
+  },
+  {
+    question: "¿Dónde está ubicado el colegio y cómo llegar?",
+    answer: "Nos encontramos en el Km. 5 de la vía Zipaquirá - Nemocón, Vereda La Granja, Cundinamarca. Estamos a pocos minutos del centro de Zipaquirá y contamos con servicio de ruta escolar para diferentes sectores del municipio y alrededores.",
+  },
+  {
+    question: "¿Qué diferencia al Colegio Campestre Exploradores del Saber de otros colegios en Zipaquirá?",
+    answer: "Nuestro principal diferenciador es la combinación de grupos reducidos, aprendizaje en contacto con la naturaleza y una formación integral en valores. El entorno campestre permite actividades que los colegios urbanos no pueden ofrecer: huerta escolar, senderos naturales, actividades al aire libre y un ambiente de aprendizaje tranquilo y seguro.",
+  },
+  {
+    question: "¿El colegio cuenta con ruta escolar?",
+    answer: "Sí, contamos con servicio de ruta escolar con cobertura en Zipaquirá y municipios cercanos. El costo de la ruta es adicional a la matrícula. Consulta disponibilidad y puntos de ruta en el momento de tu inscripción llamando al 310 211 9422.",
+  },
+  {
+    question: "¿Cómo puedo contactar al colegio para obtener más información?",
+    answer: "Puedes contactarnos por WhatsApp o llamada al 310 211 9422, o escribirnos a rectoria@colexploradoresdelsaber.com. También puedes visitar la página de inscripciones para conocer el proceso de admisión paso a paso.",
+  },
+]
+---
+
+<section
+  class="py-16 md:py-24"
+  aria-labelledby="home-faq-heading"
+  id="home-faq-section"
+>
+  <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+
+    <div class="home-faq-header text-center mb-12 opacity-0">
+      <p class="text-xs sm:text-sm font-bold tracking-[0.2em] uppercase text-orange-600/70 mb-3">
+        Preguntas frecuentes
+      </p>
+      <h2 id="home-faq-heading" class="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight">
+        Lo que los padres nos preguntan
+      </h2>
+      <p class="mt-3 text-base sm:text-lg text-gray-500">
+        Las dudas más comunes sobre el colegio, respondidas directamente.
+      </p>
+    </div>
+
+    <div class="flex flex-col gap-3" role="list">
+      {homeFaqs.map((faq, i) => (
+        <div
+          class={`home-faq-item home-faq-item-${i} opacity-0 bg-white border border-gray-200 rounded-2xl overflow-hidden`}
+          role="listitem"
+        >
+          <button
+            class="home-faq-btn w-full flex items-center justify-between gap-4 px-6 py-5 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-ccesz-header/50 focus-visible:ring-inset"
+            aria-expanded="false"
+            aria-controls={`home-faq-answer-${i}`}
+          >
+            <span class="text-sm sm:text-base font-semibold text-gray-900 leading-snug pr-2">
+              {faq.question}
+            </span>
+            <span class="home-faq-icon flex-shrink-0 w-6 h-6 rounded-full bg-orange-50 flex items-center justify-center text-ccesz-header transition-transform duration-300" aria-hidden="true">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </span>
+          </button>
+
+          <div
+            id={`home-faq-answer-${i}`}
+            class="home-faq-answer overflow-hidden"
+            style="max-height: 0;"
+          >
+            <div class="px-6 pb-5">
+              <p class="text-sm sm:text-base text-gray-500 leading-relaxed">
+                {faq.answer}
+              </p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-8 text-center">
+      <a
+        href="/inscripciones"
+        class="inline-flex items-center gap-2 text-sm font-semibold text-ccesz-header hover:underline transition-colors"
+      >
+        Ver más preguntas sobre el proceso de admisión
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+        </svg>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  import { gsap } from "gsap"
+  import { ScrollTrigger } from "gsap/ScrollTrigger"
+
+  gsap.registerPlugin(ScrollTrigger)
+
+  gsap.fromTo(".home-faq-header",
+    { opacity: 0, y: 20 },
+    { opacity: 1, y: 0, duration: 0.7, ease: "power3.out",
+      scrollTrigger: { trigger: "#home-faq-section", start: "top 80%", toggleActions: "play none none none" } }
+  )
+  gsap.fromTo(".home-faq-item",
+    { opacity: 0, y: 16 },
+    { opacity: 1, y: 0, duration: 0.5, ease: "power3.out", stagger: 0.07,
+      scrollTrigger: { trigger: "#home-faq-section", start: "top 78%", toggleActions: "play none none none" } }
+  )
+
+  const buttons = document.querySelectorAll<HTMLButtonElement>(".home-faq-btn")
+
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const isOpen = btn.getAttribute("aria-expanded") === "true"
+      const answer = btn.nextElementSibling as HTMLElement
+      const icon = btn.querySelector<HTMLElement>(".home-faq-icon")
+
+      buttons.forEach((other) => {
+        if (other !== btn) {
+          other.setAttribute("aria-expanded", "false")
+          const otherAnswer = other.nextElementSibling as HTMLElement
+          const otherIcon = other.querySelector<HTMLElement>(".home-faq-icon")
+          gsap.to(otherAnswer, { maxHeight: 0, duration: 0.3, ease: "power2.in" })
+          if (otherIcon) gsap.to(otherIcon, { rotation: 0, duration: 0.3 })
+        }
+      })
+
+      if (isOpen) {
+        btn.setAttribute("aria-expanded", "false")
+        gsap.to(answer, { maxHeight: 0, duration: 0.35, ease: "power2.in" })
+        if (icon) gsap.to(icon, { rotation: 0, duration: 0.35 })
+      } else {
+        btn.setAttribute("aria-expanded", "true")
+        gsap.to(answer, { maxHeight: 500, duration: 0.45, ease: "power3.out" })
+        if (icon) gsap.to(icon, { rotation: 180, duration: 0.35 })
+      }
+    })
+  })
+</script>

@@ -1,0 +1,82 @@
+---
+import MainLayout from '@layouts/MainLayout.astro'
+import InscripcionesHero from '@components/pages/inscripciones/InscripcionesHero.astro'
+import ProcesoSection from '@components/pages/inscripciones/ProcesoSection.astro'
+import FAQSection, { faqs } from '@components/pages/inscripciones/FAQSection.astro'
+import CTASection from '@components/pages/cursos/CTASection.astro'
+import { institution } from '@config/institution'
+
+const currentYear = new Date().getFullYear()
+
+const seo = {
+  title: `Inscripciones ${currentYear} – Admisiones Colegio Campestre Zipaquirá`,
+  description:
+    `¿Buscas colegio en Zipaquirá? Conoce el proceso de admisión del Colegio Campestre Exploradores del Saber: preescolar y primaria con grupos reducidos y entorno natural. Cupos limitados ${currentYear}.`,
+  keywords:
+    "inscripciones colegio Zipaquirá, matrícula colegio campestre Zipaquirá, admisiones colegio privado Zipaquirá, proceso de matrícula colegio, cupos colegio Zipaquirá, colegio campestre inscripciones, preescolar primaria matrícula Zipaquirá Cundinamarca",
+  canonical: "https://colexploradoresdelsaber.com/inscripciones",
+  noindex: false,
+  ogImage: "/og-image-home.png",
+  ogType: "website",
+  jsonLd: {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://colexploradoresdelsaber.com/inscripciones#webpage",
+        "url": "https://colexploradoresdelsaber.com/inscripciones",
+        "name": `Inscripciones ${currentYear} | Colegio Campestre Exploradores del Saber Zipaquirá`,
+        "description":
+          `Proceso de admisión del Colegio Campestre Exploradores del Saber en Zipaquirá. Preescolar y primaria con cupos limitados ${currentYear}.`,
+        "isPartOf": {
+          "@id": "https://colexploradoresdelsaber.com/#website"
+        },
+        "about": {
+          "@type": "EducationalOrganization",
+          "@id": "https://colexploradoresdelsaber.com/#school",
+          "name": institution.name,
+          "url": "https://colexploradoresdelsaber.com/"
+        },
+        "inLanguage": "es-CO"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://colexploradoresdelsaber.com/inscripciones#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Inicio",
+            "item": "https://colexploradoresdelsaber.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Inscripciones",
+            "item": "https://colexploradoresdelsaber.com/inscripciones"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://colexploradoresdelsaber.com/inscripciones#faq",
+        "mainEntity": faqs.map((faq) => ({
+          "@type": "Question",
+          "name": faq.question,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": faq.answer,
+          },
+        })),
+      },
+    ]
+  }
+}
+---
+
+<MainLayout {seo}>
+  <InscripcionesHero />
+  <ProcesoSection />
+  <FAQSection />
+  <CTASection />
+</MainLayout>

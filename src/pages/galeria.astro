@@ -1,0 +1,65 @@
+---
+import MainLayout from '@layouts/MainLayout.astro'
+import GalleryHero from '@components/pages/galeria/GalleryHero.astro'
+import GallerySection from '@components/pages/galeria/GallerySection.astro'
+import CTASection from '@components/pages/cursos/CTASection.astro'
+import { institution } from '@config/institution'
+
+const seo = {
+  title: "Galería de Actividades Escolares – Vida en el Colegio",
+  description:
+    "Fotos de las actividades del Colegio Campestre Exploradores del Saber en Zipaquirá: deportes, arte, cultura, eventos y celebraciones. Conoce cómo es la vida diaria en nuestro entorno campestre.",
+  keywords:
+    "galería fotos colegio campestre Zipaquirá, actividades escolares colegio Zipaquirá, deportes arte eventos colegio, vida escolar campestre Cundinamarca, fotos colegio privado Zipaquirá, Exploradores del Saber actividades",
+  canonical: "https://colexploradoresdelsaber.com/galeria",
+  noindex: false,
+  ogImage: "/og-image-home.png",
+  ogType: "website",
+  jsonLd: {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://colexploradoresdelsaber.com/galeria#webpage",
+        "url": "https://colexploradoresdelsaber.com/galeria",
+        "name": "Galería de Actividades | Colegio Campestre Exploradores del Saber",
+        "description":
+          "Descubre los mejores momentos del Colegio Campestre Exploradores del Saber: actividades deportivas, artísticas, culturales y eventos de nuestra comunidad.",
+        "isPartOf": {
+          "@id": "https://colexploradoresdelsaber.com/#website"
+        },
+        "about": {
+          "@type": "EducationalOrganization",
+          "name": institution.name,
+          "url": "https://colexploradoresdelsaber.com/"
+        },
+        "inLanguage": "es-CO"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://colexploradoresdelsaber.com/galeria#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Inicio",
+            "item": "https://colexploradoresdelsaber.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Galería",
+            "item": "https://colexploradoresdelsaber.com/galeria"
+          }
+        ]
+      }
+    ]
+  }
+}
+---
+
+<MainLayout {seo}>
+  <GalleryHero />
+  <GallerySection />
+  <CTASection />
+</MainLayout>
