@@ -15,7 +15,7 @@ const {
   title,
   description,
   keywords = '',
-  ogImage = '/og-image.jpg',
+  ogImage = '/og-image-home.png',
   ogType = 'website',
   canonical,
   noindex = false,
@@ -93,7 +93,6 @@ const ogImageURL = new URL(ogImage, Astro.site);
 
 <!-- DNS Prefetch -->
 <link rel="dns-prefetch" href="//fonts.googleapis.com"/>
-<link rel="dns-prefetch" href="//www.google-analytics.com"/>
 
 <!-- Structured Data (JSON-LD) -->
 {jsonLd && (

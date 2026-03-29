@@ -9,14 +9,14 @@ import CTASection from '@components/pages/conocenos/CTASection.astro'
 import { institution } from '@config/institution'
 
 const seo = {
-  title: "Conócenos",
+  title: "Misión, Visión y Valores del Colegio Campestre Zipaquirá",
   description:
-    "Conoce el Colegio Campestre Exploradores del Saber en Zipaquirá. Nuestra misión, visión, valores y el equipo que forma a los exploradores del conocimiento en un entorno natural y seguro.",
+    "Conoce la historia, misión, visión y valores del Colegio Campestre Exploradores del Saber en Zipaquirá. Un proyecto educativo que une la excelencia académica con el amor por la naturaleza y los valores humanos.",
   keywords:
-    "conócenos, Colegio Campestre Exploradores del Saber, sobre nosotros, misión visión valores, colegio Zipaquirá, educación integral Zipaquirá, equipo docente Zipaquirá, historia del colegio, filosofía educativa CCESZIPA",
+    "misión visión valores colegio Zipaquirá, historia Colegio Campestre Exploradores del Saber, filosofía educativa campestre, colegio privado valores Zipaquirá, proyecto educativo Zipaquirá, equipo docente colegio campestre, educación integral naturaleza Cundinamarca",
   canonical: "https://colexploradoresdelsaber.com/conocenos",
   noindex: false,
-  ogImage: "/og-image.jpg",
+  ogImage: "/og-image-home.png",
   ogType: "website",
   jsonLd: {
     "@context": "https://schema.org",
@@ -25,14 +25,15 @@ const seo = {
         "@type": "WebPage",
         "@id": "https://colexploradoresdelsaber.com/conocenos#webpage",
         "url": "https://colexploradoresdelsaber.com/conocenos",
-        "name": "Conócenos | Colegio Campestre Exploradores del Saber",
+        "name": "Misión, Visión y Valores | Colegio Campestre Exploradores del Saber Zipaquirá",
         "description":
-          "Conoce el Colegio Campestre Exploradores del Saber en Zipaquirá. Nuestra misión, visión, valores y el equipo que forma a los exploradores del conocimiento.",
+          "Conoce la historia, misión, visión y valores del Colegio Campestre Exploradores del Saber. Un proyecto educativo que une la excelencia académica con el amor por la naturaleza en Zipaquirá, Cundinamarca.",
         "isPartOf": {
           "@id": "https://colexploradoresdelsaber.com/#website"
         },
         "about": {
           "@type": "EducationalOrganization",
+          "@id": "https://colexploradoresdelsaber.com/#school",
           "name": institution.name,
           "url": "https://colexploradoresdelsaber.com/"
         },
@@ -51,7 +52,7 @@ const seo = {
           {
             "@type": "ListItem",
             "position": 2,
-            "name": "Conócenos",
+            "name": "Quiénes Somos",
             "item": "https://colexploradoresdelsaber.com/conocenos"
           }
         ]

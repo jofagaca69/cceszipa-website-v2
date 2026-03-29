@@ -1,0 +1,50 @@
+---
+import { Image } from "astro:assets"
+import heroImage from "../../../assets/hero.webp"
+---
+
+<header
+  class="relative isolate overflow-hidden py-24 md:py-32 lg:py-40"
+  aria-labelledby="galeria-hero-heading"
+>
+  <!-- Imagen de fondo -->
+  <div class="absolute inset-0">
+    <Image
+      src={heroImage}
+      alt="Estudiantes en actividades del Colegio Campestre Exploradores del Saber"
+      width={1920}
+      height={1080}
+      format="webp"
+      quality={85}
+      loading="eager"
+      fetchpriority="high"
+      class="h-full w-full object-cover object-[50%_30%]"
+    />
+    <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" aria-hidden="true"></div>
+  </div>
+
+  <!-- Contenido -->
+  <div class="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+    <p class="galeria-hero-eyebrow text-xs sm:text-sm font-bold tracking-[0.2em] uppercase text-orange-400/90 mb-4 opacity-0">
+      Vida en el colegio
+    </p>
+    <h1
+      id="galeria-hero-heading"
+      class="galeria-hero-heading text-4xl sm:text-5xl md:text-6xl font-bold text-white opacity-0"
+    >
+      Nuestra Galería
+    </h1>
+    <p class="galeria-hero-sub mt-4 text-lg md:text-xl text-white/85 max-w-2xl mx-auto opacity-0">
+      Momentos, actividades y recuerdos que forman parte de la experiencia única de aprender en un entorno campestre.
+    </p>
+  </div>
+</header>
+
+<script>
+  import { gsap } from "gsap"
+
+  const tl = gsap.timeline({ defaults: { ease: "power3.out" } })
+  tl.fromTo(".galeria-hero-eyebrow", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.6 })
+    .fromTo(".galeria-hero-heading",  { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.8 }, "-=0.3")
+    .fromTo(".galeria-hero-sub",      { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.7 }, "-=0.4")
+</script>

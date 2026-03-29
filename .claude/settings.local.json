@@ -8,11 +8,24 @@
       "WebFetch(domain:morganastudios.com)",
       "WebFetch(domain:www.elementor.com)",
       "WebFetch(domain:www.finalsite.com)",
-      "Bash(python -c \"import sys; print\\(sys.version\\)\")",
-      "Bash(python -c \"import pdfplumber; print\\(''pdfplumber ok''\\)\")",
-      "Bash(python -c \"import PyPDF2; print\\(''PyPDF2 ok''\\)\")",
-      "Bash(pip install:*)",
-      "Bash(python -c \":*)"
+      "WebFetch(domain:www.awwwards.com)",
+      "WebFetch(domain:www.leadnicely.com)",
+      "WebFetch(domain:www.kidsandusschools.com)",
+      "WebFetch(domain:www.interactiveschools.com)",
+      "WebFetch(domain:tcslj.org)",
+      "WebFetch(domain:www.gcds.net)",
+      "WebFetch(domain:www.ridleycollege.com)",
+      "WebFetch(domain:www.bayschoolsf.org)",
+      "WebFetch(domain:www.uppingham.co.uk)",
+      "WebFetch(domain:www.shrewsbury.org.uk)",
+      "WebFetch(domain:www.kingsbruton.com)",
+      "WebFetch(domain:www.santacatalina.org)",
+      "WebFetch(domain:www.pinecrest.edu)",
+      "WebFetch(domain:laescuela.art)",
+      "WebFetch(domain:finalsite.com)",
+      "Bash(pnpm add:*)",
+      "Bash(find /c/Users/jofa7/Desktop/Projects/v2/CCESZIPA-WEBSITE/public -name *.jpg -o -name *.png)",
+      "Bash(pnpm build:*)"
     ]
   }
 }

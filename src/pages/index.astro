@@ -6,17 +6,18 @@ import FeaturesSection from '@components/pages/index/FeaturesSection.astro'
 import EducationalStagesSection from '@components/pages/index/EducationalStagesSection.astro'
 import TestimonialsSection from '@components/pages/index/TestimonialsSection.astro'
 import LocationSection from '@components/pages/index/LocationSection.astro'
+import HomeFAQSection, { homeFaqs } from '@components/pages/index/HomeFAQSection.astro'
 import CTASection from '@components/pages/index/CTASection.astro'
 
 const currentYear = new Date().getFullYear()
 
 const seo = {
-  title: "Colegio Campestre en Zipaquirá",
-  description: `Colegio campestre en Zipaquirá: preescolar y primaria con enfoque en valores, pensamiento crítico y contacto con la naturaleza. Inscripciones abiertas ${currentYear}.`,
-  keywords: "colegio campestre Zipaquirá, Colegio Campestre Exploradores del Saber, colegio privado Zipaquirá, educación integral Zipaquirá, colegios campestres Cundinamarca, preescolar Zipaquirá, primaria Zipaquirá, bachillerato Zipaquirá, formación en valores, educación en naturaleza Zipaquirá",
+  title: "Colegio Campestre Zipaquirá – Preescolar y Primaria en Naturaleza",
+  description: `Colegio campestre privado en Zipaquirá con preescolar y primaria. Grupos reducidos, entorno natural y formación en valores. ¡Inscripciones abiertas ${currentYear}! Llámanos: 310 211 9422.`,
+  keywords: "colegio campestre Zipaquirá, colegio privado Zipaquirá, preescolar Zipaquirá, primaria Zipaquirá, Colegio Campestre Exploradores del Saber, colegios Zipaquirá Cundinamarca, matrícula colegio Zipaquirá, educación en naturaleza, colegio campestre Nemocón, grupos reducidos colegio",
   canonical: "https://colexploradoresdelsaber.com/",
   noindex: false,
-  ogImage: "/og-image-home.jpg",
+  ogImage: "/og-image-home.png",
   jsonLd: {
     "@context": "https://schema.org",
     "@graph": [
@@ -24,11 +25,11 @@ const seo = {
         "@type": ["EducationalOrganization", "School"],
         "@id": "https://colexploradoresdelsaber.com/#school",
         "name": "Colegio Campestre Exploradores del Saber",
-        "alternateName": "CCESZIPA",
+        "alternateName": ["CCESZIPA", "Exploradores del Saber"],
         "url": "https://colexploradoresdelsaber.com/",
         "logo": "https://colexploradoresdelsaber.com/logo.png",
-        "image": "https://colexploradoresdelsaber.com/og-image-home.jpg",
-        "description": "Institución educativa de preescolar, primaria y bachillerato en Zipaquirá, Cundinamarca, con enfoque en formación integral, valores y contacto con la naturaleza.",
+        "image": "https://colexploradoresdelsaber.com/og-image-home.png",
+        "description": "Colegio campestre privado en Zipaquirá, Cundinamarca. Ofrecemos preescolar (Prejardín, Jardín, Transición) y básica primaria (1° a 5°) con grupos reducidos, enfoque en valores y aprendizaje en contacto con la naturaleza.",
         "telephone": "+57-310-211-9422",
         "email": "rectoria@colexploradoresdelsaber.com",
         "address": {
@@ -36,6 +37,7 @@ const seo = {
           "streetAddress": "Km. 5 vía Zipaquirá - Nemocón, Vereda La Granja",
           "addressLocality": "Zipaquirá",
           "addressRegion": "Cundinamarca",
+          "postalCode": "250251",
           "addressCountry": "CO"
         },
         "geo": {
@@ -43,22 +45,47 @@ const seo = {
           "latitude": "5.0333",
           "longitude": "-73.9667"
         },
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "telephone": "+57-310-211-9422",
-          "contactType": "admissions",
-          "email": "rectoria@colexploradoresdelsaber.com",
-          "availableLanguage": "Spanish"
-        },
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "telephone": "+57-310-211-9422",
+            "contactType": "admissions",
+            "email": "rectoria@colexploradoresdelsaber.com",
+            "availableLanguage": "Spanish",
+            "areaServed": "CO"
+          }
+        ],
         "sameAs": [
           "https://www.facebook.com/ColegioCampestreExploradoresDelSaberZipaquira",
           "https://www.instagram.com/cceszipa"
         ],
-        "areaServed": {
-          "@type": "City",
-          "name": "Zipaquirá"
+        "areaServed": [
+          { "@type": "City", "name": "Zipaquirá" },
+          { "@type": "City", "name": "Nemocón" }
+        ],
+        "educationalCredentialAwarded": "Bachillerato Colombiano",
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Oferta Académica",
+          "url": "https://colexploradoresdelsaber.com/cursos",
+          "itemListElement": [
+            { "@type": "OfferCatalog", "name": "Preescolar (Prejardín, Jardín, Transición)" },
+            { "@type": "OfferCatalog", "name": "Básica Primaria (1° a 5°)" }
+          ]
         },
-        "educationalCredentialAwarded": "Bachillerato Colombiano"
+        "amenityFeature": [
+          { "@type": "LocationFeatureSpecification", "name": "Huerta escolar", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Canchas deportivas", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Zonas verdes y senderos naturales", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Grupos reducidos", "value": true }
+        ],
+        "knowsAbout": [
+          "Educación campestre",
+          "Aprendizaje basado en la naturaleza",
+          "Formación en valores",
+          "Educación ambiental",
+          "Pensamiento crítico infantil"
+        ]
       },
       {
         "@type": "WebSite",
@@ -69,6 +96,18 @@ const seo = {
         "publisher": {
           "@id": "https://colexploradoresdelsaber.com/#school"
         }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://colexploradoresdelsaber.com/#faq",
+        "mainEntity": homeFaqs.map((faq) => ({
+          "@type": "Question",
+          "name": faq.question,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": faq.answer,
+          },
+        })),
       }
     ]
   }
@@ -82,5 +121,6 @@ const seo = {
   <EducationalStagesSection/>
   <TestimonialsSection/>
   <LocationSection/>
+  <HomeFAQSection />
   <CTASection/>
 </MainLayout>

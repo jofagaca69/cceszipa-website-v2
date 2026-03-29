@@ -1,0 +1,209 @@
+---
+import { Image } from "astro:assets"
+import img1 from "../../../assets/hero.webp"
+import img2 from "../../../assets/hero2.webp"
+import img3 from "../../../assets/hero3.webp"
+import img4 from "../../../assets/hero4.webp"
+
+type GalleryItem = {
+  image: ImageMetadata
+  alt: string
+  category: string
+  caption: string
+}
+
+const items: GalleryItem[] = [
+  // Deportes
+  { image: img3, alt: "Niños jugando fútbol en la cancha del colegio", category: "deportes", caption: "Torneo interno de fútbol — ¡todos a la cancha!" },
+  { image: img4, alt: "Actividades deportivas al aire libre", category: "deportes", caption: "Día de campo y actividades físicas en el entorno natural" },
+  { image: img1, alt: "Juegos recreativos en jornada deportiva", category: "deportes", caption: "Jornada recreativa y deportiva de fin de periodo" },
+  { image: img2, alt: "Estudiantes en competencia deportiva", category: "deportes", caption: "Competencia interclases — espíritu deportivo y compañerismo" },
+  // Arte y Cultura
+  { image: img2, alt: "Presentación artística de estudiantes", category: "arte-cultura", caption: "Festival cultural — presentaciones artísticas de cada nivel" },
+  { image: img1, alt: "Manualidades y actividades creativas", category: "arte-cultura", caption: "Taller de manualidades y expresión plástica" },
+  { image: img4, alt: "Estudiantes en presentación de danza", category: "arte-cultura", caption: "Presentación de danzas típicas colombianas" },
+  { image: img3, alt: "Actividades musicales y artísticas", category: "arte-cultura", caption: "Semana cultural del colegio — música, arte y teatro" },
+  // Eventos y Celebraciones
+  { image: img4, alt: "Ceremonia de izada de bandera", category: "eventos", caption: "Izada de bandera — honor, respeto y valores institucionales" },
+  { image: img2, alt: "Graduación de estudiantes", category: "eventos", caption: "Ceremonia de graduación — ¡felicitaciones a los egresados!" },
+  { image: img3, alt: "Día de la familia en el colegio", category: "eventos", caption: "Día de la familia — compartiendo en comunidad" },
+  { image: img1, alt: "Celebración de fechas especiales", category: "eventos", caption: "Celebración del Día del Niño — actividades y sorpresas" },
+]
+
+const filters = [
+  { label: "Todas", value: "todas" },
+  { label: "Deportes", value: "deportes" },
+  { label: "Arte y Cultura", value: "arte-cultura" },
+  { label: "Eventos y Celebraciones", value: "eventos" },
+]
+---
+
+<section
+  class="py-16 md:py-24"
+  aria-labelledby="galeria-section-heading"
+  id="galeria-section"
+>
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+    <!-- Encabezado -->
+    <div class="galeria-header text-center mb-10 opacity-0">
+      <p class="text-xs sm:text-sm font-bold tracking-[0.2em] uppercase text-orange-600/70 mb-3">
+        Nuestros momentos
+      </p>
+      <h2
+        id="galeria-section-heading"
+        class="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight"
+      >
+        Vida en Exploradores del Saber
+      </h2>
+      <p class="mt-3 text-base sm:text-lg text-gray-500 max-w-xl mx-auto">
+        Explora las actividades que hacen de nuestro colegio un lugar especial.
+      </p>
+    </div>
+
+    <!-- Filtros -->
+    <div
+      class="galeria-filters flex flex-wrap justify-center gap-2 mb-10 opacity-0"
+      role="group"
+      aria-label="Filtrar galería por categoría"
+    >
+      {filters.map((f) => (
+        <button
+          data-filter={f.value}
+          class:list={[
+            "filter-btn px-5 py-2 rounded-full text-sm font-semibold border transition-colors duration-200 focus:outline-none focus-visible:ring-4 focus-visible:ring-orange-300/50",
+            f.value === "todas"
+              ? "bg-ccesz-header border-ccesz-header text-white"
+              : "bg-white border-ccesz-header text-ccesz-header hover:bg-orange-50"
+          ]}
+          aria-pressed={f.value === "todas" ? "true" : "false"}
+        >
+          {f.label}
+        </button>
+      ))}
+    </div>
+
+    <!-- Grid de imágenes -->
+    <div
+      class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4"
+      id="gallery-grid"
+      aria-label="Galería de imágenes"
+    >
+      {items.map((item) => (
+        <div class="gallery-item opacity-0" data-category={item.category}>
+          <a
+            href={item.image.src}
+            class="glightbox block overflow-hidden rounded-xl group"
+            data-gallery="galeria-cceszipa"
+            data-description={item.caption}
+            aria-label={item.alt}
+          >
+            <div class="relative aspect-square overflow-hidden rounded-xl">
+              <Image
+                src={item.image}
+                alt={item.alt}
+                width={600}
+                height={600}
+                format="webp"
+                quality={80}
+                loading="lazy"
+                class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+              <!-- Overlay con caption al hover -->
+              <div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-end p-3 pointer-events-none">
+                <p class="text-white text-xs sm:text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 line-clamp-2">
+                  {item.caption}
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<script>
+  import { gsap } from "gsap"
+  import { ScrollTrigger } from "gsap/ScrollTrigger"
+  import GLightbox from "glightbox"
+  import "glightbox/dist/css/glightbox.css"
+
+  gsap.registerPlugin(ScrollTrigger)
+
+  // Reveal inicial al hacer scroll
+  const scrollTriggerConfig = {
+    trigger: "#galeria-section",
+    start: "top 80%",
+    toggleActions: "play none none none",
+  }
+
+  gsap.fromTo(".galeria-header",
+    { opacity: 0, y: 20 },
+    { opacity: 1, y: 0, duration: 0.7, ease: "power3.out", scrollTrigger: scrollTriggerConfig }
+  )
+  gsap.fromTo(".galeria-filters",
+    { opacity: 0, y: 16 },
+    { opacity: 1, y: 0, duration: 0.6, ease: "power3.out", delay: 0.1, scrollTrigger: scrollTriggerConfig }
+  )
+  gsap.fromTo(".gallery-item",
+    { opacity: 0, y: 20 },
+    { opacity: 1, y: 0, duration: 0.5, ease: "power3.out", stagger: 0.06, delay: 0.2, scrollTrigger: scrollTriggerConfig }
+  )
+
+  // Inicializar GLightbox
+  GLightbox({
+    selector: ".glightbox",
+    touchNavigation: true,
+    loop: true,
+    closeButton: true,
+  })
+
+  // Filtrado por categoría
+  const filterBtns = document.querySelectorAll<HTMLButtonElement>(".filter-btn")
+  const galleryItems = document.querySelectorAll<HTMLElement>(".gallery-item")
+
+  filterBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const selected = btn.dataset.filter ?? "todas"
+
+      // Actualizar estado activo en botones
+      filterBtns.forEach((b) => {
+        const isActive = b.dataset.filter === selected
+        b.classList.toggle("bg-ccesz-header", isActive)
+        b.classList.toggle("text-white", isActive)
+        b.classList.toggle("border-ccesz-header", true)
+        b.classList.toggle("bg-white", !isActive)
+        b.classList.toggle("text-ccesz-header", !isActive)
+        b.setAttribute("aria-pressed", isActive ? "true" : "false")
+      })
+
+      // Separar items a mostrar y ocultar
+      const toShow: HTMLElement[] = []
+      const toHide: HTMLElement[] = []
+
+      galleryItems.forEach((item) => {
+        const matches = selected === "todas" || item.dataset.category === selected
+        if (matches) toShow.push(item)
+        else toHide.push(item)
+      })
+
+      // Ocultar items que no coinciden
+      gsap.to(toHide, {
+        opacity: 0,
+        y: 10,
+        duration: 0.2,
+        ease: "power2.in",
+        onComplete: () => toHide.forEach((el) => (el.style.display = "none")),
+      })
+
+      // Mostrar items que coinciden con animación
+      toShow.forEach((el) => (el.style.display = "block"))
+      gsap.fromTo(toShow,
+        { opacity: 0, y: 10 },
+        { opacity: 1, y: 0, duration: 0.35, ease: "power3.out", stagger: 0.05 }
+      )
+    })
+  })
+</script>

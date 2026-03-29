@@ -1,0 +1,154 @@
+---
+export const faqs = [
+  {
+    question: "¿Cuál es el proceso de inscripción en el colegio?",
+    answer: "El proceso tiene 5 pasos: primero contáctanos para solicitar información, luego te invitamos a visitar el campus, entregas los documentos requeridos, confirmamos el cupo y formalizamos la matrícula. Todo el proceso es ágil y lo acompañamos personalmente.",
+  },
+  {
+    question: "¿Qué edades se aceptan en preescolar y primaria?",
+    answer: "En preescolar aceptamos niños desde los 3 años: Prejardín (3-4 años), Jardín (4-5 años) y Transición (5-6 años). En básica primaria, de 1° a 5° grado, para niños de 6 a 11 años.",
+  },
+  {
+    question: "¿Cuáles son los documentos requeridos para la matrícula?",
+    answer: "Los documentos principales son: registro civil del estudiante, carnet de vacunación al día, boletines o informe académico del año inmediatamente anterior (a partir de Jardín) e informe psicomotriz para preescolar. Para otros grados, solicitamos adicionalmente la constancia de grado aprobado.",
+  },
+  {
+    question: "¿Cuándo están abiertas las inscripciones?",
+    answer: "Las inscripciones están abiertas durante todo el año según disponibilidad de cupos. Te recomendamos contactarnos con anticipación, ya que los cupos son limitados para garantizar grupos reducidos y atención personalizada.",
+  },
+  {
+    question: "¿Cuántos estudiantes hay por salón?",
+    answer: "Uno de nuestros principales diferenciadores son los grupos reducidos. Mantenemos un número limitado de estudiantes por aula para que cada niño reciba atención personalizada y los docentes puedan hacer un seguimiento cercano a su desarrollo.",
+  },
+  {
+    question: "¿Cómo es la jornada escolar?",
+    answer: "El colegio maneja jornada completa. Los horarios específicos se informan durante el proceso de admisión según el nivel educativo del estudiante. Contáctanos para obtener la información actualizada.",
+  },
+  {
+    question: "¿El colegio cuenta con ruta escolar?",
+    answer: "Sí, contamos con servicio de ruta escolar para diferentes sectores de Zipaquirá y municipios cercanos. El costo es adicional a la matrícula. Consulta disponibilidad y rutas activas al momento de tu inscripción.",
+  },
+  {
+    question: "¿Cuál es el enfoque pedagógico del colegio?",
+    answer: "Trabajamos con una metodología activa que integra el aprendizaje académico con el entorno natural del campus campestre. Promovemos el pensamiento crítico, la formación en valores, el trabajo en equipo y el amor por la naturaleza desde los primeros años.",
+  },
+  {
+    question: "¿Qué actividades extracurriculares ofrece el colegio?",
+    answer: "Ofrecemos actividades deportivas, artísticas y culturales: fútbol, actividades al aire libre, talleres de arte y manualidades, música, danzas, teatro, proyectos de huerta escolar y actividades en contacto con la naturaleza.",
+  },
+  {
+    question: "¿Cómo puedo solicitar más información o agendar una visita?",
+    answer: "Puedes contactarnos directamente por WhatsApp al 310 211 9422 o escribirnos a rectoria@colexploradoresdelsaber.com. También puedes llamarnos en horario escolar. Con gusto te atendemos y agendamos una visita al campus.",
+  },
+]
+---
+
+<section
+  class="w-screen max-w-none relative left-1/2 -translate-x-1/2 bg-[#FFF7DA] py-16 md:py-24"
+  aria-labelledby="faq-heading"
+  id="faq-section"
+>
+  <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+
+    <div class="faq-header text-center mb-12 opacity-0">
+      <p class="text-xs sm:text-sm font-bold tracking-[0.2em] uppercase text-orange-600/70 mb-3">
+        Preguntas frecuentes
+      </p>
+      <h2 id="faq-heading" class="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight">
+        Todo lo que necesitas saber
+      </h2>
+      <p class="mt-3 text-base sm:text-lg text-gray-500">
+        Respuestas a las dudas más comunes sobre el proceso de admisión.
+      </p>
+    </div>
+
+    <div class="flex flex-col gap-3" role="list">
+      {faqs.map((faq, i) => (
+        <div
+          class={`faq-item faq-item-${i} opacity-0 bg-white border border-gray-200 rounded-2xl overflow-hidden`}
+          role="listitem"
+        >
+          <button
+            class="faq-btn w-full flex items-center justify-between gap-4 px-6 py-5 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-ccesz-header/50 focus-visible:ring-inset"
+            aria-expanded="false"
+            aria-controls={`faq-answer-${i}`}
+          >
+            <span class="text-sm sm:text-base font-semibold text-gray-900 leading-snug pr-2">
+              {faq.question}
+            </span>
+            <span class="faq-icon flex-shrink-0 w-6 h-6 rounded-full bg-orange-50 flex items-center justify-center text-ccesz-header transition-transform duration-300" aria-hidden="true">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </span>
+          </button>
+
+          <div
+            id={`faq-answer-${i}`}
+            class="faq-answer overflow-hidden"
+            style="max-height: 0;"
+          >
+            <div class="px-6 pb-5">
+              <p class="text-sm sm:text-base text-gray-500 leading-relaxed">
+                {faq.answer}
+              </p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<script>
+  import { gsap } from "gsap"
+  import { ScrollTrigger } from "gsap/ScrollTrigger"
+
+  gsap.registerPlugin(ScrollTrigger)
+
+  // Reveal animations
+  gsap.fromTo(".faq-header",
+    { opacity: 0, y: 20 },
+    { opacity: 1, y: 0, duration: 0.7, ease: "power3.out",
+      scrollTrigger: { trigger: "#faq-section", start: "top 80%", toggleActions: "play none none none" } }
+  )
+  gsap.fromTo(".faq-item",
+    { opacity: 0, y: 16 },
+    { opacity: 1, y: 0, duration: 0.5, ease: "power3.out", stagger: 0.06,
+      scrollTrigger: { trigger: "#faq-section", start: "top 78%", toggleActions: "play none none none" } }
+  )
+
+  // Accordion logic
+  const buttons = document.querySelectorAll<HTMLButtonElement>(".faq-btn")
+
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const isOpen = btn.getAttribute("aria-expanded") === "true"
+      const answer = btn.nextElementSibling as HTMLElement
+      const icon = btn.querySelector<HTMLElement>(".faq-icon")
+
+      // Close all others
+      buttons.forEach((other) => {
+        if (other !== btn) {
+          other.setAttribute("aria-expanded", "false")
+          const otherAnswer = other.nextElementSibling as HTMLElement
+          const otherIcon = other.querySelector<HTMLElement>(".faq-icon")
+          gsap.to(otherAnswer, { maxHeight: 0, duration: 0.3, ease: "power2.in" })
+          if (otherIcon) gsap.to(otherIcon, { rotation: 0, duration: 0.3, ease: "power2.inOut" })
+        }
+      })
+
+      // Toggle current
+      if (isOpen) {
+        btn.setAttribute("aria-expanded", "false")
+        gsap.to(answer, { maxHeight: 0, duration: 0.35, ease: "power2.in" })
+        if (icon) gsap.to(icon, { rotation: 0, duration: 0.35, ease: "power2.inOut" })
+      } else {
+        btn.setAttribute("aria-expanded", "true")
+        gsap.to(answer, { maxHeight: 600, duration: 0.45, ease: "power3.out" })
+        if (icon) gsap.to(icon, { rotation: 180, duration: 0.35, ease: "power2.inOut" })
+      }
+    })
+  })
+</script>

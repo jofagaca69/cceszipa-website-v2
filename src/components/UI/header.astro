@@ -12,13 +12,12 @@ export interface NavItem {
 const navLeft: NavItem[] = [
   { label: 'Inicio', href: '/' },
   { label: 'Conócenos', href: '/conocenos' },
-  // { label: 'CRONOGRAMA', href: '/admisiones' },
+  { label: 'Cursos', href: '/cursos' },
+  { label: 'Galería', href: '/galeria' },
 ]
 
 const navRight: NavItem[] = [
-  // { label: 'COMUNICADOS', href: '/eventos' },
-  // { label: 'GALERÍA', href: '/galeria' },
-  // { label: 'FORMULARIO', href: '/formulario' },
+  { label: 'Inscripciones', href: '/inscripciones' },
 ]
 
 const allNavItems = [...navLeft, ...navRight]
@@ -94,28 +93,21 @@ const isActive = (href: string) => {
 
 
       <!-- Right menu + CTA -->
-      <div class="hidden md:flex md:items-center md:gap-8">
+      <div class="hidden md:flex md:items-center md:gap-4">
         {navRight.map((item) => (
           <a
             href={item.href}
             class:list={[
-              "text-sm font-medium px-4 py-1 transition",
+              "text-sm font-semibold px-5 py-2 rounded-full transition-colors duration-200",
               isActive(item.href)
-                ? "underline text-white"
-                : "text-white hover:underline"
+                ? "bg-white text-ccesz-primary"
+                : "bg-white/15 text-white border border-white/30 hover:bg-white hover:text-ccesz-primary"
             ]}
             aria-current={isActive(item.href) ? "page" : undefined}
           >
             {item.label}
           </a>
         ))}
-
-        <!--<a-->
-        <!--  href="/contacto"-->
-        <!--  class="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-700 transition"-->
-        <!--&gt;-->
-        <!--  Empezar-->
-        <!--</a>-->
       </div>
 
       <!-- Mobile button -->
