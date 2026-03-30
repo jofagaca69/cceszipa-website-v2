@@ -41,6 +41,7 @@ const isActive = (href: string) => {
         {navLeft.map((item) => (
           <a
             href={item.href}
+            title={item.label}
             class:list={[
               "text-sm font-medium px-4 py-1 rounded-2xl transition",
               isActive(item.href)
@@ -60,11 +61,13 @@ const isActive = (href: string) => {
         <!-- Mobile logo (inline navbar) -->
         <a href="/"
            aria-label="Ir al inicio"
+           title="Ir al inicio"
            class="flex items-center justify-center md:hidden">
 
           <Image
             src={logo}
             alt="Logo Colegio Campestre Exploradores del Saber"
+            title="Logo Colegio Campestre Exploradores del Saber"
             loading="eager"
             decoding="sync"
             class="h-28 w-auto"
@@ -76,11 +79,13 @@ const isActive = (href: string) => {
 
           <a href="/"
              aria-label="Ir al inicio"
+             title="Ir al inicio"
              class="flex items-center justify-center bg-ccesz-header p-3 rounded-full">
 
             <Image
               src={logo}
               alt="Logo Colegio Campestre Exploradores del Saber"
+              title="Logo Colegio Campestre Exploradores del Saber"
               loading="eager"
               decoding="sync"
               class="h-28 lg:h-38 w-auto"
@@ -97,6 +102,7 @@ const isActive = (href: string) => {
         {navRight.map((item) => (
           <a
             href={item.href}
+            title={item.label}
             class:list={[
               "text-sm font-semibold px-5 py-2 rounded-full transition-colors duration-200",
               isActive(item.href)
@@ -130,6 +136,7 @@ const isActive = (href: string) => {
       {[...navLeft, ...navRight].map((item) => (
         <a
           href={item.href}
+          title={item.label}
           class:list={[
             "block px-3 py-2 text-base font-medium rounded-md transition",
             isActive(item.href)

@@ -33,6 +33,7 @@ const waMessage = encodeURIComponent("Hola, me gustaría agendar una visita al c
           href={`https://wa.me/${institution.phone}?text=${waMessage}`}
           target="_blank"
           rel="noopener noreferrer"
+          title="Agendar visita por WhatsApp"
           class="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-green-600 px-7 py-3.5 text-sm font-semibold text-white hover:bg-green-500 transition-colors duration-200 focus:outline-none focus-visible:ring-4 focus-visible:ring-green-400/50"
         >
           <Icon name="mdi:whatsapp" class="w-4 h-4" />
@@ -41,6 +42,7 @@ const waMessage = encodeURIComponent("Hola, me gustaría agendar una visita al c
 
         <a
           href={`mailto:${institution.email}`}
+          title="Enviar correo al colegio"
           class="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border border-gray-300 bg-white px-7 py-3.5 text-sm font-semibold text-gray-700 hover:border-gray-400 hover:text-gray-900 transition-colors duration-200 focus:outline-none focus-visible:ring-4 focus-visible:ring-gray-300/50"
         >
           <Icon name="mdi:email-outline" class="w-4 h-4" />

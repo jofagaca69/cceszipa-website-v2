@@ -66,6 +66,7 @@ const allLevels = [
             {preescolarLevels.map(level => (
               <a
                 href={level.href}
+                title={level.nombre}
                 class="mobile-node-pre opacity-0 flex flex-col items-center gap-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 rounded-xl px-1"
               >
                 <div class="mobile-circle w-10 h-10 rounded-full border-2 border-orange-400 bg-white flex items-center justify-center will-change-transform">
@@ -96,6 +97,7 @@ const allLevels = [
             {primariaLevels.map(level => (
               <a
                 href={level.href}
+                title={level.nombre}
                 class="mobile-node-prim opacity-0 flex flex-col items-center gap-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 rounded-xl px-1"
               >
                 <div class="mobile-circle w-10 h-10 rounded-full border-2 border-[#873701] bg-white flex items-center justify-center will-change-transform">
@@ -148,6 +150,7 @@ const allLevels = [
           {allLevels.map(level => (
             <a
               href={level.href}
+              title={level.nombre}
               class="journey-node opacity-0 flex flex-col items-center gap-1.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 rounded-xl"
             >
               <div
