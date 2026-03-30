@@ -53,6 +53,7 @@ import { institution } from "@config/institution"
               <p class="text-xs font-bold tracking-widest uppercase text-gray-400 mb-1">Teléfono</p>
               <a
                 href={`tel:+${institution.phone}`}
+                title="Llamar al colegio"
                 class="text-sm font-medium text-gray-700 hover:text-ccesz-header transition-colors"
               >
                 {institution.phoneLabel}
@@ -81,6 +82,7 @@ import { institution } from "@config/institution"
           href="https://maps.app.goo.gl/3YkqKFrv2nAttDM67"
           target="_blank"
           rel="noopener noreferrer"
+          title="Abrir ubicación en Google Maps"
           class="location-cta mt-6 inline-flex items-center gap-2 rounded-full bg-gray-900 px-7 py-3.5 text-sm font-semibold text-white hover:bg-gray-700 transition-colors duration-200 focus:outline-none focus-visible:ring-4 focus-visible:ring-gray-400/50 opacity-0"
         >
           <Icon name="mdi:map-marker" class="w-4 h-4" />

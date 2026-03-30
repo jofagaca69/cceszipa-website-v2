@@ -97,11 +97,13 @@ const filters = [
             data-gallery="galeria-cceszipa"
             data-description={item.caption}
             aria-label={item.alt}
+            title={item.alt}
           >
             <div class="relative aspect-square overflow-hidden rounded-xl">
               <Image
                 src={item.image}
                 alt={item.alt}
+                title={item.alt}
                 width={600}
                 height={600}
                 format="webp"

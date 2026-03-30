@@ -14,6 +14,7 @@ const waMessage = encodeURIComponent("Hola, me gustaría obtener información so
     <Image
       src={heroImage}
       alt="Campus del Colegio Campestre Exploradores del Saber en Zipaquirá — entorno natural para el aprendizaje"
+      title="Campus del Colegio Campestre Exploradores del Saber en Zipaquirá — entorno natural para el aprendizaje"
       width={1920}
       height={1080}
       format="webp"
@@ -44,6 +45,7 @@ const waMessage = encodeURIComponent("Hola, me gustaría obtener información so
         href={`https://wa.me/${institution.phone}?text=${waMessage}`}
         target="_blank"
         rel="noopener noreferrer"
+        title="Solicitar información por WhatsApp"
         class="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-green-500 px-7 py-3.5 text-sm font-semibold text-white hover:bg-green-400 transition-colors duration-200 focus:outline-none focus-visible:ring-4 focus-visible:ring-green-400/50"
       >
         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -53,6 +55,7 @@ const waMessage = encodeURIComponent("Hola, me gustaría obtener información so
       </a>
       <a
         href={`tel:+${institution.phone}`}
+        title="Llamar al colegio"
         class="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border border-white/40 bg-white/10 backdrop-blur-sm px-7 py-3.5 text-sm font-semibold text-white hover:bg-white/20 transition-colors duration-200 focus:outline-none focus-visible:ring-4 focus-visible:ring-white/30"
       >
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">

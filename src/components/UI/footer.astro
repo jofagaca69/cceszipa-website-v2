@@ -13,10 +13,11 @@ import logo from "../../assets/CCAMPESTRE.svg"
         <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-10 lg:gap-8">
           <!-- Sección Izquierda: Logo + Copyright -->
           <div class="flex flex-col items-center lg:items-start gap-6 lg:flex-1 lg:max-w-xs">
-            <a href="/" aria-label="Ir al inicio" class="flex-shrink-0">
+            <a href="/" aria-label="Ir al inicio" title="Ir al inicio" class="flex-shrink-0">
               <Image
                 src={logo}
                 alt="Logo Colegio Campestre Exploradores del Saber"
+                title="Logo Colegio Campestre Exploradores del Saber"
                 class="h-32 w-32 md:h-40 md:w-40 lg:h-48 lg:w-48 rounded-full p-0 object-contain"
               />
             </a>
@@ -35,12 +36,12 @@ import logo from "../../assets/CCAMPESTRE.svg"
             <address class="not-italic text-white/90 text-sm md:text-base text-center lg:text-left space-y-2">
               {Array.isArray(institution.address) ? institution.address.map((line: string) => <p>{line}</p>) : <p>{institution.address}</p>}
               <p>
-                <a href={`tel:+${institution.phone}`} class="hover:text-white transition">
+                <a href={`tel:+${institution.phone}`} title="Llamar al colegio" class="hover:text-white transition">
                   (+57) {institution.phoneLabel}
                 </a>
               </p>
               <p>
-                <a href={`mailto:${institution.email}`} class="hover:text-white transition break-all">
+                <a href={`mailto:${institution.email}`} title="Enviar correo al colegio" class="hover:text-white transition break-all">
                   {institution.email}
                 </a>
               </p>
@@ -58,11 +59,11 @@ import logo from "../../assets/CCAMPESTRE.svg"
               Institucional
             </h3>
             <nav class="flex flex-col gap-2 text-white/90 text-sm md:text-base text-center lg:text-left">
-              <a href="/nosotros" class="hover:text-white transition capitalize underline">Nuestro colegio</a>
-              <a href="/manual-convivencia" class="hover:text-white transition capitalize underline">Manual de convivencia</a>
-              <a href="/nosotros" class="hover:text-white transition capitalize underline">Nosotros</a>
-              <a href="/politica-datos" class="hover:text-white transition capitalize underline">Política y protección de datos</a>
-              <a href="/trabaja-con-nosotros" class="hover:text-white transition capitalize underline">Trabaja con nosotros</a>
+              <a href="/nosotros" title="Ir a Nuestro colegio" class="hover:text-white transition capitalize underline">Nuestro colegio</a>
+              <a href="/manual-convivencia" title="Ver Manual de convivencia" class="hover:text-white transition capitalize underline">Manual de convivencia</a>
+              <a href="/nosotros" title="Ir a la página Nosotros" class="hover:text-white transition capitalize underline">Nosotros</a>
+              <a href="/politica-datos" title="Leer la Política y protección de datos" class="hover:text-white transition capitalize underline">Política y protección de datos</a>
+              <a href="/trabaja-con-nosotros" title="Ver opciones para Trabajar con nosotros" class="hover:text-white transition capitalize underline">Trabaja con nosotros</a>
             </nav>
           </div>
         </div>
