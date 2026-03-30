@@ -224,16 +224,11 @@ const waMessage = encodeURIComponent(`Hola, me gustaría recibir información so
   </div>
 
   <section class="relative bg-ccesz-header py-2 sm:py-3 overflow-hidden" aria-label="Valores institucionales">
-    <div class="values-marquee-wrapper">
+    <span class="sr-only">RESPETO, PACIENCIA Y SABIDURÍA</span>
+    <div class="values-marquee-wrapper" aria-hidden="true">
       <div class="values-marquee flex items-center gap-4 sm:gap-8">
-        <h3 class="text-[#FFF7E8] font-bold text-sm sm:text-base whitespace-nowrap">RESPETO, PACIENCIA Y SABIDURÍA</h3>
-        <Image src={star} alt="" class="w-4 h-4 sm:w-auto sm:h-auto" aria-hidden="true" />
-        <h3 class="text-[#FFF7E8] font-bold text-sm sm:text-base whitespace-nowrap">RESPETO, PACIENCIA Y SABIDURÍA</h3>
-        <Image src={star} alt="" class="w-4 h-4 sm:w-auto sm:h-auto" aria-hidden="true" />
-        <h3 class="text-[#FFF7E8] font-bold text-sm sm:text-base whitespace-nowrap">RESPETO, PACIENCIA Y SABIDURÍA</h3>
-        <Image src={star} alt="" class="w-4 h-4 sm:w-auto sm:h-auto" aria-hidden="true" />
-        <h3 class="text-[#FFF7E8] font-bold text-sm sm:text-base whitespace-nowrap">RESPETO, PACIENCIA Y SABIDURÍA</h3>
-        <Image src={star} alt="" class="w-4 h-4 sm:w-auto sm:h-auto" aria-hidden="true" />
+        <p class="text-[#FFF7E8] font-bold text-sm sm:text-base whitespace-nowrap">RESPETO, PACIENCIA Y SABIDURÍA</p>
+        <Image src={star} alt="" class="w-4 h-4 sm:w-auto sm:h-auto" />
       </div>
     </div>
   </section>
@@ -360,10 +355,15 @@ const waMessage = encodeURIComponent(`Hola, me gustaría recibir información so
   })
 
   // ── Valores marquee infinito ──────────────────────────────────
-  const marquee = document.querySelector(".values-marquee")
+  const marquee = document.querySelector(".values-marquee") as HTMLElement | null
   if (marquee) {
+    const single = marquee.innerHTML
+    // Clonar hasta tener suficiente ancho para cubrir cualquier pantalla
+    const needed = Math.max(8, Math.ceil((window.innerWidth * 2) / 300))
+    marquee.innerHTML = single.repeat(needed)
+    // Duplicar para loop seamless: el segundo bloque es idéntico al primero
     marquee.innerHTML += marquee.innerHTML
-    const w = (marquee as HTMLElement).scrollWidth / 2
+    const w = marquee.scrollWidth / 2
     gsap.to(".values-marquee", { x: -w, duration: 40, ease: "none", repeat: -1 })
   }
 </script>
