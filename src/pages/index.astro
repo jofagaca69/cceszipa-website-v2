@@ -12,7 +12,7 @@ import CTASection from '@components/pages/index/CTASection.astro'
 const currentYear = new Date().getFullYear()
 
 const seo = {
-  title: "Colegio Campestre Zipaquirá – Preescolar y Primaria en Naturaleza",
+  title: "Colegio Campestre Zipaquirá – Preescolar y Primaria",
   description: `Colegio campestre privado en Zipaquirá con preescolar y primaria. Grupos reducidos, entorno natural y formación en valores. ¡Inscripciones abiertas ${currentYear}! Llámanos: 310 211 9422.`,
   keywords: "colegio campestre Zipaquirá, colegio privado Zipaquirá, preescolar Zipaquirá, primaria Zipaquirá, Colegio Campestre Exploradores del Saber, colegios Zipaquirá Cundinamarca, matrícula colegio Zipaquirá, educación en naturaleza, colegio campestre Nemocón, grupos reducidos colegio",
   canonical: "https://colexploradoresdelsaber.com/",
@@ -42,8 +42,16 @@ const seo = {
         },
         "geo": {
           "@type": "GeoCoordinates",
-          "latitude": "5.0333",
-          "longitude": "-73.9667"
+          "latitude": "5.0354775",
+          "longitude": "-73.9648233"
+        },
+        "hasMap": "https://maps.app.goo.gl/3YkqKFrv2nAttDM67",
+        "openingHours": ["Mo-Fr 06:30-14:30"],
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "06:30",
+          "closes": "14:30"
         },
         "contactPoint": [
           {
@@ -63,7 +71,7 @@ const seo = {
           { "@type": "City", "name": "Zipaquirá" },
           { "@type": "City", "name": "Nemocón" }
         ],
-        "educationalCredentialAwarded": "Bachillerato Colombiano",
+        "educationalCredentialAwarded": "Básica Primaria Colombiana",
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
           "name": "Oferta Académica",

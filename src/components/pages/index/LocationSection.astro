@@ -22,7 +22,7 @@ import { institution } from "@config/institution"
           id="location-heading"
           class="location-heading text-gray-900 text-3xl sm:text-4xl md:text-[2.6rem] font-bold tracking-tight leading-[1.1] opacity-0"
         >
-          Nos encontramos en un entorno natural
+          Ubicados en Zipaquirá, en un entorno natural y campestre
         </h2>
 
         <p class="location-sub mt-4 text-base sm:text-lg text-gray-500 leading-relaxed opacity-0">
@@ -61,20 +61,21 @@ import { institution } from "@config/institution"
             </div>
           </div>
 
-          <!--<div class="flex items-start gap-4 bg-white border border-gray-200 rounded-xl p-4">-->
-          <!--  <span class="flex-shrink-0 mt-0.5 w-9 h-9 rounded-lg bg-orange-50 flex items-center justify-center">-->
-          <!--    <Icon name="mdi:email-outline" class="w-5 h-5 text-ccesz-header" />-->
-          <!--  </span>-->
-          <!--  <div>-->
-          <!--    <p class="text-xs font-bold tracking-widest uppercase text-gray-400 mb-1">Correo electrónico</p>-->
-          <!--    <a-->
-          <!--      href={`mailto:${institution.email}`}-->
-          <!--      class="text-sm font-medium text-gray-700 hover:text-ccesz-header transition-colors break-all"-->
-          <!--    >-->
-          <!--      {institution.email}-->
-          <!--    </a>-->
-          <!--  </div>-->
-          <!--</div>-->
+          <div class="flex items-start gap-4 bg-white border border-gray-200 rounded-xl p-4">
+            <span class="flex-shrink-0 mt-0.5 w-9 h-9 rounded-lg bg-orange-50 flex items-center justify-center">
+              <Icon name="mdi:email-outline" class="w-5 h-5 text-ccesz-header" />
+            </span>
+            <div>
+              <p class="text-xs font-bold tracking-widest uppercase text-gray-400 mb-1">Correo electrónico</p>
+              <a
+                href={`mailto:${institution.email}`}
+                title="Enviar correo al colegio"
+                class="text-sm font-medium text-gray-700 hover:text-ccesz-header transition-colors break-all"
+              >
+                {institution.email}
+              </a>
+            </div>
+          </div>
 
         </div>
 
