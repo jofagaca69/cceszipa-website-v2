@@ -22,13 +22,28 @@ export default defineConfig({
 
     integrations: [
         sitemap({
+            filter: (page) => !page.includes('/404'),
             serialize(item) {
                 // Homepage: máxima prioridad, revisión frecuente
                 if (item.url === 'https://colexploradoresdelsaber.com/') {
-                    return { ...item, changefreq: 'weekly', priority: 1.0, lastmod: new Date() }
+                    return { ...item, changefreq: 'weekly', priority: 1.0 }
                 }
-                // Resto de páginas
-                return { ...item, changefreq: 'monthly', priority: 0.8, lastmod: new Date() }
+                // Páginas de conversión
+                if (
+                    item.url.includes('/inscripciones') ||
+                    item.url.includes('/cursos')
+                ) {
+                    return { ...item, changefreq: 'monthly', priority: 0.9 }
+                }
+                // Conócenos
+                if (item.url.includes('/conocenos')) {
+                    return { ...item, changefreq: 'monthly', priority: 0.8 }
+                }
+                // Galería
+                if (item.url.includes('/galeria')) {
+                    return { ...item, changefreq: 'monthly', priority: 0.7 }
+                }
+                return { ...item, changefreq: 'monthly', priority: 0.6 }
             }
         }),
         robotsTxt({
@@ -36,13 +51,17 @@ export default defineConfig({
                 {
                     userAgent: '*',
                     allow: '/',
-                    disallow: ['/api/', '/admin/']
+                    disallow: ['/api/', '/admin/', '/404']
                 },
-                // Bloquear scrapers de IA más comunes
-                { userAgent: 'GPTBot', disallow: '/' },
-                { userAgent: 'CCBot', disallow: '/' },
-                { userAgent: 'anthropic-ai', disallow: '/' },
-                { userAgent: 'Claude-Web', disallow: '/' }
+                // Scrapers de IA
+                { userAgent: 'GPTBot',        disallow: '/' },
+                { userAgent: 'CCBot',         disallow: '/' },
+                { userAgent: 'anthropic-ai',  disallow: '/' },
+                { userAgent: 'Claude-Web',    disallow: '/' },
+                { userAgent: 'Google-Extended', disallow: '/' },
+                { userAgent: 'PerplexityBot', disallow: '/' },
+                { userAgent: 'Bytespider',    disallow: '/' },
+                { userAgent: 'Amazonbot',     disallow: '/' },
             ],
             sitemap: 'https://colexploradoresdelsaber.com/sitemap-index.xml'
         }),
