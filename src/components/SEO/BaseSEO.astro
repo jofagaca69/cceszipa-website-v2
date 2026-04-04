@@ -23,8 +23,6 @@ const {
 } = Astro.props;
 
 const SITE_NAME = "Colegio Campestre Exploradores del Saber";
-const SHORT_NAME = "Exploradores del Saber";
-const pageTitle = title ? `${title} | ${SHORT_NAME}` : SITE_NAME;
 const fullTitle = title ? `${title} | ${SITE_NAME}` : SITE_NAME;
 const canonicalURL = canonical || new URL(Astro.url.pathname, Astro.site);
 const ogImageURL = new URL(ogImage, Astro.site);
@@ -38,7 +36,7 @@ const ogImageURL = new URL(ogImage, Astro.site);
 <meta name="generator" content={Astro.generator}/>
 
 <!-- SEO Básico -->
-<title>{pageTitle}</title>
+<title>{fullTitle}</title>
 
 <meta name="description" content={description}/>
 {keywords &&
