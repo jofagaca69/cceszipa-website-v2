@@ -23,6 +23,8 @@ const {
 } = Astro.props;
 
 const SITE_NAME = "Colegio Campestre Exploradores del Saber";
+const SHORT_NAME = "Exploradores del Saber";
+const pageTitle = title ? `${title} | ${SHORT_NAME}` : SITE_NAME;
 const fullTitle = title ? `${title} | ${SITE_NAME}` : SITE_NAME;
 const canonicalURL = canonical || new URL(Astro.url.pathname, Astro.site);
 const ogImageURL = new URL(ogImage, Astro.site);
@@ -36,9 +38,7 @@ const ogImageURL = new URL(ogImage, Astro.site);
 <meta name="generator" content={Astro.generator}/>
 
 <!-- SEO Básico -->
-{
-  title ? (<title> {title} | Colegio Campestre Exploradores del Saber</title>) : <title>Colegio Campestre Exploradores del Saber</title>
-  }
+<title>{pageTitle}</title>
 
 <meta name="description" content={description}/>
 {keywords &&
@@ -68,9 +68,9 @@ const ogImageURL = new URL(ogImage, Astro.site);
 
 <!-- SEO Local -->
 <meta name="geo.region" content="CO-CUN"/>
-<meta name="geo.placename" content="Zipaquirá"/>
-<meta name="geo.position" content="5.0333;-73.9667"/>
-<meta name="ICBM" content="5.0333, -73.9667"/>
+<meta name="geo.placename" content="Zipaquirá, Cundinamarca"/>
+<meta name="geo.position" content="5.0354775;-73.9648233"/>
+<meta name="ICBM" content="5.0354775, -73.9648233"/>
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image"/>
@@ -91,7 +91,12 @@ const ogImageURL = new URL(ogImage, Astro.site);
 <!-- Preload Critical Resources -->
 <!--<link rel="preload" href="/fonts/main.woff2" as="font" type="font/woff2" crossorigin/>-->
 
-<!-- DNS Prefetch -->
+<!-- Theme Color -->
+<meta name="theme-color" content="#f86c05"/>
+
+<!-- DNS Prefetch & Preconnect -->
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link rel="dns-prefetch" href="//fonts.googleapis.com"/>
 
 <!-- Structured Data (JSON-LD) -->
