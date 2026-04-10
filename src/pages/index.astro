@@ -106,6 +106,36 @@ const seo = {
         }
       },
       {
+        "@type": "AggregateRating",
+        "@id": "https://colexploradoresdelsaber.com/#rating",
+        "itemReviewed": { "@id": "https://colexploradoresdelsaber.com/#school" },
+        "ratingValue": "5",
+        "ratingCount": "3",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      {
+        "@type": "Review",
+        "itemReviewed": { "@id": "https://colexploradoresdelsaber.com/#school" },
+        "author": { "@type": "Person", "name": "Laura Rodríguez" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Desde que mi hijo entró al colegio, su confianza y amor por aprender cambiaron por completo. Los profesores lo conocen por su nombre y saben exactamente cómo motivarlo."
+      },
+      {
+        "@type": "Review",
+        "itemReviewed": { "@id": "https://colexploradoresdelsaber.com/#school" },
+        "author": { "@type": "Person", "name": "Carlos y Jimena Gómez" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Lo que más nos convenció fue el entorno campestre y los grupos pequeños. Sentimos que nuestros hijos son acompañados de verdad, no solo instruidos."
+      },
+      {
+        "@type": "Review",
+        "itemReviewed": { "@id": "https://colexploradoresdelsaber.com/#school" },
+        "author": { "@type": "Person", "name": "Marcela Vásquez" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "El compromiso del colegio con las familias es real. Siempre hay comunicación abierta, y eso para nosotros como padres es lo más importante."
+      },
+      {
         "@type": "FAQPage",
         "@id": "https://colexploradoresdelsaber.com/#faq",
         "mainEntity": homeFaqs.map((faq) => ({

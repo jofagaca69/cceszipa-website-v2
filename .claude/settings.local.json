@@ -25,7 +25,10 @@
       "WebFetch(domain:finalsite.com)",
       "Bash(pnpm add:*)",
       "Bash(find /c/Users/jofa7/Desktop/Projects/v2/CCESZIPA-WEBSITE/public -name *.jpg -o -name *.png)",
-      "Bash(pnpm build:*)"
+      "Bash(pnpm build:*)",
+      "WebFetch(domain:colexploradoresdelsaber.com)",
+      "WebFetch(domain:www.colexploradoresdelsaber.com)",
+      "WebFetch(domain:pagespeed.web.dev)"
     ]
   }
 }

@@ -6,7 +6,7 @@ import CTASection from '@components/pages/cursos/CTASection.astro'
 import { institution } from '@config/institution'
 
 const seo = {
-  title: "Galería de Actividades Escolares",
+  title: "Galería de Actividades",
   description:
     "Fotos de las actividades del Colegio Campestre Exploradores del Saber en Zipaquirá: deportes, arte, cultura, eventos y celebraciones. Conoce cómo es la vida diaria en nuestro entorno campestre.",
   keywords:
@@ -35,6 +35,22 @@ const seo = {
           "url": "https://colexploradoresdelsaber.com/"
         },
         "inLanguage": "es-CO"
+      },
+      {
+        "@type": "ImageGallery",
+        "@id": "https://colexploradoresdelsaber.com/galeria#gallery",
+        "name": "Galería de Actividades – Colegio Campestre Exploradores del Saber",
+        "description": "Fotos de actividades deportivas, artísticas, culturales y eventos del Colegio Campestre Exploradores del Saber en Zipaquirá.",
+        "url": "https://colexploradoresdelsaber.com/galeria",
+        "isPartOf": { "@id": "https://colexploradoresdelsaber.com/#website" },
+        "associatedMedia": [
+          { "@type": "ImageObject", "name": "Torneo interno de fútbol", "description": "Niños jugando fútbol en la cancha del colegio campestre" },
+          { "@type": "ImageObject", "name": "Actividades deportivas al aire libre", "description": "Día de campo y actividades físicas en entorno natural" },
+          { "@type": "ImageObject", "name": "Festival cultural", "description": "Presentaciones artísticas de estudiantes del colegio" },
+          { "@type": "ImageObject", "name": "Taller de manualidades", "description": "Actividades de expresión plástica y creatividad" },
+          { "@type": "ImageObject", "name": "Izada de bandera", "description": "Ceremonia institucional de valores y respeto" },
+          { "@type": "ImageObject", "name": "Día de la familia", "description": "Convivencia en comunidad educativa campestre" }
+        ]
       },
       {
         "@type": "BreadcrumbList",

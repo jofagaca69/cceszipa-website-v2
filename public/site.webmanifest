@@ -1,0 +1,28 @@
+{
+  "name": "Colegio Campestre Exploradores del Saber",
+  "short_name": "CCESZIPA",
+  "description": "Colegio campestre privado en Zipaquirá con preescolar y básica primaria. Grupos reducidos y aprendizaje en naturaleza.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fff7e8",
+  "theme_color": "#f86c05",
+  "lang": "es-CO",
+  "icons": [
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

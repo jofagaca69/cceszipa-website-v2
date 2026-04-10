@@ -1,0 +1,39 @@
+# Colegio Campestre Exploradores del Saber — llms.txt
+# https://llmstxt.org/
+
+> Institución educativa privada campestre en Zipaquirá, Cundinamarca, Colombia.
+> Ofrece Preescolar (Prejardín, Jardín, Transición) y Básica Primaria (1° a 5°)
+> con grupos reducidos, metodología activa y aprendizaje en contacto con la naturaleza.
+
+## Información general
+
+- **Nombre completo:** Colegio Campestre Exploradores del Saber
+- **Nombre corto:** CCESZIPA
+- **Tipo:** Colegio privado campestre, calendario A
+- **Niveles:** Preescolar (3–6 años) y Básica Primaria grados 1° a 5° (6–11 años)
+- **Ubicación:** Km. 5 vía Zipaquirá – Nemocón, Vereda La Granja, Zipaquirá, Cundinamarca, Colombia
+- **Teléfono:** +57 310 211 9422
+- **Correo:** rectoria@colexploradoresdelsaber.com
+- **Horario:** Lunes a viernes, 6:30 a.m. – 2:30 p.m.
+- **Coordenadas:** 5.0354775, -73.9648233
+
+## Diferenciadores
+
+- Grupos reducidos con atención personalizada
+- Entorno campestre con huerta escolar, senderos naturales y zonas verdes
+- Formación en valores: respeto, paciencia y sabiduría
+- Trabajo conjunto con las familias
+- A 5 minutos del centro de Zipaquirá, vía Nemocón
+
+## Páginas del sitio
+
+- [Inicio](https://colexploradoresdelsaber.com/)
+- [Quiénes Somos](https://colexploradoresdelsaber.com/conocenos)
+- [Oferta Académica – Preescolar y Primaria](https://colexploradoresdelsaber.com/cursos)
+- [Inscripciones y Admisiones](https://colexploradoresdelsaber.com/inscripciones)
+- [Galería de Actividades](https://colexploradoresdelsaber.com/galeria)
+
+## Redes sociales
+
+- Facebook: https://www.facebook.com/ColegioCampestreExploradoresDelSaberZipaquira
+- Instagram: https://www.instagram.com/cceszipa
