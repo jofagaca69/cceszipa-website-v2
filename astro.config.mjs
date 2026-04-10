@@ -59,7 +59,8 @@ export default defineConfig({
                 { userAgent: 'anthropic-ai',  disallow: '/' },
                 { userAgent: 'Claude-Web',    disallow: '/' },
                 { userAgent: 'Google-Extended', disallow: '/' },
-                { userAgent: 'PerplexityBot', disallow: '/' },
+                // PerplexityBot permitido — visibilidad en búsquedas de IA
+                // { userAgent: 'PerplexityBot', disallow: '/' },
                 { userAgent: 'Bytespider',    disallow: '/' },
                 { userAgent: 'Amazonbot',     disallow: '/' },
             ],
