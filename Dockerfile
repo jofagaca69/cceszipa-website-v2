@@ -7,12 +7,7 @@ WORKDIR /app
 
 COPY package.json pnpm-lock.yaml* ./
 
-RUN pnpm config set ignore-scripts false
-RUN pnpm config set unsafe-perm true
-RUN pnpm install --frozen-lockfile --ignore-scripts=false
-
-# Instalar sharp manualmente para que compile sus binarios nativos
-RUN pnpm add sharp --ignore-scripts=false
+RUN pnpm install --frozen-lockfile
 
 COPY . .
 
