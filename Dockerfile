@@ -1,7 +1,7 @@
 # Stage 1: Build
 FROM node:22-alpine AS builder
 
-RUN npm install -g pnpm
+RUN npm install -g pnpm@10.28.2
 
 WORKDIR /app
 
